@@ -1,0 +1,59 @@
+
+# Sensei: I do not understand why the jump for func2 differs from that for
+# func1.
+
+
+
+import java.io.*;
+
+class Test {
+	void func1(BufferedReader br) throws Exception {
+		String s = null;
+		while (true) {
+			s = br.readLine();
+			if (s == null) break;
+		}
+	}
+
+	void func2(BufferedReader br) throws Exception {
+		while (true) {
+			String s = br.readLine();
+			if (s == null) break;
+		}
+	}
+}
+
+/*
+--------------------
+Compiled from "Test.java"
+class Test {
+  Test();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  void func1(java.io.BufferedReader) throws java.lang.Exception;
+    Code:
+       0: aconst_null
+       1: astore_2
+       2: aload_1
+       3: invokevirtual #2                  // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+       6: astore_2
+       7: aload_2
+       8: ifnonnull     2
+      11: goto          14
+      14: return
+
+  void func2(java.io.BufferedReader) throws java.lang.Exception;
+    Code:
+       0: aload_1
+       1: invokevirtual #2                  // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+       4: astore_2
+       5: aload_2
+       6: ifnonnull     12
+       9: goto          15
+      12: goto          0
+      15: return
+}
+*/

@@ -1,0 +1,55 @@
+
+
+1 create a folder for repo
+  $ mkdir thesis
+
+2 initialize git
+  $ git init
+
+3 set the config file
+  $ vi git/.git/config
+  modify as follows.
+--------
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = true
+        logallrefupdates = true
+[receive]
+        denyNonFastforwards = true
+-------
+
+4 modify git/.git/hooks/post-update as follows.
+
+#!/bin/bash
+# リポジトリ更新時にメール送信するスクリプト
+# http://yura2.hateblo.jp/entry/2015/04/21/Git%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E6%9B%B4%E6%96%B0%E6%99%82%E3%81%AB%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%9A%E7%9F%A5%E3%81%99%E3%82%8B%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88
+
+project="hao/reproduce_Bordawekar"
+# ブランチ名を取得
+branch=$(git rev-parse --symbolic --abbrev-ref $1)
+
+# 送信先アドレス
+mailaddr="matsuzaki.kiminori@kochi-tech.ac.jp,sato.shigeyuki@kochi-tech.ac.jp,188004h@gs.kochi-tech.ac.jp"
+# 件名
+subject="[${project}] Git repository updated: ${branch} branch"
+# 本文(最新5コミット)
+content=$(git log ${branch} --graph -5 | nkf -j)
+
+# メール送信
+echo "${content}"|mail -aFrom:git-mail@ipl.info.kochi-tech.ac.jp -s "${subject}" ${mailaddr}
+
+
+Done.
+
+FAQ:
+Q: the no-bare problem
+A: use 'git config --bool core.bare true'
+
+Q: How to clone:
+A: git clone ssh://ipl.info.kochi-tech.ac.jp:2222/home/public_git/hao/thesis.git
+
+Q: set mail sender info
+A: use the following two commands:
+   $ git config --global user.email 188004h@gs.kochi-tech.ac.jp
+   $ git config --global user.user "hao"

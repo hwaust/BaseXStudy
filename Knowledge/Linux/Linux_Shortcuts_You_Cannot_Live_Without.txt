@@ -1,0 +1,109 @@
+Linux Shortcuts You Can't Live Without
+Written by Mark Sanborn: Sep 21, 2007
+https://www.marksanborn.net/linux/10-linux-shortcuts-you-cant-live-without/
+http://www.makeuseof.com/tag/save-time-linux-terminal-20-shortcuts/
+
+1. Tab
+The most handy shortcut and time saver for the linux command line. This actually
+makes navigating directories faster in the CLI than the traditional GUI browser.
+Simply start typing the command, filename, or directory and hit tab. Bash will
+automatically complete what you are typing. It even works at the lilo prompt and
+in some X applications.
+
+2. Ctrl + c
+Stop that program dead in its tracks. This is the command line version of end
+task.
+
+3. Ctrl + z
+Send the current process to background. This is useful if you have a program
+running, and you need the terminal for awhile but don’t want to exit the program
+completely. Type the command fg to get the process back.
+Note: If you communicate with a backgrouned program, your current program will
+be in the state of waiting untill the backgrouneded program is fronted again.
+
+4. Ctrl + d
+Log out from the current terminal. If you use this in an X terminal emulator
+such as xterm it will usually close it after logging out.
+
+5. Ctrl + u
+Erase the current line. I use this one all the time when I type the wrong
+command in.
+
+6. Ctrl + Alt + F1, (F1-F6)
+Switch to the first virtual terminal. In Linux, you can have several virtual
+terminals at the same time. The default is 6. (Ctrl + Alt + F7 to get back to X)
+
+7. Ctrl + l (lowercase L)
+Clear the terminal.
+
+8. Ctrl + Alt + Backspace
+Kill the X server. Use this if X crashes and you can’t exit it normally. If
+you’ve configured GDM to start automatically at bootup, this restarts the server
+and throws you back to the graphical login screen.
+
+9. Ctrl + a
+Move the cursor to the beginning of the current line. Useful for those times
+you navigated all the way through 20 directories and forgot to add ‘cp’ to the
+beginning. Use this instead of the arrow keys.
+
+10. Ctrl + e
+Last but not least get that cursor back to the end of the line.
+
+
+* Controlling the Screen
+The following shortcuts allow you to control what appears on the screen.
+Ctrl+L: Clear the screen. This is similar to running the “clear” command.
+Ctrl+S: Stop all output to the screen. This is particularly useful when running
+        commands with a lot of long, verbose output, but you don’t want to stop
+        the command itself with Ctrl+C.
+Ctrl+Q: Resume output to the screen after stopping it with Ctrl+S.
+
+Moving the Cursor
+Use the following shortcuts to quickly move the cursor around the current line while typing a command.
+
+Ctrl+A or Home: Go to the beginning of the line.
+Ctrl+E or End: Go to the end of the line.
+Alt+B:  Go left (back) one word.
+Ctrl+B: Go left (back) one character.
+Alt+F:  Go right (forward) one word.
+Ctrl+F: Go right (forward) one character.
+Ctrl+XX: Move between the beginning of the line and the current position of the
+         cursor. This allows you to press Ctrl+XX to return to the start of the
+         line, change something, and then press Ctrl+XX to go back to your
+         original cursor position. To use this shortcut, hold the Ctrl key and
+         tap the X key twice.
+
+Ctrl+R: This lets you search your command history for something specific. For
+        example, if you wanted to search for the recent commands that included
+        nano, you would hit Ctrl+R and type nano. It would show your most recent
+        command, and you could use the up and down arrows to cycle through your
+        history of commands using nano in them.
+
+Deleting Text
+Use the following shortcuts to quickly delete characters:
+
+Ctrl+D or Delete: Delete the character under the cursor.
+Alt+D: Delete all characters after the cursor on the current line.
+Ctrl+H or Backspace: Delete the character before the cursor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.

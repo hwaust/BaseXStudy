@@ -1,0 +1,11 @@
+* Show memory info
+public static void showMemory() {
+	Runtime r = Runtime.getRuntime();
+	long mfree = r.freeMemory();
+	long mtotal = r.totalMemory();
+	long mused = mtotal - mfree;
+	String s = "used = " + StringHelper.formatFileSize(mused);
+	s += ", free = " + StringHelper.formatFileSize(mfree);
+	s += ", total = " + StringHelper.formatFileSize(mtotal);
+	System.out.println(s);
+}

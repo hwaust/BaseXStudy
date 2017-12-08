@@ -1,0 +1,27 @@
+
+public static String toShortFileString(double s) {
+	String[] units = { "", "K", "M", "G", "T", "P", "E" };
+  double size = s;
+	int e = 0, card = 1024;
+	while (size > card) {
+		size /= card;
+		e++;
+	}
+
+  return e == 0?
+         String.format("%3.0f B", size) :
+         String.format("%5.2f %s", size, units[e]);
+}
+
+
+public static String toFileString(long size) {
+	StringBuilder sb = new StringBuilder();
+	sb.append(size);
+	int p = sb.length();
+	while (p > 3) {
+		p -= 3;
+		sb.insert(p, ',');
+	}
+
+	return sb.toString();
+}

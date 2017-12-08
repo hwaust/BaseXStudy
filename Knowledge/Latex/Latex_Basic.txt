@@ -1,0 +1,63 @@
+A simple guide to LaTeX - Step by Step
+Learn about LaTeX in short lessons with full code examples. A comprehensive
+guide to basic and advanced features.
+https://www.latex-tutorial.com/tutorials/
+
+1．The basic layout of a LATEX file.
+Every document are enclosed in a document.
+
+\documentclass{article}
+\begin{document}
+  Hello World!
+\end{document}
+
+The commands \begin and \end defines an environment that is simply an area of
+your document where certain typesetting rules apply. It is possible (and usually
+necessary) to have multiple environments in a document, but it is *imperative*
+the document environment is the topmost environment.
+
+Change *article* to *carticle* for supporting Chinese.
+
+The area before our main document is called preamble.
+
+
+2. Setions and paragraphs
+
+\section{}
+\subsection{}
+\subsubsection{}
+
+\paragraph{}
+\subparagraph{}
+
+
+Section
+there are three levels:
+/section{title}: Top level.
+/subsection{title}: Second level.
+/subsubsection{title}: Paragraph level.
+
+
+3. Packages
+
+LaTeX offers a lot of functions by default, but in some situations it can become
+in handy to use so called packages. To import a package in LaTeX, you simply add
+the \usepackage directive to the preamble of your document:
+
+\documentclass{article}
+\usepackage{PACKAGENAME}
+\begin{document}
+...
+
+* Packages add new functions to LaTeX
+* All packages must be included in the preamble
+* Packages add features such as support for pictures, links and bibliography
+
+
+
+
+5. Create tables of contents.
+Use command \tableofcontents at the beginning of a document environment.
+So easy!
+\listoftables list of tables.
+\listoffigures list of figures.

@@ -1,0 +1,20 @@
+
+
+Bibliography
+Example:
+
+\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+Random citation \cite{DUMMY:1} embeddeed in text.
+\newpage
+\bibliography{lesson7a1}
+\bibliographystyle{ieeetr}
+
+Use \bibliography to reference a bibli file and \bibliographystyle{} to
+determine the stule of reference.
+
+For BibLaTeX we have to choose the citation style on package inclusion with
+\usepackage[backend=bibtex,style=verbose-trad2]{biblatex} the backend=bibtex
+part makes sure to use BibTeX instead of Biber as our backend, since Biber fails
+to work in some editors like TeXworks. It took me a while to figure out how to
+generate footnotes automatically, because the sources I found on the internet,
+didn't mention this at all.

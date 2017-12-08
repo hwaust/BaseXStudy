@@ -1,0 +1,20 @@
+
+public byte[] getBytes() {
+  byte[] bts = new byte[14];
+  ByteBuffer bw = ByteBuffer.wrap(bts);
+  bw.putShort((short) nid);
+  bw.putInt(pre);
+  bw.putInt((int) start);
+  bw.putInt((int) end);
+  return bts;
+}
+
+public static node fromBytes(byte[] bts, int p){
+  node n = new node();
+  ByteBuffer br = ByteBuffer.wrap(bts, p, 14);
+  n.nid = br.getShort();
+  n.pre = br.getInt();
+  n.start = br.getInt();
+  n.end = br.getInt();
+  return n;
+}

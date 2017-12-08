@@ -1,0 +1,78 @@
+Font (May need \usepackage{courier})
+
+  \textrm{roman} \par
+  \texttt{typewriter text} \newline
+  \textmd{medium} \par
+  \textup{upright}  \newline
+  \textsl{slanted} \par
+  \textsf{sans serif}\par
+  \textbf{bold font} \\
+  \textit{italy} \\
+  \textsc{Small Caps}\\
+  \emph{emphersize} \\
+  \textnormal{document font} \\
+
+
+
+Serif fonts
+~ are typefaces with Serifs that's the curvy flicks added to the beginings and
+ends of each letter.
+
+Sans Serif fonts
+~ are fonts without Serifs sans means without in French and these fonts have
+plain ends with no ornamentation.
+
+
+Table 6.2: Font Sizes.
+  \tiny tiny font
+  \scriptsize very small font
+  \small small font
+  \footnotesize quite small font
+  \normalsize normal font
+  \large large font
+  \Large larger font
+  \LARGE very large font
+  \huge huge
+  \Huge largest
+
+
+ Table 6.3: Absolute Point Sizes in Standard Classes.
+  size              10pt(default)    11pt option    12pt option
+  \tiny             5pt                6pt              6pt
+  \scriptsize       7pt                8pt              8pt
+  \footnotesize     8pt                9pt              10pt
+  \small            9pt               10pt              11pt
+  \normalsize       10pt              11pt              12pt
+  \large            12pt              12pt              14pt
+  \Large            14pt              14pt              17pt
+  \LARGE            17pt              17pt              20pt
+  \huge             20pt              20pt              25pt
+  \Huge             25pt              25pt              25pt
+
+
+
+
+Table 6.4: Math Fonts.
+$\mathrm{Roman\ Font} \\
+\mathbf{Boldface\ Font} \\
+\mathsf{Sans\ Serif\ Font} \\
+\mathtt{Typewriter\ Font} \\
+\mathit{Italic\ Font}\\
+\mathcal{CALLIGRAPHIC\ FONT}\\
+\mathnormal{Normal\ Font}\\ $
+
+
+Units
+
+Abbr. Value
+pt	  a point is approximately 1/72.27 inch, that means about 0.0138 inch or
+      0.3515 mm (exactly point is defined as 1/864 of American printer’s foot
+      that is 249/250 of English foot)
+mm	  a millimeter
+cm	  a centimeter
+in	  inch
+ex	  roughly the height of an 'x' (lowercase) in the current font
+      (it depends on the font used)
+em	  roughly the width of an 'M' (uppercase) in the current font
+      (it depends on the font used)
+mu	  math unit equal to 1/18 em, where em is taken from the math symbols family

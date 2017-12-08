@@ -1,0 +1,19 @@
+
+// Initialize
+ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(4, 6, 8));
+
+// Sort 1
+Collections.sort(list);
+
+
+// Sort 2 by Comparator
+// 1. Lambda expression equivalent. (JDK1.8 new feature)
+Comparator<Integer> byName = (Integer o1, Integer o2) -> o1.compareTo(o2);
+
+// 2. Classic Comparator example.
+Comparator<Integer> byName1 = new Comparator<Integer>() {
+  @Override
+  public int compare(Integer o1, Integer o2) {return o1.compareTo(o2);}
+};
+
+sub1.sort(byName1);

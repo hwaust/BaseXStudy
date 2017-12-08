@@ -1,0 +1,69 @@
+
+// Read lines from a plain text file.
+public static ArrayList<String> readText(String file) {
+  ArrayList<String> list = new ArrayList<String>();
+  try {
+    BufferedReader br = new BufferedReader(new FileReader(file));
+    String line = null;
+    while ((line = br.readLine()) != null) {
+      line = line.trim();
+      list.add(line);
+      br.close();
+    }
+  } catch (Exception e) {
+    e.printStackTrace();
+  }
+
+  return list;
+}
+
+
+* Get JAR current folder
+# Two ways of get JAR current folder.
+String path1 = BaseXDemo.class.getResource("/").getFile().toString();
+String path2 = BaseXDemo.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+String path3 = path2;
+if (path2.endsWith(".jar"))
+  path3 = path2.substring(0, path2.lastIndexOf("/") + 1);
+System.out.println("path1 = " + path1);
+System.out.println("path2 = " + path2);
+System.out.println("path3 = " + path3);
+
+
+# The JAR folder: /Users/HAO/Documents/Data/bxstudy.jar
+# Results:
+path1 = /Users/HAO/Documents/Data/
+path2 = /Users/HAO/Documents/Data/bxstudy.jar
+path3 = /Users/HAO/Documents/Data/
+
+* Save a string text to a file
+// String content, String path
+FileWriter fw = new FileWriter(path);
+fw.write(content, 0, content.length());
+fw.close();
+
+* Get File name
+ String filenmae = new File("D:\\data\\xmark5.xml").getName();
+
+ * File write
+   byte data[] = ...;
+   FileOutputStream out = new FileOutputStream("the-file-name");
+   out.write(data);
+   out.close();
+
+   List<String> lines = Arrays.asList("The first line", "The second line");
+   Path file = Paths.get("the-file-name.txt");
+   Files.write(file, lines, Charset.forName("UTF-8"));
+   //Files.write(file, lines, Charset.forName("UTF-8"), StandardOpenOption.APPEND);
+
+   * Read a part of a file
+   public static String readSection(String filepath, long start, int len) {
+   	try {
+   		RandomAccessFile rf = new RandomAccessFile(new File(filepath), "r");
+   		rf.seek(start);
+   		byte[] bts = new byte[len];
+   		rf.read(bts);
+   		return new String(bts);
+   	} catch (Exception e) {}
+   	return null;
+   }

@@ -1,0 +1,35 @@
+Special Characters
+Characters in [# $ % ^ & _ { } ~ \] can be used in a document all the same by
+using a prefix backslash.
+
+ch   escape
+#    \#
+$    \$
+%    \%
+^    \^
+&    \&
+_    \_
+{    \{
+}    \}
+~    \~
+\    \backslash.
+|    $~|~$  or \verb or \mid
+
+
+According to texdoc symbols:
+\mvert and \mid are identical and produce a relation. \vert is a synonym for |
+and both produce the same symbol, but should be used in the context of an
+ordinal, and should be used as an operator, not as a delimiter (p54, bottom).
+\divides once again produces the same symbol but should be used as a binary
+“divides” operator. \lvert and \rvert are left and right delimiters, respectively.
+
+Example
+$S = \{\, x \mid x \not= 17 \,\}$
+$a \vert b$ implies $a \leq b$ when $b \ne 0$
+$a|b$ implies $a \leq b$ when $b \ne 0$
+$\lvert x \rvert$ is always non-negative
+
+S = {x | x != 17}
+a|b implies a <= b when b != 0
+a|b implies a <= b when b != 0
+|x| is always non-negative

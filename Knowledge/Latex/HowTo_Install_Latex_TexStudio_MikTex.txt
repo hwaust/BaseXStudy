@@ -1,0 +1,10 @@
+How to install a LaTex Environment.
+
+On windows
+
+Step 1: Download Tex Studio:
+http://texstudio.sourceforge.net/
+
+Step 2: Download MikTe
+
+https://miktex.org/

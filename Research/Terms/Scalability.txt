@@ -1,0 +1,36 @@
+- Definition
+Scalability is the capability of a system, network, or process to handle a
+growing amount of work, or its potential to be enlarged in order to accommodate
+that growth.
+For example, it can refer to the capability of a system to increase its total
+output under an increased load when resources (typically hardware) are added.
+An analogous meaning is implied when the word is used in an economic context,
+where scalability of a company implies that the underlying business model
+offers the potential for economic growth within the company.
+
+Database scalability
+A number of different approaches enable databases to grow to very large size
+while supporting an ever-increasing rate of transactions per second.
+One technique supported by most of the major database management system (DBMS)
+products is the partitioning of large tables, based on ranges of values in a
+key field. In this manner, the database can be scaled out across a cluster of
+separate database servers. Also, with the advent of 64-bit microprocessors,
+multi-core CPUs, and large SMP multiprocessors, DBMS vendors have been at the
+forefront of supporting multi-threaded implementations that substantially scale
+up transaction processing capacity.
+
+# A good point
+# It is often advised to focus system design on hardware scalability rather
+than on capacity. It is typically cheaper to add a new node to a system in
+order to achieve improved performance than to partake in performance tuning to
+improve the capacity that each node can handle.
+
+In the context of high performance computing there are two common notions:
+* Strong scaling: How the solution time varies with the number of processors
+for a fixed total problem size.
+* Weak scaling: How the solution time varies with the number of processors for
+a fixed problem size per processor.[10]
+
+
+ [10] "The Weak Scaling of DL_POLY 3". STFC Computational Science and Engineering
+ Department. Archived from the original on March 7, 2014. Retrieved 2014-03-08.

@@ -1,0 +1,50 @@
+
+Conclusion
+String.Splt(String)
+Splits this string around matches of the given regular expression.  This
+method works as if by invoking the two-argument split method with the given
+expression and a limit argument of zero. Trailing empty strings are therefore
+not included in the resulting array.
+
+The string "oboo:and:foo", for example, yields the following results with these
+expressions:
+Regex	Result
+  : 	{ "oboo", "and", "foo" }
+  o 	{ "", "b", "", ":and:f" }
+
+** IMPORTANT CONCLUSION **
+An empty string is taken into account if it is in front of the regex.
+An empty string is discarded if it is after the regex.
+
+Parameters:regex - the delimiting regular expression Returns:the array of
+strings computed by splitting this string around matches of the given regular
+expression Throws: PatternSyntaxException - if the regular expression's syntax
+is invalidSince:1.4See Also:Pattern
+
+more example, Regex :
+"ab" -> 	["ab"]		size = 1
+"a:b" -> 	["a", "b"]	size = 2
+"a:" -> 	["a"]		size = 1
+":b" -> 	["", "b"]	size = 2
+"a::b" -> 	["a", "", "b"]	size = 3
+":" -> 		[]		size = 0
+" :" -> 	[" "]		size = 1
+": " -> 	["", " "]	size = 2
+"" -> 		[""]		size = 1
+
+// Source code
+public class Entrance {
+	public static void main(String[] args) throws Exception {
+		String[] s1 = { "ab", "a:b", "a:", ":b", "a::b", ":", " :", ": ", "" };
+		for (int i = 0; i < s1.length; i++) {
+			String[] strs = s1[i].split(":");
+			System.out.print("\"" + s1[i] + "\" -> \t[");
+			for (int j = 0; j < strs.length; j++) {
+				System.out.print(j < strs.length - 1 ? strs[j] + ", " : strs[j]);
+			}
+			System.out.println("].size() \t= " + strs.length);
+		}
+
+		// new ByteArrayStreamTest().test();
+	}
+}

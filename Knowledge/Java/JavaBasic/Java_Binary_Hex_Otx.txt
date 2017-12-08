@@ -1,0 +1,211 @@
+[JAVA]二进制，八进制，十六进制，十进制间进行相互转换
+[java] view plain copy
+十进制转成十六进制：
+
+Integer.toHexString(int i)
+
+十进制转成八进制
+
+Integer.toOctalString(int i)
+
+十进制转成二进制
+
+Integer.toBinaryString(int i)
+
+十六进制转成十进制
+
+Integer.valueOf("FFFF",16).toString()
+
+八进制转成十进制
+
+Integer.valueOf("876",8).toString()
+
+二进制转十进制
+
+Integer.valueOf("0101",2).toString()
+
+
+
+有什么方法可以直接将2,8,16进制直接转换为10进制的吗?
+
+java.lang.Integer类
+
+parseInt(String s, int radix)
+
+使用第二个参数指定的基数，将字符串参数解析为有符号的整数。
+
+examples from jdk:
+
+parseInt("0", 10) returns 0
+
+parseInt("473", 10) returns 473
+
+parseInt("-0", 10) returns 0
+
+parseInt("-FF", 16) returns -255
+
+parseInt("1100110", 2) returns 102
+
+parseInt("2147483647", 10) returns 2147483647
+
+parseInt("-2147483648", 10) returns -2147483648
+
+parseInt("2147483648", 10) throws a NumberFormatException
+
+parseInt("99",throws a NumberFormatException
+
+parseInt("Kona", 10) throws a NumberFormatException
+
+parseInt("Kona", 27) returns 411787
+
+
+
+进制转换如何写（二，八，十六）不用算法
+
+Integer.toBinaryString
+
+Integer.toOctalString
+
+Integer.toHexString
+
+
+
+
+
+例二
+
+
+
+public class Test{
+
+public static void main(String args[]){
+
+
+
+int i=100;
+
+String binStr=Integer.toBinaryString(i);
+
+String otcStr=Integer.toOctalString(i);
+
+String hexStr=Integer.toHexString(i);
+
+System.out.println(binStr);
+
+
+
+}
+
+
+
+
+
+
+
+例二
+
+public class TestStringFormat {
+
+public static void main(String[] args) {
+
+if (args.length == 0) {
+
+System.out.println("usage: java TestStringFormat <a number>");
+
+System.exit(0);
+
+}
+
+
+
+Integer factor = Integer.valueOf(args[0]);
+
+
+
+String s;
+
+
+
+s = String.format("%d", factor);
+
+System.out.println(s);
+
+s = String.format("%x", factor);
+
+System.out.println(s);
+
+s = String.format("%o", factor);
+
+System.out.println(s);
+
+}
+
+}
+
+
+
+
+
+
+
+其他方法：
+
+
+
+Integer.toHexString(你的10进制数);
+
+例如
+
+String temp = Integer.toHexString(75);
+
+输出temp就为 4b
+
+
+
+
+
+
+
+//输入一个10进制数字并把它转换成16进制
+
+import java.io.*;
+
+public class toHex{
+
+
+
+public static void main(String[]args){
+
+
+
+int input;//存放输入数据
+
+//创建输入字符串的实例
+
+BufferedReader strin=new BufferedReader(new InputStreamReader(System.in));
+
+System.out.println("请输入一个的整数：");
+
+String x=null;
+
+try{
+
+x=strin.readLine();
+
+}catch(IOException ex){
+
+ex.printStackTrace();
+
+}
+
+input=Integer.parseInt(x);
+
+System.out.println ("你输入的数字是："+input);//输出从键盘接收到的数字
+
+
+
+System.out.println ("它的16进制是："+Integer.toHexString(input));//用toHexString把10进制转换成16进制
+
+}
+
+}   

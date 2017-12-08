@@ -1,0 +1,5 @@
+* Grpahics
+1. use \graphicspath{ {images/} } to specify the folder that holdes the graph.
+2. use \includegraphics{universe} to include a graph.
+Note: it will first check the current foder. If not found, it will check the
+      images/universe. If still not found, it shows a warning.

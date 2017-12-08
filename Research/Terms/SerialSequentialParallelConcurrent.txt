@@ -1,0 +1,59 @@
+
+Relationship
+     serial <====> parallel
+ sequential <====> concurrent
+
+Serial uses only a single processor/thread, while parallel uses multi-thread.
+
+The ability to execute threads in parallel depends upon more than just the
+machine. For example, OCaml (and Python?) executes threads concurrently but
+not in parallel due to a global lock for the garbage collector.
+
+A concurrent program or algorithm is one where operations can occur at the
+same time. For instance, a simple integration, where numbers are summed
+over an interval. The interval can be broken into many concurrent sums of
+smaller sub-intervals. As I like to say, concurrency is a property of the
+program. Parallel execution is when the concurrent parts are executed at the
+same time on separate processors. The distinction is subtle, but important.
+And, parallel execution is a property of the machine, not the program [1].
+
+Concurrency is a property of the program, while parallel execution is a
+property of the machine
+
+Figure 1 and Figure 2 show the difference between a threaded and a
+non-threaded machine [2].
+t1:       ------
+         /      \
+t0: >---------------->>
+        T0      T2  T1
+   Figure 1 Threaded machine.
+t1:       --  --  --
+         /          \
+t0: >----   --  --   --  -- ---->>
+        T0          T1
+   Figure 2 Non-threaded machine.
+
+
+   Sequential:
+            Serial          Parallel
+Sequential:   (1)            (2)
+Concurrent:   (3)            (4)
+
+(1) Ordinary program without using multi-thread.
+The execution of instructions of source code is either serial and sequential.
+
+(2) SIMD (Single Instruction Multiple Data)
+It is sequential,
+
+
+
+
+                Serial                       Parallel
+Sequential      Ordinary program               SIMD
+
+                Encrypt/Decrypt
+Concurrent      Communication                OS (multi-core)
+                (Alia & Bob)
+
+[1] http://www.linux-mag.com/id/7411/
+[2] http://stackoverflow.com/questions/1897993/what-is-the-difference-between-concurrent-programming-and-parallel-programming

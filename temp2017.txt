@@ -1,0 +1,22 @@
+Teamviewer ID&PWD
+lab: 955699203, 1017
+dell: 388316921, 8415
+home: 327934019, 2919
+
+
+
+* Ns=4, Nf=256;
+* Ns=4, Nf=48.
+
+Files with the name starts with "fragmentindex",  are the fragment
+index files. The name are formated as:
+fragmentindex_xmark600_Ns_maxsize_Nf_seed,
+where Ns is the number of servers, Nf is the number of fragments,
+seed is the seed used for randomization.
+
+dataset   size    memory   ratio  creation time
+XMark10  1.1 GB   2.4 GB   2.18      47s
+XMark10  2.2 GB   4.2 GB   1.90      82s
+XMark10  4.5 GB   7.5 GB   1.67     205s
+XMark10  6.7 GB   9.2 GB   1.37     293s
+Note: ratio = memory/size

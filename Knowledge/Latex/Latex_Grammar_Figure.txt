@@ -1,0 +1,43 @@
+
+Grammar
+\begin{figure}\small
+	\centering\fbox{
+		\begin{minipage}{.9\linewidth}
+			\textit{Query} ::= `\texttt{/}' \textit{LocationPath} \\
+			\textit{LocationPath} ::= \textit{Step} $~|~$ \textit{Step} `\texttt{/}' \textit{LocationPath} \\
+			\textit{Step} ::=  \textit{NameTest} \textit{Predicate}?      $~|~$
+			\textit{NameTest} [\textit{integer}]     \\
+			\phantom{\textit{Step} ::}	  $~|~$ `/'\textit{NameTest} \textit{Predicate}?  $~|~$
+			  \textit{Axis::NameTest} \textit{Predicate}?      \\
+			\textit{AxisName} ::=  `\texttt{child}' $~|~$ `\texttt{parent}'
+		    $~|~$ `\texttt{descendant}'   $~|~$ `\texttt{ancestor}'  \\
+			\phantom{\textit{Step} :}  $~|~$  `\texttt{descendant-or-self}'
+			$~|~$ `\texttt{ancestor-or-self}'  $~|~$ `\texttt{following}'    \\
+			\phantom{\textit{Step} :}        $~|~$ `\texttt{following-sibling}'
+			$~|~$ `\texttt{preceding}  $~|~$ `\texttt{preceding-sibling}'  \\
+			\textit{NameTest} ::= `\texttt{*}' $~|~$ \textit{string}  \\
+			\textit{Predicate} ::= `\texttt{[}' ( \textit{LocationPath}
+			$~|~$   \textit{position}() = \textit{integer} ) `\texttt{]}'
+		\end{minipage}
+	}
+	\caption{Grammar of our target subset of XPath.}
+	\label{fig:grammar}
+\end{figure}
+
+\textbf{return} db:create(\$db || `-temp', \$index,  \$db || `-temp.xml')\\
+
+
+\mbox{\begin{minipage}{.9\linewidth}
+	\textbf{let} \$db := 'xmark5'\\
+	\textbf{let} \$index :=   \texttt{<index>}{\\
+	\phantom{\textbf{let}}	 \textbf{for} \$\textit{node} in db:open('\$db')query\\
+	\phantom{\textbf{let }} 	return \texttt{<id>}\{db:node-id(\$node)}\texttt{<\id>}\}\texttt{</index>},\\
+	\textbf{return} db:create(\$db || `-temp', \$index,  \$db || `-temp.xml')\\
+\end{minipage}}
+
+
+
+\tiny Query-1: \verb|/site/people/person[/profile/gender]/name|\\
+\scriptsize ox1a1: \verb|/site/open_auctions/open_auction/bidde[/following-sibling::bidder]|\\
+\footnotesize qasx1: \verb|/site/open_auctions/open_auction/bidder[/following-sibling::bidder]|\\
+\small Query-4: \verb|/site/closed_auctions/closed_auction/annotation/description/text/keyword|\\

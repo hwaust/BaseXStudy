@@ -1,0 +1,50 @@
+LaTeX/Source Code Listings
+https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+
+
+\usepackage{listings}
+
+\begin{lstlisting}
+Put your code here.
+\end{lstlisting}
+
+\lstinputlisting{source_filename.py}
+
+
+\documentclass{article}
+\usepackage{listings}     % Include the listings-package
+\begin{document}
+% Set your language (you can change the language for each code-block optionally)
+\lstset{language=Pascal}
+
+\begin{lstlisting}[frame=single]  % Start your code-block
+for i:=maxint to 0 do
+begin
+{ do nothing }
+end;
+Write('Case insensitive ');
+Write('Pascal keywords.');
+\end{lstlisting}
+
+\end{document}
+
+
+Supported languages[edit] It supports the following programming languages:
+ABAP2,4, ACSL, Ada4, Algol4, Ant, Assembler2,4, Awk4, bash, Basic2,4, C#5, C++4,
+C4, Caml4, Clean, Cobol4, Comal, csh, Delphi, Eiffel, Elan, erlang, Euphoria,
+Fortran4, GCL, Gnuplot, Haskell, HTML, IDL4, inform, Java4, JVMIS, ksh, Lisp4,
+Logo, Lua2, make4, Mathematica1,4, Matlab, Mercury, MetaPost, Miranda, Mizar,
+ML, Modelica3, Modula-2, MuPAD, NASTRAN, Oberon-2, Objective C5 , OCL4, Octave,
+Oz, Pascal4, Perl, PHP, PL/I, Plasm, POV, Prolog, Promela, Python, R, Reduce,
+Rexx, RSL, Ruby, S4, SAS, Scilab, sh, SHELXL, Simula4, SQL, tcl4, TeX4,
+VBScript, Verilog, VHDL4, VRML4, XML, XSLT. For some of them, several dialects
+are supported. For more information, refer to the documentation that comes with
+the package, it should be within your distribution under the name
+listings-*.dvi.
+
+Notes
+It supports Mathematica code only if you are typing in plain text format. You can't include *.NB files \lstinputlisting{...} as you could with any other programming language, but Mathematica can export in a pretty-formatted LaTeX source.
+Specification of the dialect is mandatory for these languages (e.g. language={[x86masm]Assembler}).
+Modelica is supported via the dtsyntax package available here.
+For these languages, multiple dialects are supported. C, for example, has ANSI, Handel, Objective and Sharp. See p. 12 of the listings manual for an overview.
+Defined as a dialect of another language

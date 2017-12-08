@@ -1,0 +1,29 @@
+
+
+\begin{figure}[t]
+	\centering
+	\begin{tabular}{l}
+		\hline
+		\hline
+		\makebox[.95\linewidth][l]{\textbf{Algorithm 1} \textsc{Query}($\mathit{steps}$, $\INDEXSET{pt}$)} \\
+		\hline
+		\textbf{Input}:           $\mathit{steps}$: an XPath expression \\
+                \phantom{\textbf{Input}:} $\INDEXSET{pt}$: an indexed set of partial trees \\
+		\textbf{Output}: an indexed set of results of query \\
+		\makebox[1em][r]{1:}\hspace{1 mm} \textbf{for} $p \in [0, P)$ \textbf{do} \\
+		\makebox[1em][r]{2:}\hspace{4 mm}    $\mathit{ResultList}_p \leftarrow \{~ \mathit{pt}_p.\mathit{root} ~\}$ \\
+		\makebox[1em][r]{3:}\hspace{1 mm} \textbf{for all} $\emph{step} \in \emph{steps}$ \textbf{do} \\
+		\makebox[1em][r]{4:}\hspace{4 mm}    $\INDEXSET{ResultList}$ \\
+                \makebox[1em][r]{  }\hspace{6 mm}        ${}\leftarrow \hbox{\textsc{Query}}\langle\mathit{step}.\mathit{axis}\rangle(\INDEXSET{pt}, \INDEXSET{ResultList}, \mathit{step}.\mathit{test})$ \\
+		\makebox[1em][r]{5:}\hspace{4 mm}    \textbf{if} $step.predicate \neq \hbox{\textsc{null}}$ \textbf{then} \\
+		\makebox[1em][r]{6:}\hspace{7 mm}       $\INDEXSET{PResultList} \leftarrow \hbox{\textsc{PreparePredicate}}(\INDEXSET{ResultList})$ \\
+		\makebox[1em][r]{7:}\hspace{7 mm}       \textbf{for all} $\emph{pstep} \in \emph{step.predicate}$ \textbf{do} \\
+		\makebox[1em][r]{8:}\hspace{10 mm}         $\INDEXSET{PResultList}$ \\
+                \makebox[1em][r]{  }\hspace{12 mm}             ${} \leftarrow  \hbox{\textsc{PQuery}}\langle\mathit{step}.\mathit{axis}\rangle(\INDEXSET{pt}, \INDEXSET{PResultList}, \mathit{pstep})$ \\
+		\makebox[1em][r]{9:}\hspace{7 mm}       $\INDEXSET{ResultList} \leftarrow \hbox{\textsc{ProcessPredicate}}(\INDEXSET{PResultList})$ \\
+		\makebox[1em][r]{10:}\hspace{1 mm} \textbf{return} $\INDEXSET{ResultList}$ \\
+		\hline
+	\end{tabular}
+        \caption{Overall algorithm of XPath query for partial trees}
+	\label{fig:algQuery2}
+\end{figure}

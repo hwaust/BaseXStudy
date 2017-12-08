@@ -1,0 +1,6 @@
+
+* Avoid typeing './'.
+Copy csshX source files to "/usr/local/bin"
+
+
+Sect 4. Implementation: 1.5 pages

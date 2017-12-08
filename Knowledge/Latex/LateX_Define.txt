@@ -1,0 +1,19 @@
+
+Define:
+\def\Nl#1#2{\hbox{$\bullet$\texttt{#1$_{#2}$}}}
+
+Use:
+\Nl{B}{6}
+
+Result:
+•B6
+
+
+
+\def
+\Nl#1#2{
+    \hbox{
+    $\bullet$
+    \texttt{#1$_{#2}$}
+    }
+}

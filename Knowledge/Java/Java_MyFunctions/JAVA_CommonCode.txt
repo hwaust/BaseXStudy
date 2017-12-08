@@ -1,0 +1,14 @@
+
+
+* Format Time
+String s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
+
+* Two ways of writing JAVA loops
+// when there guaranteed to has at least one element in pes.
+ArrayList<Node> result = pes.get(0).output;
+for (int i = 1; i < pes.size(); i++)
+	result.addAll(pes.get(i).output);
+// otherwise.
+ArrayList<Node> result = new ArrayList<Node>();
+	for (int i = 0; i < pes.size(); i++)
+		result.addAll(pes.get(i).output);

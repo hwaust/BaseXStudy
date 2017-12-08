@@ -1,0 +1,11 @@
+
+// Initialize
+ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(4, 6, 8));
+
+// Sort
+Collections.sort(list);
+
+
+ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(4, 6, 8));
+System.out.println(list);
+[4, 6, 8]

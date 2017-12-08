@@ -1,0 +1,51 @@
+2016-07-13 WH
+
+What I learned about how to make a good presentation from today's meeting:
+
+- Correctness
+The first important requirement is to be correct. All of the presentations today
+were almost perfectly correct. One deep impression is that when Morihata-sensei
+noticed that there was jsut a very small underline under a ""g"" in a slide,
+he immediately explained that was a typo irrelevant to the topic , showing his
+concern not to distract audience.
+
+- Confident
+I like Emoto-sensei and Morihata-sensei's presentations. Because they greatly
+showed their confidence in the presentations. Although Emoto-sensei did not get
+expected results, he clearly showed what happened to hinder him from obtaining
+the expected results through an short, yet very interesting and attractive
+story. Morihata-sensei's presentation was also quite confident and I like his
+presentation most. His explanation was always step by step and thus made his
+explanation very clear. I think the basis of being confident bases the deep
+understanding of the topic. That means we should fully understand all the
+aspects of the topic so that we can give all the detailed aspects of the topic
+Today, all the speakers could answer the questions quickly, also showing their
+deep and correct understanding to their presentations.
+
+- Punctuality
+This is also a basic principle we should follow. We should notice the time
+arrangement (presentation time and discussion time) to arrange the time as
+expected. Also we need to consider the time taken for some interruptions.
+
+- Logic
+Zhang and Morihata-sensei’s presentations were very logical. For example, Zhang
+first proposed the problems of restricted communication between neighbors and
+some redundant communications, etc. Then he proposed the solution and discuss
+the solution step by step with examples. So was the Morihata’s presentation.
+To make presentations to be more logical, I believe the following patterns
+should be followed:
+1) Provide enough information to the background;
+2) Clearly state the problems, i.e. motivation;
+3) Show your solution with examples. In some case solutions may be a bit
+complicated, such as Morihata-sensei’s talk, we should introduce the solution
+step by step.)
+4) Comparisons with appropriate rivals can show the goodness of your solution.
+
+Now let me summarize what I learned about how to make a good presentation,
+which may also be my weak points for now:
+1)  Get a deep enough understanding of your topic.
+2)  Make correct and logical slides.
+3)  Be confident to present and explain everything step by step.
+4)  Quickly answer questions.
+5)  Control the time to be punctual.
+Last, I'll try to ask questions from now on in all the presentations.

@@ -1,0 +1,31 @@
+4. Adding a picture
+Example:
+
+\usepackage{GRAPHICX}
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{boat.jpg}
+  \caption{A boat.}
+  \label{fig:boat1}
+\end{figure}
+
+Figure \ref{fig:boat1} shows a boat.
+
+
+In order to include a figure, you must use the \includegraphics command. It
+takes the image width as an option in brackets and the path to your image file.
+Command \linewidth is put into the brackets, which means the picture will be
+scaled to fit the width of the document. As a result smaller pictures are
+upscaled and larger pictures downscaled respectively.  In this case the image is
+stored in the same directory as my .tex file, so I simply put boat.jpg here to
+include it.
+Note: you will need to include the graphicx package in order to use this code.
+
+\includegraphics[width=\linewidth]{}
+scale=1.0
+
+\begin{figure}[h!]
+h (here) - same location
+t (top) - top of page
+b (bottom) - bottom of page
+p (page) - on an extra page
+! (override) - will force the specified location

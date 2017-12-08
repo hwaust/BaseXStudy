@@ -1,0 +1,3 @@
+- Definition
+In computer architecture, speedup is a process for increasing the performance
+between two systems processing the same problem.

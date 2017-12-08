@@ -1,0 +1,8 @@
+XML documents
+
+\begin{flushleft}
+	chunk$_0$:~\texttt{<index><id>1</id><id>2</id><id>3</id></index>}\\
+	chunk$_1$:~\texttt{<c>txt2</c><d><c>txt3</c></d></d><a at="2"></a><d>}\\
+	chunk$_2$:~\texttt{<c>txt4</c><c>txt5</c></d><a at="3"></a></b><b><d>}\\
+	chunk$_3$:~\texttt{<c>txt6</c></d><d><d><c>txt7</c></d></d></b></r>}
+\end{flushleft}

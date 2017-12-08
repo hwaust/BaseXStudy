@@ -1,0 +1,53 @@
+* There are several needs using Atom:
+- Auto-flow = ctrl-alt-q, alt-q
+- Auto-complete
+- Auto-correction = ctrl-shift-:
+- Shortcuts
+  · Tabs: close = ctrl-w
+  · Tabs: next = ctrl-tab
+  · Tabs: previous = ctrl-shift-tab
+
+* All Shortcuts on mac (Well formatted)
+http://sweetme.at/2014/03/10/atom-editor-cheat-sheet/#atom_find_replace
+
+* Hard-wrap
+Download hard-wrap package and by ctrl-alt-y, hard wrap is working.
+
+* Reset keybindings
+1) CMD+,to open the setting page ("File->Setting" from main memu.)
+2) Click on "your keymap file" below the title "Keybindings".
+3) Add the following content into the opened file.
+'atom-text-editor':
+    'alt-q': 'hard-wrap:reflow-selection'
+Note that if 'hard-wrap' does not work, change it to 'autoflow', i.e.
+'atom-text-editor':
+    'alt-q': 'autoflow:reflow-selection'
+
+this is a problme.
+
+
+
+
+* Auto-complete
+Set 'File Blacklist' to '*.none'.
+Problem solved.
+
+problme
+
+* Auto-correction
+Just use CMD+Shift+:, to show the corrections.
+
+* How to show key binding detecting window at bottom
+Click on the menu: "Packages->keybinding Resolver->Toggle".
+
+* How to customize a keybinding
+- the format of custom key binding
+selector:
+ key: function
+- Example
+ '.platform-win32 atom-text-editor, .platform-linux atom-text-editor':
+ 	'alt-q': 'autoflow:reflow-selection'
+
+
+* Some Packages
+- wordcount: counting both words and characters.

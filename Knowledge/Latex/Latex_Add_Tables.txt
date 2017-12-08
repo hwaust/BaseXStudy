@@ -1,0 +1,31 @@
+Example:
+
+\documentclass{article}
+\begin{document}
+\begin{table}[h!]
+  \centering
+  \caption{Caption for the table.}
+  \label{tab:table1}
+  \begin{tabular}{l|c||r}
+    1 & 2 & 3\\
+    \hline
+    a & b & c\\
+  \end{tabular}
+\end{table}
+\end{document}
+
+The vertical lines are passed as an argument to the tabular environment (e.g.
+\begin{tabular}{l|c||r} ) and the letters tell whether we want to align the
+content to the left (l), to the center (c) or to the right (r) for each column.
+Row seperators can be added with the \hline command. The \caption and \label
+commands can be used in the same way as for pictures.
+
+
+Using .csv files.
+When writing papers, it is sometimes necessary to present a large amount of data
+in tables. Writing such tables in LaTeX by hand is a very time-consuming and
+error-prone task.
+To avoid this, we can simply import the data directly from .csv (comma-separated
+value) files. Programs such as Excel, OpenOffice Calc or even emacs org-mode can
+export data sheets as .csv files. LaTeX can not work with them directly, but we
+can use the following code, to generate tables from .csv files:

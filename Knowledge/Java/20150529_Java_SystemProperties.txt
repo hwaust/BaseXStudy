@@ -1,0 +1,177 @@
+Java System Properties [1]
+
+Properties are configuration values managed as key/value pairs. In each pair,
+the key and value are both String values. The key identifies, and is used to
+retrieve, the value, much as a variable name is used to retrieve the
+variable's value. For example, an application capable of downloading files
+might use a property named "download.lastDirectory" to keep track of the
+directory used for the last
+
+In Properties, we examined the way an application can use Properties objects
+to maintain its configuration. The Java platform itself uses a Properties
+object to maintain its own configuration. The System class maintains a
+Properties object that describes the configuration of the current working
+environment. System properties include information about the current user, the
+current version of the Java runtime, and the character used to separate
+components of a file path name.
+
+The following table describes some of the most important system properties
+
+"file.separator"
+Character that separates components of a file path. This is "/" on UNIX and "\" on Windows.
+
+"java.class.path"
+Path used to find directories and JAR archives containing class files.
+Elements of the class path are separated by a platform-specific character
+specified in the path.separator property.
+
+"java.home"
+Installation directory for Java Runtime Environment (JRE)
+
+"java.vendor"
+JRE vendor name
+
+"java.vendor.url"
+JRE vendor URL
+
+"java.version"
+JRE version number
+
+"line.separator"
+Sequence used by operating system to separate lines in text files
+
+"os.arch"
+Operating system architecture
+
+"os.name"
+Operating system name
+
+"os.version"
+Operating system version
+
+"path.separator"
+Path separator character used in java.class.path
+
+"user.dir"
+User working directory
+
+"user.home"
+User home directory
+
+"user.name"
+User account name
+
+Security consideration: Access to system properties can be restricted by the
+Security Manager. This is most often an issue in applets, which are prevented
+from reading some system properties, and from writing any system properties.
+For more on accessing system properties in applets, refer to System Properties
+in the Doing More With Java Rich Internet Applications lesson.
+
+// Examples
+System.out.println("1: " + System.getProperty("java.version"));
+System.out.println("2: " + System.getProperty("java.vendor"));
+System.out.println("3: " + System.getProperty("java.vendor.url"));
+System.out.println("4: " + System.getProperty("java.home"));
+System.out.println("5: " + System.getProperty("java.vm.specification.version"));
+System.out.println("6: " + System.getProperty("java.vm.specification.vendor"));
+System.out.println("7: " + System.getProperty("java.vm.specification.name"));
+System.out.println("8: " + System.getProperty("java.vm.version"));
+System.out.println("9: " + System.getProperty("java.vm.vendor"));
+System.out.println("10: " + System.getProperty("java.vm.name"));
+System.out.println("11: " + System.getProperty("java.specification.version"));
+System.out.println("12: " + System.getProperty("java.specification.vendor"));
+System.out.println("13: " + System.getProperty("java.specification.name"));
+System.out.println("14: " + System.getProperty("java.class.version"));
+System.out.println("15: " + System.getProperty("java.class.path"));
+System.out.println("16: " + System.getProperty("java.library.path"));
+System.out.println("17: " + System.getProperty("java.io.tmpdir"));
+System.out.println("18: " + System.getProperty("java.compiler"));
+System.out.println("19: " + System.getProperty("java.ext.dirs"));
+System.out.println("20: " + System.getProperty("os.name"));
+System.out.println("21: " + System.getProperty("os.arch"));
+System.out.println("22: " + System.getProperty("os.version"));
+System.out.println("23: " + System.getProperty("file.separator"));
+System.out.println("24: " + System.getProperty("path.separator"));
+System.out.println("25: " + System.getProperty("line.separator"));
+System.out.println("26: " + System.getProperty("user.name"));
+System.out.println("27: " + System.getProperty("user.home"));
+System.out.println("28: " + System.getProperty("user.dir"));
+
+// On Windows
+folder: D:\Users\Matsuzaki-lab\Documents\JavaWorkshop\ptclient\bin
+172.21.52.0,8000,create folder,data,
+1: 1.6.0_43
+2: Sun Microsystems Inc.
+3: http://java.sun.com/
+4: D:\Program Files\Java\jre6
+5: 1.0
+6: Sun Microsystems Inc.
+7: Java Virtual Machine Specification
+8: 20.14-b01
+9: Sun Microsystems Inc.
+10: Java HotSpot(TM) 64-Bit Server VM
+11: 1.6
+12: Sun Microsystems Inc.
+13: Java Platform API Specification
+14: 50.0
+15: D:\Users\Matsuzaki-lab\Documents\JavaWorkshop\ptclient\bin;D:\Users\Matsuzaki-lab\Documents\Java
+Workshop\pplib\bin
+16: D:\Program Files\Java\jre6\bin;D:\Windows\Sun\Java\bin;D:\Windows\system32;D:\Windows;D:/Program
+ Files/Java/jre1.8.0_40/bin/server;D:/Program Files/Java/jre1.8.0_40/bin;D:/Program Files/Java/jre1.
+8.0_40/lib/amd64;D:\ProgramData\Oracle\Java\javapath;D:\Program Files\Common Files\Microsoft Shared\
+Windows Live;D:\Windows\system32;D:\Windows;D:\Windows\System32\Wbem;D:\Windows\System32\WindowsPowe
+rShell\v1.0\;D:\Program Files\Java\jdk1.6.0_43\bin;D:\Program Files\Java\jdk1.6.0_43\jre\bin;D:\Prog
+ram Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;D:\Program Files\Microsoft SQL Server\
+110\Tools\Binn\;D:\Program Files (x86)\VisualSVN\bin;D:\Program Files\TortoiseSVN\bin;D:\Program Fil
+es (x86)\AMD\ATI.ACE\Core-Static;D:\Program Files\Common Files\Microsoft Shared\Windows Live;D:\Prog
+ram Files\eclipse;;.
+17: D:\Users\MATSUZ~1\AppData\Local\Temp\
+18: null
+19: D:\Program Files\Java\jre6\lib\ext;D:\Windows\Sun\Java\lib\ext
+20: Windows 7
+21: amd64
+22: 6.1
+23: \
+24: ;
+25:
+
+26: Matsuzaki-lab
+27: D:\Users\Matsuzaki-lab
+28: D:\Users\Matsuzaki-lab\Documents\JavaWorkshop\ptclient
+
+
+// On iOS X
+folder: /Users/HAO/Documents/Data
+172.21.52.0,8000,create folder,data,
+1: 1.6.0_65
+2: Apple Inc.
+3: http://www.apple.com/
+4: /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+5: 1.0
+6: Sun Microsystems Inc.
+7: Java Virtual Machine Specification
+8: 20.65-b04-466.1
+9: Apple Inc.
+10: Java HotSpot(TM) 64-Bit Server VM
+11: 1.6
+12: Sun Microsystems Inc.
+13: Java Platform API Specification
+14: 50.0
+15: dirtest.jar
+16: .:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+17: /var/folders/wx/nvvyqnmd2gl8jmr22rd6wwb00000gp/T/
+18: null
+19: /Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext
+20: Mac OS X
+21: x86_64
+22: 10.10.2
+23: /
+24: :
+25:
+
+26: HAO
+27: /Users/HAO
+28: /Users/HAO/Documents/Data
+WeiHaos-MacBook-Pro:data HAO$
+
+[1] https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html

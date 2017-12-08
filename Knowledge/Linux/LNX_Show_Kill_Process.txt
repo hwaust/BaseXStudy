@@ -1,0 +1,15 @@
+Show all processes.
+$ ps -A
+
+Show al processes with detailed information
+$ ps -ef
+
+Show specified processes started by 'ssh'
+$ ps -ef|grep ssh
+
+Show in-memory processes.
+$ ps aux
+
+
+Kill a process with id 123
+$ kill 123
