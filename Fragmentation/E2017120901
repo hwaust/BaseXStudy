@@ -1,0 +1,54 @@
+db:open
+
+- How long does open:db take?.
+case 1:  5s, insert 10M times.
+case 2: 52s, create a 10M array then insert once.
+db:open takes 5E-6 s
+
+- Is position affects performance?
+No.
+
+
+- Is db：open executed multiple times?
+Yes.
+
+
+I tested the query XQ1 in three cases.
+- case 1: place the $tmp statement at the first line;
+- case 2: place the $tmp statement at the middle of the lines;
+- case 3: directly use db:open(...) at the end.
+
+------------------------------ case 1 ------------------------------
+let $tmp := db:open('tmpdb') return      // <---- First line
+....
+   array:subarray($d, $part_begin + 1, $part_length)
+} as last into $tmp/root
+------------------------------ case 2 ------------------------------
+let $d := array { db:open('example1')/root/part ! db:node-pre(.) } return
+...
+let $tmp := db:open('tmpdb') return     // <---- in the middle
+insert node element part {
+   array:subarray($d, $part_begin + 1, $part_length)
+} as last into $tmp/root
+------------------------------ case 3 ------------------------------
+let $d := array { db:open('example1')/root/part ! db:node-pre(.) } return
+...
+insert node element part {
+   array:subarray($d, $part_begin + 1, $part_length)
+} as last into db:open('tmpdb')/root // <---- without use variable
+--------------------------------------------------------------------
+
+Then, I checked the optimized query and found that they are all the same.
+------------------------- Optimized Query --------------------------
+let $d_1 := [ (db:open-pre("example1",0)/*:root/*:part ! db:node-pre(.)) ]
+let $q_4 := (array:size($d_1) idiv 10) let $r_5 := (array:size($d_1) mod 10)
+for $i_3 in (0 to 9) return
+  insert node element part {
+    (array:subarray($d_1, (
+       if(($i_3 <= $r_5)) then (($q_4 + 1) * $i_3)
+       else (($q_4 * $i_3) + $r_5) + 1), if(($i_3 < $r_5)) then
+        ($q_4 + 1) else $q_4)) } into db:open-pre("tmpdb",0)/*:root
+--------------------------------------------------------------------
+
+Thus, I draw a conclusion that the position or whether use variable
+does not affect the performance.

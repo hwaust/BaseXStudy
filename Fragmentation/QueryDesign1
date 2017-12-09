@@ -37,6 +37,8 @@ query "for $c in ('a', 'b', 'c') return (1, $c)" generates
 separating with item-separator for output.
 
 
+
+
 > Correctness is the minimum requirement of querying.
 > For our needs, you should also discuss their performance.
 I considered the performance by comparing the results from the
