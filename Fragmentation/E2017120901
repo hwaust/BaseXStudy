@@ -1,22 +1,40 @@
-db:open
+Dear Matsuzaki-sensei,
 
-- How long does open:db take?.
-case 1:  5s, insert 10M times.
-case 2: 52s, create a 10M array then insert once.
-db:open takes 5E-6 s
+I report what I found so far from my investigation.
 
-- Is position affects performance?
-No.
+* Conclusion
 
-
-- Is db：open executed multiple times?
-Yes.
+For XQ1, the position where to place $tmp or whether use variable
+or whether change $tmp from db:open('tmpdb') to db:open('tmpdb')/root
+do not affect the performance.
 
 
-I tested the query XQ1 in three cases.
+* Process of the experiment
+
+To execute the query, I first set the actual values to replacement, such
+as {db} to example, {P} to 9, etc and got the input query XQ0 as follows
+
+-------------  Input query QX0 with actual value ----------------------
+let $tmp := db:open('tmpdb') return
+let $d := array { db:open('example')/part ! db:node-pre(.) } return
+let $P := 9 return for $i in 0 to $P - 1 return
+let $q := array:size($d) idiv $P return
+let $r := array:size($d) mod $P return
+let $part_length := if ($i < $r) then $q + 1
+                    else $q return
+let $part_begin  := if ($i <= $r) then ($q + 1)*$i
+                    else $q*$i + $r return
+insert node element part {
+   array:subarray($d, $part_begin + 1, $part_length)
+} as last into $tmp/root
+-------------------------------------------------------------------
+
+Then, I tested the query XQ0 in four cases.
 - case 1: place the $tmp statement at the first line;
 - case 2: place the $tmp statement at the middle of the lines;
 - case 3: directly use db:open(...) at the end.
+- case 4: modify $tmp by adding /root.
+Listed as below.
 
 ------------------------------ case 1 ------------------------------
 let $tmp := db:open('tmpdb') return      // <---- First line
@@ -36,12 +54,21 @@ let $d := array { db:open('example1')/root/part ! db:node-pre(.) } return
 insert node element part {
    array:subarray($d, $part_begin + 1, $part_length)
 } as last into db:open('tmpdb')/root // <---- without use variable
+------------------------------ case 4 ------------------------------
+let $tmp := db:open('tmpdb')/root return   // <---- modify $tmp
+....
+   array:subarray($d, $part_begin + 1, $part_length)
+} as last into $tmp                        // <--- modified accordingly
 --------------------------------------------------------------------
 
-Then, I checked the optimized query and found that they are all the same.
+
+After executing them, I checked the optimized query of QX0 and found
+that they are all the same as follows.
+
 ------------------------- Optimized Query --------------------------
 let $d_1 := [ (db:open-pre("example1",0)/*:root/*:part ! db:node-pre(.)) ]
-let $q_4 := (array:size($d_1) idiv 10) let $r_5 := (array:size($d_1) mod 10)
+let $q_4 := (array:size($d_1) idiv 9)
+let $r_5 := (array:size($d_1) mod 9)
 for $i_3 in (0 to 9) return
   insert node element part {
     (array:subarray($d_1, (
@@ -50,5 +77,39 @@ for $i_3 in (0 to 9) return
         ($q_4 + 1) else $q_4)) } into db:open-pre("tmpdb",0)/*:root
 --------------------------------------------------------------------
 
-Thus, I draw a conclusion that the position or whether use variable
-does not affect the performance.
+Thus, I draw a conclusion that the position (case 1 and case 2) or
+whether use variable (case 3) or whether change $tmp (case 4) do not
+affect the performance.
+
+* Proposal
+Based on the results, I propose to used the following two queries:
+
+---------------------- XQ1: for prefix query  ----------------------
+let $d := array { db:open('{db}'){prefix} ! db:node-pre(.) } return
+for $i in 0 to {P} - 1 return
+  let $q := array:size($d) idiv {P} return
+  let $r := array:size($d) mod {P} return
+  let $part_length := if ($i < $r) then $q + 1
+                      else $q return
+  let $part_begin  := if ($i <= $r) then ($q + 1) * $i
+                      else $q * $i + $r return
+  insert node element part {
+       array:subarray($d, $part_begin + 1, $part_length)
+    } as last into db:open('{tmpdb}')/root
+------------------------------------------------------------------
+---------------------- XQ2: for suffix query XQ2 -----------------
+declare option output:method "adaptive";
+declare option output:item-separator '
+
+';
+
+let $part_pre := {p} * 2 + 1 return
+for $x in ft:tokenize(db:open-pre('{tmpdb}', $part_pre)) return
+  let $node := db:open-pre('{db}', xs:integer($x)){suffix} return
+  (db:node-pre($node), $node)
+------------------------------------------------------------------
+
+
+
+Sincerely,
+Wei. 
