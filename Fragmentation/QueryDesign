@@ -1,0 +1,56 @@
+> 1) Why not indenting the query after "for"?
+I now do it as follows:
+---------------------- XQ2: for suffix query XQ2 -----------------
+for $node in db:open('example1')/root/a
+return (db:node-pre($node), $node)
+
+let $i := {p} return
+let $part_pre := $i*2 + 1 return
+for $x in ft:tokenize(db:open-pre('{tmpdb}', $part_pre)) return
+  let $node := db:open-pre('{db}', xs:integer($x)){suffix} return
+  (('', db:node-pre($node)), $node)
+------------------------------------------------------------------
+The last two statements are both in the for-loop, i.e. $x is first
+retrieved from ft:tokenize(...), then used for executing suffix
+query, and last the results of suffix query are returned in
+(PRE, $node) pairs separated by line breaks.
+
+> 2) What is the purpose (of effect) of the following expressions?
+>      let $P := {P} return
+>      let $i := {p} return
+These two statements are used for initializing $P and $i that are
+variables used in the following statements, while {P} and {p} are
+input arguments and will be replaced with actual values later
+in the Java program (as well as {db}, {tmpdb}, etc.).
+
+> 3) Why do you execute
+>      let $tmp := db:open('{tmpdb}') return
+>     first?
+Since the order of statements do not change the results, I usually
+open a database at the beginning prior to the rest statement.
+
+
+> 4) What is the last " in both queries?
+They are redundant characters from copying. Removed.
+
+
+> 5) Is adding '' in the final result the only way for our need?
+>     If not, why did you choose it?
+As replied by Christian[1], using ('', $node) is one way to add a
+line-break. But he also mentioned a more elegant way is to use
+iterator. I just googled and fount it possible. I will use iterator.
+
+
+>> The six XPath queries will be used are also attached below, which
+>> I consider that they are feasible.
+> Please explain why do you believe feasible they are.
+Queries with only child or descendant axis can be processed correctly
+on root-merged trees. Only xm2c.dps and xm4c.dps that contain parent
+axis may be problematic. But as I checked previously, the related
+nodes are all inside the fragments of merged-trees. Thus, I believe
+the feasibility of these queries.
+
+
+
+[1] BaseX get line-breaks return between node-data, Christian Grun,
+https://stackoverflow.com/questions/3073035/basex-get-line-breaks-return-between-node-data.

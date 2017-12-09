@@ -1,0 +1,49 @@
+
+According to your questions and comments, I update the two queries
+as follows:
+---------------------- XQ1: for prefix query  ----------------------
+let $d := array { db:open('{db}'){prefix} ! db:node-pre(.) } return
+for $i in 0 to {P} - 1 return
+  let $q := array:size($d) idiv {P} return
+  let $r := array:size($d) mod {P} return
+  let $part_length := if ($i < $r) then $q + 1
+                      else $q return
+  let $part_begin  := if ($i <= $r) then ($q + 1) * $i
+                      else $q * $i + $r return
+  insert node element part {
+       array:subarray($d, $part_begin + 1, $part_length)
+    } as last into db:open('{tmpdb}')/root
+------------------------------------------------------------------
+---------------------- XQ2: for suffix query XQ2 -----------------
+declare option output:method "adaptive";
+declare option output:item-separator '
+
+';
+
+let $part_pre := {p} * 2 + 1 return
+for $x in ft:tokenize(db:open-pre('{tmpdb}', $part_pre)) return
+  let $node := db:open-pre('{db}', xs:integer($x)){suffix} return
+  (db:node-pre($node), $node)
+------------------------------------------------------------------
+
+The 'adaptive' serialization provides a textural representation.
+All items will be separated by the value of the item-separator.
+(In the above query QX2, the item-separator is set to "\n\n".)
+
+I also confirmed that the format (a, b) in the return-statement
+directly pushes a and b into the output sequence. For example, the
+query "for $c in ('a', 'b', 'c') return (1, $c)" generates
+[1, 'a', 1, 'b', 1, 'c']. Then, all the elements are serialized by
+separating with item-separator for output.
+
+
+> Correctness is the minimum requirement of querying.
+> For our needs, you should also discuss their performance.
+I considered the performance by comparing the results from the
+ADBIS submission and what I proposed were the fastest. Also,
+I considered better ways of partitioning. It seems that they
+are the best I can propose so far in term of performance.
+
+
+Sincerely,
+Wei.
