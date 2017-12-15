@@ -1,0 +1,8 @@
+-verbose.gc 显示GC最忙和最空闲收集行为发生的时间、前后的内存大小、需要的时间等。
+-xx:+printGCdetails 以更多的细节显示GC中的变化。
+-XX:+PrintGCTimeStamp 显示垃圾收集发生的时间，自JVM启动以后以秒计量。
+-xx:+PrintHeapAtGC 显示的更详细的信息。
+-XX:+PrintTenuringDistribution 显示获得使用期的对象权。
+-Xloggc:$CATALINA_BASE/logs/gc.log 日志的路径
+-XX:+PrintGCApplicationStoppedTime 显示GC造成应用暂停的时间
+-XX:+PrintGCDateStamps GC发生的时间信息

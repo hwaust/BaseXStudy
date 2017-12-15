@@ -1,0 +1,24 @@
+
+* InputStream
+
+InputStream fr = new ByteArrayInputStream("abcdefabcd".getBytes());
+
+int b = 0;
+while ((b = input.read()) != separator) {
+  value = value * 10 + (b - '0');
+}
+
+- ByteArray-InputStream
+Allows a buffer in memory to be used as an InputStream.
+The buffer from which to extract the bytes.
+As a source of data. Connect it to a FilterInputStreamobject to provide a useful interface.
+
+- StringBuffer-InputStream
+Converts a String into an InputStream.
+A String. The underlying implementation actually uses a StringBuffer.
+As a source of data. Connect it to a FilterInputStreamobject to provide a useful interface.
+
+- File-InputStream
+For reading information from a file.
+A Stringrepresenting the file name, or a Fileor FileDescriptorobject.
+As a source of data. Connect it to a FilterInputStreamobject to provide a useful interface.
