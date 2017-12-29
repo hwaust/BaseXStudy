@@ -1,0 +1,7 @@
+create.sh
+for.sh
+hello.sh
+if.sh
+runquery.sh
+startserver.sh
+startserver_nfs.sh
