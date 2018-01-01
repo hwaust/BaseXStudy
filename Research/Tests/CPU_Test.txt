@@ -1,0 +1,41 @@
+
+
+
+On desktop i5 3570K
+---------------- CPU Test 1------------------
+Allocating: 199 ms
+Initializing: 175 ms
+float computing = 605 ms
+sum = 715827867306.58
+
+
+public static void test1(int size) {
+  System.out.println("---------------- CPU Test 1------------------");
+  long time = 0;
+
+  time = System.currentTimeMillis();
+  double[] ds = new double[size];
+  time = System.currentTimeMillis() - time;
+  System.out.println("Allocating: " + time + " ms");
+
+  time = System.currentTimeMillis();
+  for (int i = 0; i < ds.length; i++) {
+    ds[i] = i;
+  }
+  time = System.currentTimeMillis() - time;
+  System.out.println("Initializing: " + time + " ms");
+
+  time = System.currentTimeMillis();
+  for (int i = 0; i < ds.length - 1; i++) {
+    ds[i] = Math.sqrt(ds[i]);
+  }
+  time = System.currentTimeMillis() - time;
+
+  System.out.println("float computing = " + time + " ms");
+
+  double sum = 0;
+  for (int i = 0; i < ds.length - 1; i++) {
+    sum += ds[i];
+  }
+  System.out.printf("sum = %5.2f\n", sum);
+}
