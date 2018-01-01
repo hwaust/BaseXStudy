@@ -1,0 +1,21 @@
+
+- variable assignment
+  $ var = a # 
+This command calls var with two parameters "=" and "a".
+
+- Use {} to enclose a variable to avoid mistakes.
+  $ touch "${name}_file.txt" 
+The quotes are necessary. e.g "Jack John".
+
+- $0, $@, $# and shift are very useful.
+
+- Data types are anonymous.
+
+- Read multiple inputs from command line
+  $ read x y z
+
+- Loop
+while :  # this equals to while(true)
+
+
+  
