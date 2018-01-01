@@ -29,3 +29,12 @@
   'Best regards':
     'prefix': 'brs'
     'body': 'Best regards'
+  'Hyphone 10':
+    'prefix': 'h10'
+    'body': '----------'
+  'Hyphone 20':
+    'prefix': 'h20'
+    'body': '--------------------'
+  'Hyphone 30':
+    'prefix': 'h30'
+    'body': '------------------------------'
