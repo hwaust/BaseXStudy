@@ -1,0 +1,12 @@
+1.
+// none package class
+System.out.println("App1 hello world...");
+
+2.
+// has package
+package java.java.package1;
+System.out.println("App1 hello world...");
+
+
+javac -d . App2.java
+java java.java.package1.App2

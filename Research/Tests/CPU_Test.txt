@@ -1,7 +1,14 @@
 
 
+size = 100M On MBP i7 4770HQ 
+---------------- CPU Test 1------------------
+Allocating: 442 ms
+Initializing: 117 ms
+float computing = 670 ms
+sum = 715827867306.58
 
-On desktop i5 3570K
+
+size = 100M On desktop i5 3570K
 ---------------- CPU Test 1------------------
 Allocating: 199 ms
 Initializing: 175 ms
