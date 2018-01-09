@@ -1,0 +1,27 @@
+What's the difference between "successive" and "consecutive"?
+2016-1-4
+
+First note that successive appears as a synonym of consecutive in dictionaries. (see Merriam Webster's entry here).
+http://www.merriam-webster.com/dictionary/consecutive
+
+Now compare these examples that I chose at random and extracted from the Corpus of Contemporary American English (COCA):
+http://corpus.byu.edu/coca/
+
+Consecutive
+"his unprecedented string of consecutive appearances"
+"has own the best actor Emmy two consecutive times"
+"named person of the year for the second consecutive time"
+"account balance remains overdrawn for seven consecutive days"
+"the Irish made six consecutive NCAA Tournaments"
+
+
+Successive
+"on successive laps, Chris passed three cars"
+"analysts say that successive governments failed to"
+"dramatic walk-off style in successive victories against the Seattle Mariners"
+"simultaneous and successive cognitive processes"
+"who have challenged successive military governments"
+
+Here is what I observe in the examples (I hope I was lucky in my random choice of them):
+In the examples that use consecutive, the fact that the events happened in a row without interruption seems to be something that the author wanted to emphasize.
+However, in the examples that use successive, the fact that the events occur after each other with no interruption seems to play a secondary role. Notice that you can remove successive from some of these sentences and the meaning is not affected too much. If you remove consecutive, the impact is in general higher.

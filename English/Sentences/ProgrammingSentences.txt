@@ -1,0 +1,4 @@
+My Eclipse footprint is steadily increasing from 500MB to >1GB without me doing
+anything in particular - just running some log heavy programs. Doing a manual
+GC, closing and reopening projects does not help at all, once it's over 1GB it
+stays there.

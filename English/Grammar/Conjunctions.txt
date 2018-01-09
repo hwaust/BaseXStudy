@@ -1,0 +1,45 @@
+* What is a conjunction? （连词）
+A conjunction is a part of speech that connects. It can connect sentences,
+clauses, groups of words, or two individual words. Sometimes a conjunction is
+a single word: because, and, so, but, etc. Other conjunctions consist of two
+or more words: neither . . . nor, either . . . or, so that, etc. We divide
+conjunctions into three types: coordinating, subordinating and correlative.
+
+* Coordinating conjunctions （并列连词）
+The seven coordinating conjunctions are so, and, but, or, yet, for, nor. A
+coordinating conjunction joins words, groups of words, or clauses, and gives
+them equal importance:
+- I like summer, but I don’t like winter.
+- Do you prefer summer or winter?
+- He’s been working all day, so he’s very tired.
+
+* Subordinating conjunctions （从属连词）
+A subordinating conjunction connects a main (independent) and subordinate
+(dependent) clause. The clause beginning with a subordinating conjunction is
+always the subordinate clause, which depends on the main clause and cannot
+exist without it.
+Common subordinating conjunctions include:
+- because, so that, as, since
+  to express cause or reason
+- before, after, until, when, as soon as, whenever, while
+  to express time
+- unless, if, even if, in case, providing
+  to express condition
+- although, even though, whereas
+  to express contrast or concession
+
+* Correlative conjunctions
+Correlative conjunctions are pairs. They connect balanced clauses, phrases or
+words. The elements which they connect are usually similar in structure or
+length. Here are some examples.
+- either...or
+  We can go to either Greece or Spain for our holiday.
+- both...and
+  Both rugby and football are popular in France.
+- not only...but also
+  Not only is he a professional footballer, but he’s also a successful
+  businessman.
+- neither...nor
+  Neither Norway nor Switzerland is in the EU.
+- not...but
+  There are not two but three Baltic states: Lithuania, Latvia and Estonia.

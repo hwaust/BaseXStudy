@@ -1,0 +1,71 @@
+Part of Speech Overview [1]
+
+In the English language, words can be considered as the smallest elements that
+have distinctive meanings. Based on their use and functions, words are
+categorized into several types or parts of speech. This article will offer
+definitions and examples for the 8 major parts of speech in English grammar:
+noun, pronoun, verb, adverb, adjective, conjunction, preposition, and
+interjection.
+
+Here is an example about how to ask a question about the part of speech:
+Q: What [Part of Speech] is (the word) “because”?
+A: The word “because” is considered as a conjunction that links together the
+clauses “I rested” and “I was tired.”
+
+1. Noun
+
+This part of a speech refers to words that are used to name persons, things,
+animals, places, ideas, or events. Nouns are the simplest among the 8 parts of
+speech, which is why they are the first ones taught to students in primary
+school.
+
+Examples:
+[Tom Hanks] is very versatile.
+The square bracketed noun refers to a name of a person.
+
+[Dogs] can be extremely cute.
+In this example, the square bracketed word is considered a noun because it
+names an animal.
+
+It is my [birthday].
+The word “birthday” is a noun which refers to an event.
+
+1.1 Types of nouns
+There are different types of nouns namely:
+Proper
+Proper nouns always start with a capital letter and refers to specific names
+of persons, places, or things.
+Examples: Volkswagen Beetle, Shakey’s Pizza, Game of Thrones
+
+Common
+Common nouns are the opposite of proper nouns. These are just generic names of
+persons, things, or places.
+Examples: car, pizza parlor, TV series
+
+Concrete
+This kind refers to nouns which you can perceive through your five senses.
+Examples: folder, sand, board
+
+Abstract
+Unlike concrete nouns, abstract nouns are those which you can’t perceive
+through your five senses.
+Examples: happiness, grudge, bravery
+
+Count
+It refers to anything that is countable, and has a singular and plural form.
+Examples:  kitten, video, ball
+
+Mass
+This is the opposite of count nouns. Mass nouns are also called non-countable
+nouns, and they need to have “counters” to quantify them.
+Examples of Counters: kilo, cup, meter
+Examples of Mass Nouns: rice, flour, garter
+
+Collective
+Refers to a group of persons, animals, or things.
+Example: faculty (group of teachers), class (group of students), pride (group
+of lions)
+
+This great list of nouns can help you explore more nouns.
+
+[1] http://partofspeech.org/

@@ -1,0 +1,20 @@
+Attribute
+- An attribute is a quality or feature that someone or something has.
+- Usually one of a number of characteristics, such as size or shape or color
+
+Feature
+- A feature of something is an interesting or important part or characteristic
+of it.
+
+Characteristic
+- A *distinguishing* quality or prominent feature
+- The ~s of a person or thing are the qualities or features that *belong to*
+them and make them *recognizable*.
+
+Property
+- The properties of a substance or object are the ways in which it behaves
+in *particular conditions*, such as color, weight, height, length, etc.
+
+Trait
+- A trait is a *particular* characteristic, quality, or tendency that someone
+or something has.

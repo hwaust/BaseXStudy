@@ -1,0 +1,81 @@
+A-D
+At the peak
+Condition implies required.
+Data type
+
+
+Domain-specific vocabulary
+
+E-H
+Experimental results
+
+For simplicity
+
+General-purpose
+Gain: to control the trade-off between the parallelism gain and
+      task-partitioning overhead.
+
+the Hierarchical nature of the original XML data
+
+I-K
+Implementation dependent
+In detail
+In its own right: in itself
+In-memory storage/query/representation
+In other words
+In terms of: regarding sth.; concerning sth.; in relation to sth.
+             How far is it in terms of miles?
+In (the) light of: according to
+
+L-N
+List & Set: List emphasize order, while set is unique for elements.
+Main memory
+Memory constrained environments.
+Memory-efficient: use less memory
+
+Non-volatile
+
+O-Q
+Overheads of parallelization
+
+Performance bottleneck
+Point-based tree representation
+Predicates testing properties of another expression.
+Processing capacity
+
+Query performance
+
+R-T
+
+Set
+  In mathematics, a set is a well-defined collection of distinct objects,
+  considered as an object in its own right. For example, the numbers 2, 4, and
+  6 are distinct objects when considered separately, but when they are
+  considered collectively they form a single set of size three, written
+  {2,4,6}. Sets are one of the most fundamental concepts in mathematics.
+  Developed at the end of the 19th century, set theory is now a ubiquitous
+  part of mathematics, and can be used as a foundation from which nearly all
+  of mathematics can be derived. In mathematics education, elementary topics
+  such as Venn diagrams are taught at a young age, while more advanced
+  concepts are taught as part of a university degree. The German word Menge,
+  rendered as "set" in English, was coined by Bernard Bolzano in his work The
+  Paradoxes of the Infinite. Research perspectives
+
+Self-descripting: XML data is self-describing.
+Self-explanatory
+  Eg. I hope both the examples are quite self explanatory.
+Self-contained
+
+Size
+  A single set of size three. This is a set sized three.
+Source code
+  Source code (also referred to as source or code) is the version of software as
+it is originally written (i.e., typed into a computer) by a human in plain
+text (i.e., human readable alphanumeric characters).
+
+Time-varying
+Tag names
+
+U-Z
+Without loss of generality
+With this in mind

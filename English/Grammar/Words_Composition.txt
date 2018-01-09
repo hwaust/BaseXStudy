@@ -1,0 +1,20 @@
+
+comparison
+  prefix: cost of living ~
+  suffix:
+
+cramp
+  prefix: foot/leg/calf/stomach/clipart/period/muscle ~s
+  suffix:
+
+time
+  working/loading/cooking ~
+  start/end ~
+  execution ~
+
+size
+  file/data/shoe size
+
+efficiency: execution/query ~
+
+performance: query ~

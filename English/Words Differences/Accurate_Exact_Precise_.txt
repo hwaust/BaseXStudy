@@ -1,0 +1,66 @@
+What is the difference between "exact," "accurate," and "precise" in the
+following sentences?
+2015-12-30 from quora
+Lara was able to tell me everything that had happened in precise detail.
+Lara was able to tell me everything that had happened in accurate detail.
+Lara was able to tell me everything that had happened in exact detail.
+
+Another simple example is:
+one exact clock
+one precise clock
+one accurate clock
+
+[Answer]
+Let's get started form a question:
+What is the circumference of a circle divided by its diameter?
+(A) 595.37481237481923748192734  (B) 3       (C) 3.1415     (D) pi
+Comments:
+(A) is very precise, but not at all accurate.
+(B) is accurate, but not very precise.
+(C) is more precise (as well as more accurate), but not exact.
+(D) is exact.
+
+In terms of clocks:
+The sun is an accurate clock. You know what time of day it is by where the sun
+is in the sky. However, it's difficult to get much precision by just looking at
+the sun. I personally can't get much precision at all by trying to read the sun
+as a clock: if the sun is up, it's day. If the sun is down, it's night. An
+atomic clock would be very precise because its granularity is better than
+one-billionth of a second. I'm not sure what an "exact clock" would be.
+
+Back to Laura:
+If Laura is giving you accurate details, she's telling you what really happened.
+It's likely to be in a matter-of-fact tone, and it doesn't necessarily include
+a lot of detail. If she's giving you precise details, she's probably talking a
+lot in the process and maybe mentioning uninteresting details as well. If she's
+giving you exact details, she might also have a photographic memory. "Exact"
+and "precise" would likely include more detail than "accurate". "Accurate" only
+implies that all the details are correct.
+
+
+
+Robert Frost has given a beautiful explanation. I just want to say the same but
+from a different perspective.
+Definition of accuracy and precision is taken from wiki:
+The [accuracy] of a measurement system is the degree of closeness of
+measurements of a quantity to that quantity's actual (true) value.
+[Precision] is the degree to which repeated measurements under unchanged
+conditions show the same results.
+
+Observe the below two images:
+(Image 1 shows three darts hit exactly at the same point but far from the
+center of the board.)
+Precision: In the below image you can see that the darts are hit exactly at
+the same point but not the center of the board. It shows good precision but
+poor accuracy.
+
+
+(Image 2 shows three darts hit exactly at the center of the board.)
+Exact: In Image 2 you can see that the darts are hit exactly at the center
+(accuracy) and all the darts are at the same point (precision).
+Accuracy: If all the darts are just around the center of the board but not at
+the same point, say spread around a smaller region, then it is accuracy.
+
+
+From the following URL
+https://www.quora.com/What-is-the-difference-between-exact-accurate-and-precise-in-the-following-sentences
