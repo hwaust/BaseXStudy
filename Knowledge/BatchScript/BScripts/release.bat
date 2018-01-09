@@ -8,14 +8,13 @@ SET project=%1
 SET tar=%folder%\T20%1\%dt%
 
 
-if "%1"=="" (    
+if "%1"=="" (
 echo No arguments.
 )else (
-echo export to %tar% for release
+echo export to %tar% to release
 md  %tar%
 copy /y %src%\QDasTransducer.exe %tar%
 copy /y %src%\*.dll %tar%
 explorer.exe %tar%\..
-) 
+)
 
- 
