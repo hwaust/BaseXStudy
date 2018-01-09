@@ -1,0 +1,62 @@
+##################################################
+# This file has three parts:
+# Part 1: Configure 
+# Part 2: Key Map
+# Part 3: Snippets
+##################################################
+
+
+##################################################
+#             Part 1: Configure 
+##################################################
+
+"*":
+  core:
+    closeDeletedFileTabs: true
+  editor:
+    atomicSoftTabs: false
+    autoIndentOnPaste: false
+    lineHeight: 2
+    preferredLineLength: 70
+    showInvisibles: true
+    softWrapHangingIndent: 4
+    tabLength: 4
+    tabType: "soft"
+    zoomFontWhenCtrlScrolling: true
+  "exception-reporting":
+    userId: "cbec981e-f5a3-4b34-80d3-782ba8fa7a1f"
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ensureSingleTrailingNewline: false
+    ignoreWhitespaceOnCurrentLine: false
+    keepMarkdownLineBreakWhitespace: false
+    removeTrailingWhitespace: false
+
+
+##################################################
+#             Part 2: Key Map 
+##################################################
+
+'.platform-darwin atom-text-editor':
+  'cmd-q': 'autoflow:reflow-selection'
+  
+  
+  
+
+##################################################
+#             Part 3: Snippets 
+##################################################
+'.text.plain':
+  'Matsuzaki sensei':
+    'prefix': 'mtss'
+    'body': 'Matsuzaki-sensei'
+  'Sato-san':
+    'prefix': 'sts'
+    'body': 'Sato-sa'
+  'Best regards':
+    'prefix': 'brs'
+    'body': 'Best regards'
+  'sh':
+    'prefix': 'sh'
+    'body': '#!/bin/bash\n# Programe\n#       this program is to test db:open in BaseX\n# History:\# 2017-12-09 First release'
