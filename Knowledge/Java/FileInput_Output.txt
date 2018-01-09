@@ -22,3 +22,5 @@ As a source of data. Connect it to a FilterInputStreamobject to provide a useful
 For reading information from a file.
 A Stringrepresenting the file name, or a Fileor FileDescriptorobject.
 As a source of data. Connect it to a FilterInputStreamobject to provide a useful interface.
+
+Ladies and gentalmen, welcome aboard SiChuan airline. Please take your seat according to your seat number.The seat number is indicated at the over-headed compartment. Please take your package in the over-headed compar...
