@@ -1,0 +1,175 @@
+
+On 2016/05/12 10:57, ICPP-2016 wrote:
+Dear Kiminori:
+
+We regret to inform you that the following paper has not been accepted
+at the International Conference on Parallel Processing (ICPP), 2016,
+to be held in Philadelphia, Aug 16-19, 2016. Title: A Preﬁx-Based
+Indexing Approach for XPath Query over Partial Trees We received a
+large number of submissions (251) this year and the competition was
+tough. Due to space restrictions we could only accept 53 regular
+papers (21.1%) and 19 short papers (7.6%). The papers went through a
+thorough review process, online discussions and TPC meeting. The
+reviews for your paper are attached with this email. We hope that the
+reviews will be useful for improving your paper for a future
+submission While it is unfortunate that your paper could not be
+accepted for the main conference, you still have the option of being
+considered for publication in a variety of workshops being hosted by
+ICPP (http://icpp2016.cs.wcupa.edu/workshops.html).  All ICPP workshop
+papers will be submitted to IEEE Xplore digital library, which is EI
+indexed. If you would like your paper to be considered for publication
+by any of these workshops, please send an email to Pavan Balaji
+(balaji@anl.gov) and Anne Benoit (Anne.Benoit@ens-lyon.fr) by:
+                  ****** MAY 14, 2016 ******
+Please indicate which workshops, in the order of priority, that you 
+would like your paper to be considered for.  Your paper and its 
+reviews will be forwarded to each workshop, in the order of priority, 
+till either a workshop picks the paper or all the options you picked 
+are exhausted. Consequently, providing us more options (at least 3) 
+will make this task easier and your chances of acceptance higher.  
+The paper forwarding process is separate from the general paper 
+submission process that each workshop has gone through.  Thus, you 
+can pick a workshop even if its submission deadline has passed.  
+If you have any questions on this process, please email Pavan Balaji 
+(balaji@anl.gov) and Anne Benoit (Anne.Benoit@ens-lyon.fr).
+
+A few things to note:
+1. If you want your paper to be considered at workshops, your
+conference submission and reviews will be forwarded to the workshops.
+Thus, the workshop chairs, organizers and workshop committee members
+will have access to those reviews.
+2. The above mentioned forwarding process includes forwarding the
+paper reviews as well.  Consequently, you would be notified of whether
+your paper has been accepted to any of the workshops fairly soon
+(approximately a week or so).
+
+Best Regards,
+Krishna Kant, Temple University
+Hong Jiang, UT/Arlington
+
+----------------------- REVIEW 1 ---------------------
+PAPER: 39
+TITLE: A Preﬁx-Based Indexing Approach for XPath Query over Partial Trees
+AUTHORS: Wei Hao and Kiminori Matsuzaki
+OVERALL EVALUATION: -2 (reject)
+----------- Review -----------
+In this paper, the problem of processing X-path queries on large XML
+documents is considered. I must admit that I am not an expert in this
+domain. Nevertheless, the authors claim that most studies still focus
+on sequential and shared memory approaches, whereas a simple query to
+xpath mapreduce descendant following preceding proves that the
+situation is more complex. In general, I consider that the comparison
+with state of the art is insufficient, even more in the context of a
+conference for non-specialists. For instance, a comparison with
+reference [12] could be provided, to assess the specificities of the
+approach. Even more, reference [9] by the same authors introduces
+partial tree partitioning and has a very similar structure (same
+outline) and presents results for the same kind of queries obtained on
+exactly the same computing platform. The present paper brings new
+contribution since it introduces 2 new indexing algorithm, but the
+lack of (experimental or complexity)  comparison with [9] makes that
+it is impossible to assess the practical importance of present
+contribution and can hardly be understood (same authors, same
+platform). At last, in terms of scope, the paper looks borderline to
+me for ICPP, both in terms of parallel algorithms (complexity
+analysis, performance evaluation) and in terms of scalability (|eq 16
+processors).
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 39
+TITLE: A Preﬁx-Based Indexing Approach for XPath Query over Partial Trees
+AUTHORS: Wei Hao and Kiminori Matsuzaki
+OVERALL EVALUATION: -2 (reject)
+----------- Review -----------
+This paper presents a method for answering Xpath queries on large XML
+trees. They propose to split the tree into several chunks (to be sent
+on different processors) and to work with both local prefix indices
+and global prefix indices of the nodes to answer all queries. After
+presenting the algorithms, the authors exhibit some performance
+results on 16 processors.
+The main drawbacks of the paper is its poor organization and writing:
+- The introduction/preliminaries sections contain no motivation for
+the current work nor reference to similar research. Besides, these
+sections provide very little information on Xpath and the type of
+queries they are looking to answer. Finally, the use of parallel
+execution is only implicit in a large part of the paper.
+- Generally, the article is not very clear, lacks explanation on the
+methods before jumping to the algorithm descriptions, uses confusing
+and changing notations, and contains many small mistakes that hinders
+its understanding.
+- No proof of correctness of the algorithms is provided.
+The experimental section also lacks serious competitors (what is the
+"original" algorithm?) from the related work. Figures 18 to 20 do not
+even mention which algorithm is tested.
+Minor remarks:
+****************
+- In the description of Algorithm 1 (Section III.C): "in each loop, we
+add all the left-open nodes...", replace left-open by right-open
+- austList instead of auxList (same place)
+- st_p and prepaths[p] should refer to p+1 rather than p (same place)
+- Algorithm 2 (ComputeLIndex) is a simple pre-order traversal and
+could be removed.
+- What is pts in Algorithm 3?
+- Left-open node sets are referred both as llos and lefts, it would be
+better to choose a single notation.
+- In Section IV.C, it is unclear how missing U-indices are assigned
+after sharing (the algorithm is missing).
+- On Figure 16.b, to what "percentage" refer the Y axis ?
+----------------------- REVIEW 3 ---------------------
+PAPER: 39
+TITLE: A Preﬁx-Based Indexing Approach for XPath Query over Partial Trees
+AUTHORS: Wei Hao and Kiminori Matsuzaki
+OVERALL EVALUATION: -1 (weak reject)
+----------- Review -----------
+The paper concerns a novel technique for parsing and querying
+gigabyte-level XML documents. It works based upon a special purpose
+data structure previously proposed by the authors. The author's
+research contributions include two indexing algorithms for partial
+trees, optimization techniques for descendant, following, and
+preceding axes, and experiments demonstrating the efficacy of their
+algorithms on up to 17.8 GB of XML data. The authors exploit the
+natural tree-like structure of XML documents to perform their parallel
+processing. But to the extent that the authors exploit a tree
+structure to achieve a speedup using parallel processing, they have
+not introduced any new techniques. Most of their parallelism comes
+from performing queries over disjoint structures in parallel, which is
+rather straightforward. To this reviewer's understanding, the only
+novelty in this paper arises from the application of parallelism to
+over this new data structure. The meat of the paper is concerned with
+the details of the special-purpose partial trees constructed for XML
+parsing. While these details may be of interest to an XML specialist,
+this reviewer doubts their appeal to researchers in parallel
+processing. Rather than focusing on the intricate details of their
+data structure, a high-level overview illustrating the use of new
+parallel techniques would have gone further to impress this reviewer.
+To increase the paper's appeal, perhaps additional applications could
+be found, or the methods involved could be generalized to a more
+general indexing/querying strategy. The authors compare their indexing
+and grouping approaches to a scheme with no indexing or grouping. It
+does not appear that the experiments attempted to show that the
+techniques described outperform other indexing/querying techniques.
+The authors indicate that no other parallel techniques are available
+for these kind of queries. While the authors do mention that other
+authors have parallelized these processes before using different
+models. Including an analysis of how these models compare to the one
+given in the paper would yield a much stronger paper.
+----------------------- REVIEW 4 ---------------------
+PAPER: 39
+TITLE: A Preﬁx-Based Indexing Approach for XPath Query over Partial Trees
+AUTHORS: Wei Hao and Kiminori Matsuzaki
+OVERALL EVALUATION: -1 (weak reject)
+----------- Review -----------
+The paper presents an algorithm for processing XPath queries on a
+distributed environment. The work is based on author’s earlier work on
+Partial Trees. The paper presents experimental results on varying size
+of XMLs and up to 16 nodes. However structure of XMLs doesn’t change
+much; all four had same max depth 13. It would be interesting to see
+the results on different structures. My major concern with this paper
+is that it doesn’t present any comparison against existing parallel
+XML processing systems. They are listed in the related work but there
+is no comparison, nor they articulated that why there is no
+comparison. So therefore it is really not clear if this work really
+improves the state of the art in distributed XML processing.
+
+
+
