@@ -1,0 +1,13 @@
+无需破解：Windows Server 2008 R2 至少免费使用 900天
+2009年10月30日 星期五 02:10
+
+1.首先安装后，有一个180天的试用期。
+2.在180天试用期即将结束时，使用下面的评估序列号激活Svr 2008 R2 可以重新恢复180天试用期
+Windows Server 2008 R2 Web: KBV3Q-DJ8W7-VPB64-V88KG-82C49
+Windows Server 2008 R2 Standard: 4GGC4-9947F-FWFP3-78P6F-J9HDR
+Windows Server 2008 R2 Enterprise: 7PJBC-63K3J-62TTK-XF46D-W3WMD
+Windows Server 2008 R2 Datacenter: QX7TD-2CMJR-D7WWY-KVCYC-6D2YT
+3.在180天试用期即将结束时，在命令行模式下，输入“slmgr.vbs /rearm”后,重启电脑,重新输入上面的序列号,剩余时间又恢复到180天。微软官方文档中声明该命令只能重复使用5次。
+4.上面的方法5次后，此后将无法再次使用。就要进行下一步，修改注册表中的一处键值(SkipRearm),以后就可以再次使用“Rearm”的命令，这个键值总共可以修改8次。
+5.因此……。
+ 
