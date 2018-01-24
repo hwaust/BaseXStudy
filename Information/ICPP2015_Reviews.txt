@@ -1,0 +1,298 @@
+
+Dear Wei and Onofre,
+
+Here are the reviews I received for my paper for ICPP 2015.
+
+Regards,
+Kiminori.
+
+-- 
+Kiminori MATSUZAKI, Ph.D.
+Kochi University of Technology
+Email: matsuzaki.kiminori@kochi-tech.ac.jp
+
+
+-------- Forwarded Message --------
+Subject: ICPP 2015 notification for paper 353
+Date: Sun, 10 May 2015 07:22:47 +0200
+From: ICPP 2015 <icpp2015@easychair.org>
+To: Kiminori Matsuzaki <matsuzaki.kiminori@kochi-tech.ac.jp>
+
+Dear authors,
+
+Thank you for submitting the following paper to the International
+Conference on Parallel Processing (ICPP), 2015, to be held in Beijing,
+China.
+
+Title: Parallel Tree Division for Parallel Tree Processing ---
+Dividing an XML Tree into Bridges on Hadoop ---
+
+We regret to inform you that the above paper could not be accepted to
+be presented at the conference.  We received a record number of
+submissions (305) this year and the competition was tough.  Due to
+space restrictions we could only accept 99 papers, and many excellent
+papers had to be dropped.  The papers went through a thorough review
+process involving at least 4 reviews for each paper, online discussion
+to finalize on the track recommendation, and an in-person vice-chair
+meeting to discuss the final set of papers that we can accommodate.
+The reviews for your paper are attached with this email.  We hope
+you'll find the reviews useful in improving your paper for a future
+submission.
+
+While it is unfortunate that your paper could not be accepted for the
+main conference, you still have the option of being considered for
+publication by a variety of workshops being hosted by ICPP
+(http://icpp2015.tsinghua.edu.cn/workshops.html).  All ICPP workshop
+papers will be submitted to IEEE Xplore digital library, which is EI
+indexed.
+
+If you would like your paper to be considered for publication by any
+of these workshops, please send an email to Anne Benoit
+(Anne.Benoit@ens-lyon.fr) and Wenguang Chen (cwg@tsinghua.edu.cn) by:
+
+               ****** MAY 14 ******
+
+Please indicate which workshops, in order of priority, that you would
+like your paper to be considered for.  Your paper and its reviews will
+be forwarded to each workshop, in the order of priority, till either a
+workshop picks the paper or all the options you picked are exhausted.
+Consequently, providing us more options (at least 3) will make this
+task easier and your chances of acceptance higher.  The paper
+forwarding process is separate from the general paper submission
+process that each workshop has gone through.  Thus, you can pick a
+workshop even if its submission deadline has passed.  If you have any
+questions on this process, please email Anne Benoit
+(Anne.Benoit@ens-lyon.fr) and Wenguang Chen (cwg@tsinghua.edu.cn).
+
+Please note that, if you want your paper to be considered at
+workshops, your conference submission and reviews will be forwarded to
+the workshops.  Thus, the workshop chairs, organizers and workshop
+committee members will have access to those reviews.  If you have any
+additional questions, please feel free to get in touch.
+
+We hope that the above news does not discourage you from attending the
+conference, and we look forward to seeing you in Beijing, China,
+September.
+
+Best Regards,
+
+Pavan Balaji, Argonne National Laboratory
+Mingwei Xu, Tsinghua University
+
+ICPP 2015 Program Co-chairs
+
+
+----------------------- REVIEW 1 ---------------------
+PAPER: 353
+TITLE: Parallel Tree Division for Parallel Tree Processing --- 
+       Dividing an XML Tree into Bridges on Hadoop ---
+AUTHORS: Kiminori Matsuzaki
+
+OVERALL EVALUATION: -1 (weak reject)
+
+----------- REVIEW -----------
+Strength:
+This paper proposes a parallel algorithm for tree division based on 
+bulk synchronous parallel(BSP), which is claimed as the first one 
+feasible to distributed-memory environments. Moreover, the proposed 
+algorithm is implemented in practice to conduct the experiments.
+
+Weakness:
+Firstly, the novelty of the proposed algorithm is limited since it is
+a modified version of an existing method. Although it is claimed as
+the first one feasible to distributed-memory environments, the
+reviewer can't see much novelty from modifying a parallel method into
+a distributed one.
+
+Secondly, it is not easy for the reviewer to figure the contribution
+of this paper. The experiment is only conducted on the proposed
+algorithms, however, no comparison with related methods is provided.
+If the proposed method is no better than existing ones addressing the
+similar problems, the contribution of it is limited.
+
+Thirdly, there are many typos in this paper, such as:
+1) in the introduction, "..., a large amount of data tend to be ...", 
+   where "tend" should be "tends";
+2) in the introduction, "It also achieves speedup of a factor of ??, 
+   ...", where "??" must be a typo.
+3) in section 3, "The input data consist of ...", where "consist" 
+   should be "consists".
+
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 353
+TITLE: Parallel Tree Division for Parallel Tree Processing --- 
+       Dividing an XML Tree into Bridges on Hadoop ---
+AUTHORS: Kiminori Matsuzaki
+
+OVERALL EVALUATION: 0 (borderline paper)
+
+----------- REVIEW -----------
+This paper proposed a MapReduce implementation of tree division with
+m-bridges based on BSP.
+
+The biggest issue is that why use MapReduce to implement the algorithm
+if it can already be implemented using BSP? MapReduce is usually not a
+good model for graph operations. Even it could be used for the tree
+division, there is an open-source system called Apache HAMA that
+implemented BSP over Hadoop. Why not just implement the tree division
+using HAMA?
+
+Second, Hadoop 1.2.1 is really old HDFS replication 2 is not a
+standard setting in real production systems.  And more importantly,
+why use Hadoop at all for a cluster of only 16 nodes (that's even
+smaller than a rack!)?
+
+Also, why limit map/reduce tasks to at most two for each node? Is
+there any memory constraint, CPU constraint, or other resource
+constrains?
+
+There are some inconsistencies in this paper. In Abstract, the authors
+said 12 nodes were used for experiments, but in the introduction and
+experiments section, it mentioned that 16 nodes were used instead. In
+Section II, In the following, we denote the number of nodes, or
+weight, of a node v as v.weight. Did the authors really mean the
+number of children nodes as the weight?
+
+Thee are some grammar mistakes like ���Refer [7]���, ���Refer [18]���
+etc -��� Refer to something. Also, this sentence in the introduction
+does not make any sense: It also achieves speedup of a factor of ??,
+compared with the implementation of stream-processing algorithm���.
+Where is the stream-processing algorithm?
+
+This could be a good paper and the review would like to see it
+published, but just not in the current form.
+
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 353
+TITLE: Parallel Tree Division for Parallel Tree Processing ---
+      Dividing an XML Tree into Bridges on Hadoop ---
+AUTHORS: Kiminori Matsuzaki
+
+OVERALL EVALUATION: 1 (weak accept)
+
+----------- REVIEW -----------
+This paper illustrates a parallel algorithm for tree division with
+m-bridges based on the BSP tree reduction algorithm and presents the
+implementation of the algorithm as a two-pass MapReduce program on
+Hadoop with optimizations on the output to reduce the size of
+intermediate data communication and the number of output files. The
+experimental results show significant performance improvement compared
+to that on 1 computation node. Overall this paper is well organized
+and demonstration is clear. Since there is no experimental comparison
+with the stream-processing algorithm, the related description
+regarding the contribution of this paper should be removed from
+Section I ��� Introduction.
+
+
+----------------------- REVIEW 4 ---------------------
+PAPER: 353
+TITLE: Parallel Tree Division for Parallel Tree Processing --- 
+       Dividing an XML Tree into Bridges on Hadoop ---
+AUTHORS: Kiminori Matsuzaki
+
+OVERALL EVALUATION: -2 (reject)
+
+----------- REVIEW -----------
+This paper proposes and implements a m-bridges based algorithm that
+can partition a tree in a parallel/distributed environment.
+
+Strengths:
+1) Tree partition is an interesting problem.
+2) The authors extend the existing m-bridges algorithm to a 
+   parallel/distributed version
+3) Implementation of the improved algorithm on MapReduce framework
+
+Weaknesses:
+1) Cannot see the relationship with the XML processing
+2) Cannot understand the challenges and insights of the proposed 
+   parallel/distributed algorithm
+3) Weak evaluation
+
+Detailed Comments:
+This paper focuses on the design and implementation of the tree
+division algorithm, but many research problems are neglected.
+
+1) What is the relationship between tree partition and the XML
+   processing? How can the proposed algorithm be used in the XML 
+   parsing and querying?
+2) Why the former parallel m-bridges designed in shared-memory
+   environment cannot work in distributed environment? What critical
+   problems are solved by this paper so that the m-bridges algorithm
+   can work in the parallel/distributed environment. What are the
+   challenges and insights of extending the original algorithm to a
+   parallel version and then to a distributed version?
+3) How to choose the magic parameter m?
+
+
+About the paper organization:
+1) Section 3 is the core contribution but is too briefly described. 
+   For example, I do not understand how to partition the list into 
+   sub-list, according to some rules? Why do we need four parameters 
+   (N, M , R, S) and what is their relationship with the globalID, 
+   is there a formula? Moreover, the description should explain the 
+   numbers in Figure 5.
+2) Section 4 details how to implement this algorithm on MapReduce. 
+   This section is too verbose and too implementation oriented.
+
+About the evaluation:
+1) Is the synthetic dataset representative? Are there any real-world 
+   datasets?
+2) Are there any comparisons with the shared-memory version?
+3) How to judge whether the generated tree partition is good or not? 
+   Are there any result analysis?
+
+About the related work:
+More related work should be studied (e.g., the XML parsing/querying 
+work using MapReduce).
+
+
+----------------------- REVIEW 5 ---------------------
+PAPER: 353
+TITLE: Parallel Tree Division for Parallel Tree Processing --- 
+       Dividing an XML Tree into Bridges on Hadoop ---
+AUTHORS: Kiminori Matsuzaki
+
+OVERALL EVALUATION: -1 (weak reject)
+
+----------- REVIEW -----------
+Processing XML documents as a tree on Hadoop is challenging. The paper
+presents a parallel algorithm for tree division with m-bridges based
+on the BSP algorithm. The solution is implemented as a two-pass
+MapReduce program on Hadoop. Experiments show that this algorithm can
+achieve good performance.
+
+XML is widely used as structured data format. This paper aims to
+address a problem in processing a large amount of XML data. The author
+presents an algorithm design based on the BSP model and also gives
+details of the implementation on Hadoop.
+
+The proposed solution is basically based on the m-bridges and BSP tree
+reduction algorithm. The author can give more discussions on the
+unique challenges and issues studied in this paper.
+
+The author may discuss more on the effect of tree shape. From the
+description, it seems that the cost for a deep tree would be
+non-trivial, especially the second super step. Will the algorithm
+performance be related to the tree shape?
+
+The input tree used for experiments are synthesized. It would be more
+convincing if the authors can use some real-world tree data to drive
+the experiments.
+
+It is also suggested to give some comparison with other similar
+algorithms. The comparison currently is done with the single-node
+case.
+
+The communication cost could be high, even though it has upper bound.
+In the experiment, as the number of processors increases, the speedup
+could even go down. The author can give more discussions on this.
+
+More detailed description can be added for Figure 5, which is
+important for readers to understand the parallel algorithm.
+
+
+
+
+
