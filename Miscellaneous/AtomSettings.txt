@@ -40,9 +40,18 @@
 
 '.platform-darwin atom-text-editor':
   'cmd-q': 'autoflow:reflow-selection'
+'body':
+  'alt-h': 'core:move-left'
+  'alt-l': 'core:move-right'
+  'alt-k': 'core:move-up'
+  'alt-j': 'core:move-down'
+'atom-text-editor':
+  'alt-h': 'core:move-left'
   
-  
-  
+# for mac book pro
+'atom-text-editor':  
+  'alt-cmd-h': 'editor:move-to-beginning-of-word'
+  'alt-cmd-l': 'editor:move-to-end-of-word'
 
 ##################################################
 #             Part 3: Snippets 
