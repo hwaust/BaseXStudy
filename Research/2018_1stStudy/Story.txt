@@ -1,0 +1,95 @@
+ 
+> I consider "to avoid this cost" is your (our) personal reason.
+> Do you want to claim that peoples should use our lab cluster
+> (or similar ones) for processing XPath queries?
+Of course not. This is just a proposal of tentative hardware for the 
+experiment based on my personal preference. 
+
+> Changing the storage should change the performance (on single
+> machine).  What happens if the performance gets 100 times slower
+> (often the case with using disks)?  Do you consider such a case?
+It is a common understanding that disk is slower than memory.
+Therefore, the query performance should be slower on disk than in
+memory. But the problem is how slow it is. If the slowdown is
+acceptable, then it is more practical for handling larger XML data 
+with less limitation of memory. 
+
+> Then, what is the difference of your "efficient index" from that in
+> BaseX?
+The key difference is that the "efficient index" is designed for
+handling large XML data distributed over a number of computers, while
+"that in BaseX" is only designed for shared-memory environment.
+
+
+> Please show us your story for the next submission.
+> Then, we will make comments or questions from reviewers' viewpoint.
+
+In-memory, index, fragmentation, 
+
+MapReduce, fragmentation?
+
+
+
+Topics
+- motivation 
+- problems
+- contributions
+- goal 
+
+Requirements
+- clear, 
+- well-organized, 
+- comparison with state-of-the-art techniques
+- Consistency
+- Correct 
+
+Summary
+- Data are evenly split into chunks; 
+  How? index 
+- BFS-array index is created to accelerate query processing;
+- XML data is read-only;
+- Indexes is saved in files after creation;
+- Good scalability -> more computers, better performance;
+- BFS: tag-id(2), type(1), start(8), end(8), parent(4), child(4), g-id(4)
+  31 byte for a node.
+
+Index can be used to directly access internal XML data avoiding
+time-consuming search over the entire XML document, thus providing
+better querying performance.
+
+ 
+  tag-id(2), type(1), parent(4), child(4), g-id(4)
+  2+1+4+4+4 = 15
+  Total: 18G * 15 => 270 GB
+  Total: 560 GB
+
+- A clear problem or target?
+
+I changed the in-memory design for two reasons:
+1) it is not so practical.
+2) it is not memory efficient
+   If in-memory is an important factor, it should be efficient in 
+   size. From my study on index, our BFS-arry is not memory efficient.
+   For example, ORDPATH is shorter than ours but also can meet the 
+   requirements for querying all axes. (Actually, I believe it is also
+   possible implement ORDPATH for partial tree.)
+
+- What is the essential difference between in-memory and on-disk 
+  representations?
+
+- What are the targets of the study?
+- What are the technical problems in the study?
+- What are the contributions in this study?
+
+
+
+
+
+
+
+
+
+
+
+
+
