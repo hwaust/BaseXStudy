@@ -1,0 +1,25 @@
+* Home_Desktop
+Single-Core Score	Multi-Core Score
+2896	9308
+Geekbench 3.4.2 Tryout for Windows x86 (32-bit)
+Result Information
+- Upload Date	February 13 2018 11:00 AM
+Views	1
+System Information
+Generic
+Operating System	Microsoft Windows 10 (64-bit)
+Model	Generic
+Processor	Intel Core i5-3570K @ 3.35 GHz
+1 processor, 4 cores
+Processor ID	GenuineIntel Family 6 Model 58 Stepping 9
+Processor Codename	Ivy Bridge
+Processor Package	Socket 1155 LGA
+L1 Instruction Cache	32 KB x 4
+L1 Data Cache	32 KB x 4
+L2 Cache	256 KB x 4
+L3 Cache	6144 KB
+Motherboard	ASRock H61M/U3S3
+Northbridge	Intel Ivy Bridge 09
+Southbridge	Intel H61 B3
+BIOS	American Megatrends Inc. L2.21D
+Memory	16384 MB DDR3 SDRAM -1MHz
