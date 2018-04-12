@@ -1,0 +1,106 @@
+* 背影知识：电子车书的简介
+本软件通过手机拍照汽车指定部位，能够在拍照界面显示实时的说明功能。
+同时还可能通过点击，跳转到相应的程序中的说明文档页面。
+
+* 总体需求
+- 整体要有强烈的科技感，用户感觉要高端、大气。
+- 要有画中画的即视感，体现手机扫描的感觉。
+- 输出为Photoshop原始格式。
+- 4.1 中午初稿，下午修改，晚上终稿。
+
+* 两个页面要求
+** 电子车书宣传页1
+- 以林肯领航者中控为背影
+- 在方向盘、中控上的主要按键等设备上叠加上说明文字。
+** 电子车书宣传页2
+- 宣传页1之后，会有一个下载的，一个入口，然后点击下载的效果。
+  主要用于扫描完呈示意图，即出现的一种下载时的一种界面。
+
+* 其他
+不能理解之处请与：181 5545 8759 郝经理联系。
+
+电子车书
+Smart Scanning User Manual
+
+SSUM 是一款为汽车车主提供汽车使用说明的手机应用。
+与传统的电子用户手册相比，
+本方案结合模式识别技术与3D定位技术，
+实现了手机端通过拍摄车辆部件即可智能定位与识别，
+并在界面上直接实时显示相应介绍和说明功能的一套手机应用。
+
+本系统具有以下特点
+* 能够通过手机摄像头实时识别车辆主要部件，省去在传统手册中查询的麻烦；
+* 能够在识别界面上实时显示主要部件的功能，可以直接看到介绍说明；
+* 能够在线下载最新的说明文档，保证文档的时效性。
+
+
+Smart Scanning User Manual (SSUM) is a cell phone app. 
+It utilizes pattern recognition and 3D localization to 
+recognize a part of a car with a cell phone camera and 
+display the corresponding introduction to the part on 
+the same screen so that users can quickly, easily and 
+precisely understand the functionalities of the part. 
+It can also be automatically synchronized with online 
+data to keep the local manual up to date.
+
+利用人工智能的模式识别技术与3D目标识别定位技术相结合，
+实现手机/IPAD端通过指定系统拍摄车辆部件即可智能定位与识别，
+并在界面上直接实时显示相应介绍和说明功能的一套应用，
+帮助车主及时、快速、准确、便捷的了解车辆各功能键使用说明，
+在线获取相应操作指导。
+
+
+Note：该电子手册单车软件开发费用在32万元左右，
+应用场景可以在车里面放IPAD，IPAD需要下指定APP，
+或在服务顾问手机中下载指定APP对车辆进行扫描形式，
+体验该功能；项目二期可将该软件功能与微信对接，
+采用林肯官方公众号实现APP相应功能，预计2个月能够完成所有对接工作。
+
+
+An Overview of Smart Scanning User Manual
+
+* Introduction
+Smart Scanning User Manual (SSUM) is a cell phone app with which users
+can quickly, easily and precisely understand the functionalities of an
+automobile by scanning a specified part of the automobile via cell
+phone camera.   
+
+* Features
+- Users can scan a part of an automobile to get an instructive
+  introduction to the part.
+- Uses can give thumb-ups to any part of a car and share them with 
+  other users.
+- Uses can download more detailed introductions to each part of an 
+  automobile.
+- Users can Leave messages on the corresponding forums to discuss with 
+  other users.
+- Contact with Lincoln custom service for professional technical support.
+
+* Implementation
+SSUM utilizes pattern recognition and 3D localization to recognize a 
+part of an automobile with a cell phone camera and display the 
+corresponding introduction to the part on the same screen.
+
+* Hardware
+  Smart phones and tablet PCs.
+ 
+* Price
+  About 320,000 RMB
+
+* Development Time
+  About 2 Months  
+
+
+
+2018-04-02 于总
+* 和亮风台谈了一下技术相关问题
+# 亮风台是专业做技术的，公司规范和我们公司差不多
+* 对方表示手机的不好做
+  - 技术难度大
+  - 用户体验不好 -> 基于影响对原APP的态度 （故不愿意做）
+* 合作的话只愿意做APP
+* 要求再评估，有问题可以联系亮风台的何（136 0165 3850）
+
+
+
+ 

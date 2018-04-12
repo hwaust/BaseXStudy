@@ -1,0 +1,92 @@
+
+The current status of my work
+
+- Theoretical issues
+When processing a large XML document without its schema, we have the 
+following theoretical issues: 
+  1) how to divide it into equal-sized chunks and represent divided 
+     chunks in memory;
+  2) how to process XPath queries on the representation of chunks  
+
+- My current work
+    We mainly have to approaches for the issues.
+    
+    -- partial tree based approach
+    For 1), we proposed partial tree. We also proposed a tree-shaped
+    representation that uses pointers to  denote parent-child
+    relationship and an index-based representation  that uses indices
+    to denote tree nodes and their relationships. For 2), we designed
+    query algorithms based on the representations. 
+    
+    -- horizontal fragmentation based representation
+    For 1), we proposed an algorithm for partitioning an input XML
+    document into equal-sized chunks using BaseX  For 2), we simply
+    using BaseX to process queries and merge sub-results
+  
+- Work Breakdown
+    -- Published contents about partial tree 
+    1) Introduction and definition
+    2) Querying algorithms on tree-shaped representation
+    3) Theoretical analysis of time complexity
+    4) Experiments on scalability and querying time.
+
+    -- Not published but done 
+    5) An index-based representation of partial tree
+    6) A simple experiment to show absolute querying time for 5)
+    7) An implementation of horizontal fragmentation on BaseX
+
+    -- To be done 
+    8) Experiments to show speedups
+    9) An exhaustive comparison between two approaches: partial tree and
+    horizontal fragmentation. 
+
+- Strength & Weakness
+    -- Strength
+    1) ability to process 100s GB XML documents using 10s computers
+       without needs to know the schema 
+    2) ability to process size-balanced chunks of input documents
+    3) gain significant scalability, speedups and absolute query time
+    -- Weakness
+    4) handling relationship of chunks makes it difficult to process 
+       very complex queries 
+    5) sharing intermediate results among computer works when parallel
+       processing needs additional time and the time is proportional 
+       to the size of intermediate results. When the size is large, 
+       it causes long waiting time.
+
+- Related works
+    This work mainly relates 
+    1）XML indexing, such as NI, PSL, ORDPATH etc.
+    2）Parallel processing, such as XML fragmentation, MapReduce, etc.
+    3) XML parsing 
+
+- Implementation/Experimental issues 
+    The experiments should include the following aspects:
+    - Scalability
+    - Speedup
+    - Memory cost for holding input XML documents
+    - Network communication
+    - Time complexity
+    - etc (to be added if considered) 
+
+
+Attitude 
+* Serious 
+* Careful
+* Logical
+* Consistent
+
+Dear Sato-san,
+
+I heard that you and all the lab members did a very hard work to clean
+up my desk on April 5th's cleanup. I really appreciate for  what you
+have done for me. Please also forward my gratitude to all the lab
+members since my Japanese is poor.  Thank you very much.
+
+
+Best regards,
+Wei.
+
+
+
+
