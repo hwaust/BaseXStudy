@@ -59,6 +59,24 @@
 * 查询手机扫码相关信息
 * 去林肯考察
 
-3-26
-* 初始化工作环境+开会
+3-26 Monday
+* 初始化工作环境+开会, 入职手续，看文件，填写表格等基本内容。
 * 查询游戏和WIFI探针供应商等信息。
+
+2018-3-20
+8点前完成 Chris的几个问题的翻译。 OK
+12点前 完成设计方案 OK
+查询供应商
+* 工作安排
+- 今天下午提交几个页面的PPT 介绍新的想法用于明天的演示。
+- 今天查询远程会议系统的供应商，要求无LOGO，能够当面演示。
+- 明日提交详细的4S店考察报告
+
+1 腾创网络 http://www.tenchong.com/hardware/hardwares.html 4.6万
+2 远程视频会议系统_好视通远程视频会议系统 已经回复
+3 安徽合肥 优视连 基本满足条件
+4 华望 比较理想 功能较全 深圳市龙华新区 OEM有问题？
+5 IFreeComm 30-40万   12万一个16点的MCU
+  http://www.ifreecomm.com/videoconferencing/solution-video
+6 PLYCON 已经发申请等回复中。
+  http://www.polycom.com.cn/ 
