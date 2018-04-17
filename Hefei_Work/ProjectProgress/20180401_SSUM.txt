@@ -34,13 +34,13 @@ SSUM 是一款为汽车车主提供汽车使用说明的手机应用。
 * 能够在线下载最新的说明文档，保证文档的时效性。
 
 
-Smart Scanning User Manual (SSUM) is a cell phone app. 
-It utilizes pattern recognition and 3D localization to 
-recognize a part of a car with a cell phone camera and 
-display the corresponding introduction to the part on 
-the same screen so that users can quickly, easily and 
-precisely understand the functionalities of the part. 
-It can also be automatically synchronized with online 
+Smart Scanning User Manual (SSUM) is a cell phone app.
+It utilizes pattern recognition and 3D localization to
+recognize a part of a car with a cell phone camera and
+display the corresponding introduction to the part on
+the same screen so that users can quickly, easily and
+precisely understand the functionalities of the part.
+It can also be automatically synchronized with online
 data to keep the local manual up to date.
 
 利用人工智能的模式识别技术与3D目标识别定位技术相结合，
@@ -63,32 +63,32 @@ An Overview of Smart Scanning User Manual
 Smart Scanning User Manual (SSUM) is a cell phone app with which users
 can quickly, easily and precisely understand the functionalities of an
 automobile by scanning a specified part of the automobile via cell
-phone camera.   
+phone camera.
 
 * Features
 - Users can scan a part of an automobile to get an instructive
   introduction to the part.
-- Uses can give thumb-ups to any part of a car and share them with 
+- Uses can give thumb-ups to any part of a car and share them with
   other users.
-- Uses can download more detailed introductions to each part of an 
+- Uses can download more detailed introductions to each part of an
   automobile.
-- Users can Leave messages on the corresponding forums to discuss with 
+- Users can Leave messages on the corresponding forums to discuss with
   other users.
 - Contact with Lincoln custom service for professional technical support.
 
 * Implementation
-SSUM utilizes pattern recognition and 3D localization to recognize a 
-part of an automobile with a cell phone camera and display the 
+SSUM utilizes pattern recognition and 3D localization to recognize a
+part of an automobile with a cell phone camera and display the
 corresponding introduction to the part on the same screen.
 
 * Hardware
   Smart phones and tablet PCs.
- 
+
 * Price
   About 320,000 RMB
 
 * Development Time
-  About 2 Months  
+  About 2 Months
 
 
 
