@@ -1,0 +1,948 @@
+* A: Very relevant
+* B: relevant
+* C: weak relevant
+* D: out of scope (stream processing, bad paper)
+* E: omitted (patent, book chapter)
+* -: Check other papers again
+====================
+
+====================
+* A: Very relevant
+====================
+==> It could be relevant if it supports (subset of) XPath
+B'ez, Yosvanys Aponte, and Rafael C. Carrasco Jiménez.
+"Indexing structured documents with suffix arrays."
+Computational Science and Its Applications (ICCSA), 2012 12th International Conference on. IEEE, 2012.
+Path indexes based on suffix trees have shown to be highly efficient
+structures when dealing with digital collection that consists of
+structured documents, since they provide a fast response to queries
+including structural requirements. Nevertheless, when the collection
+consists of highly heterogeneous documents, suffix trees may be too
+memory demanding. In such cases, the use of a suffix array as the
+underlying data storage permits a considerable reduction in space
+requirements, partially because suffix arrays are a remarkably light
+data structure and partially because they do not store redundant
+information regarding the textual content. We describe how a suffix
+array can be used as the data structure which stores the structural
+index in a retrieval system and provides a virtual index of all
+subpaths in the digital collection. We also show how an auxiliary
+ternary search tree can accelerate the resolution of structural
+queries with only a marginal increase in memory usage.
+
+==> see CIS-X paper of the same author
+Hsu, Wen-Chiao, Hsiao-Chen Shih, and I-En Liao.
+"A scalable xml indexing method using mapreduce."
+Innovative Computing Technology (INTECH), 2014 Fourth International Conference on. IEEE, 2014.
+With the advent of the era of big data, cloud computing technology is
+one of the promising solutions. Many theories and methods, which are
+originally designed for stand-alone computer, must be re-examined for
+the applicability in the cloud. For example, most of the XML indexing
+methods discussed in the literature are suitable for processing small
+XML files by stand-alone computer. When they deal with a large XML
+document, memory shortage problem will be encountered. In this paper,
+we redesign an XML indexing method, called CIS-X (A Compressed Index
+Scheme for Efficient Query Evaluation of XML Documents) that is
+developed by our research group, using MapReduce implemented in Hadoop
+to handle large XML documents through cloud parallel computing. The
+proposed cloud-based CIS-X can be applied to any XML file without DTD
+or schema.
+
+Haw, Su-Cheng, and Aisyah Amin.
+"Node Indexing in XML Query Optimization: A Review."
+Indian Journal of Science and Technology 8.32 (2015).
+Node indexing has been developed to optimize query retrieval. Since
+its inception in the early century, there are many node indexing
+techniques. Methods/Statistical Analysis: Node indexing can be group
+into four major groups which is, subtree labeling, prefix-based
+labeling, multiplicative labeling and hybrid labeling. Each indexing
+techniques has its advantages and disadvantages. However, there is an
+absence of literature reviews on the review of the recent techniques;
+the latest one was in year 2009. As such, this research project aims
+to review on some of the latest techniques for each node indexing
+group. Findings: Choosing a correct indexing is critical. For example,
+prefix-based indexing scheme size grows too huge, while high
+computation cost is needed to annotate using multiplicative labeling.
+On the other hand, the subtree group is weak in data updates, while a
+hybrid scheme combining various schemes with the aim to create a
+scheme with the strengths of several schemes.
+
+==> A serious implementation of parallel twig-pattern processing
+Shnaiderman, Lila, and Oded Shmueli.
+"Multi-core processing of XML twig patterns."
+IEEE Transactions on Knowledge and Data Engineering 27.4 (2015): 1057-1070.
+XML is based on a tree-structured data model. Naturally, the
+most popular XML querying language (XPath) uses patterns of selection
+predicates, on multiple elements related by a tree structure, which
+often may be abstracted by twig patterns. Finding all occurrences of
+such a twig pattern in an XML database is a basic operation for XML
+query processing. We present the parallel path stack algorithm (PPS)
+and the parallel twig stack algorithm (PTS). PPS and PTS are novel and
+efficient algorithms for matching XML query twig patterns in a
+parallel multi-threaded computing platform. PPS and PTS are based on
+the PathStack and TwigStack algorithms [1]. These algorithms employ a
+sophisticated search technique for limiting processing to specific
+subtrees. We conducted extensive experimentation with PPS and PTS. We
+compared PPS and PTS to the standard (sequential) PathStack and
+TwigStack algorithms in terms of run time (to completion). We checked
+their performance for varying numbers of threads. Experimental results
+indicate that using PPS and PTS significantly reduces the running time
+of queries in comparison with the PathStack/TwigStack algorithm (up to
+44 times faster for DBLP queries and up to 22 times faster for XMark
+queries).
+
+==> Seems to be similar to the work.
+Kruliš, Martin, and Jakub Yaghob.
+"Efficient implementation of xpath processor on multi-core cpus." 
+Databases, Texts (2010): 60.
+Current XPath processors use direct approach to query evaluation
+which is quite inefficient in some cases and usually implemented
+serially. This may be a problem in case of processing complex queries
+on large documents. We propose algorithms and XML indexing techniques
+which are more efficient and which can utilize standard parallel tem-
+plates. Our implementation is highly scalable and outperforms common
+XML libraries.
+
+==> Not listed in DBLP. (should see another paper of the same author?)
+Rongxin CHEN, Husheng LIAO, Zongyue WANG
+Parallel XPath Evaluation Based on Node Relation Matrix
+Journal of Computational Information Systems 9: 19 (2013)
+The performance of XPath evaluation significantly affects XML
+applications, while the popularity of multi-core environment provides
+the great opportunity for performance improvement through parallel
+computing. A novel parallel XPath evaluation method named pM2
+(parallel Matrix Match), which is based on node relation matrix, is
+proposed in this paper. It has two main stages includes parallel
+relation matrix construction and parallel query. Node relation matrix
+of XML dataset is constructed according to region codes beforehand,
+while parallel query is realized by using parallelized query
+primitives. The navigate feature of pM2 makes it easy to implement
+complete semantics of XPath. Iterative processes in matrix
+construction and query primitives are optimized in data parallelism
+style. Experiments show pM2 is a practical XPath evaluation method
+with good performance.
+
+====================
+* B: relevant
+====================
+==> A binary-number encoding of start/end position to support efficient updates (B or C)
+Min, Jun-Ki, Jihyun Lee, and Chin-Wan Chung.
+"An efficient encoding and labeling for dynamic XML data."
+International Conference on Database Systems for Advanced Applications. Springer, Berlin, Heidelberg, 2007.
+In order to efficiently determine structural relationships among XML
+elements and to avoid re-labeling for updates, much research about
+labeling schemes has been conducted, recently. However, a harmonic
+support of efficient query processing and updating has not been
+achieved. In this paper, we propose an efficient XML encoding and
+labeling scheme, called EXEL, which is a variant of the region num-
+bering scheme using bit strings. In order to generate the ordinal and
+insert-friendly bit strings in EXEL, a novel binary encoding method is
+devised. Also, we devise a labeling scheme for a newly inserted node
+which incurs no re-labeling of pre-existing labels. These encoding and
+inserting methods are the bases of efficient query processing and the
+complete avoidance of re-labeling for updates. Moreover, EXEL
+supports all structural relationships in XPath and the relationships
+can be checked by SQL statements supported by an RDBMS. Finally, the
+experimental results show that EXEL provides fairly reasonable query
+processing performance while completely avoiding re-labeling for
+updates. Keywords: Dynamic XML, Labeling and Update.
+----------
+
+==> MapReduce-based approach
+Camacho-Rodríguez, Jesús, Dario Colazzo, and Ioana Manolescu.
+"PAXQuery: a massively parallel XQuery processor."
+Proceedings of Workshop on Data analytics in the Cloud. ACM, 2014.
+We present a novel approach for parallelizing the execution of queries
+over XML documents, implemented within our system PAXQuery. We compile
+a rich subset of XQuery into plans expressed in the PArallelization
+ConTracts (PACT) programming model. These plans are then optimized and
+executed in parallel by the Stratosphere system. We demonstrate the
+efficiency and scalability of our approach through experiments on
+hundreds of GB of XML data.
+----------
+
+==> MapReduce-based approach
+Choi, Hyebong, et al.
+"HadoopXML: a suite for parallel processing of massive XML data with multiple twig pattern queries."
+Proceedings of the 21st ACM international conference on Information and knowledge management. ACM, 2012.
+The volume of XML data is tremendous in many areas, but especially
+in data logging and scientific areas. XML data in the areas are
+accumulated over time as new data are continuously collected. It is
+a challenge to process massive XML data with multiple twig pattern
+queries given by multiple users in a timely manner. We showcase
+HadoopXML, a system that simultaneously processes many twig pattern
+queries for a massive volume of XML data with Hadoop. Specifically,
+HadoopXML provides an efficient way to process a single large XML file
+in parallel. It processes multiple twig pattern queries
+simultaneously with a shared input scan. Users do not need to iterate
+M/R jobs for each query. HadoopXML also saves many I/Os by enabling
+twig pattern queries to share their path solutions each other.
+Moreover, HadoopXML provides a sophisticated runtime load balancing
+scheme for fairly assigning multiple twig pattern joins across
+nodes. With synthetic and real world XML dataset, we demonstrate how
+efficiently HadoopXML processes many twig pattern queries in a
+shared and balanced way.
+====================
+* C: weak relevant
+====================
+
+==> Discuss querying on vertically-fragmented data
+Kling, Patrick, M. Tamer Özsu, and Khuzaima Daudjee.
+"Generating efficient execution plans for vertically partitioned XML databases."
+Proceedings of the VLDB Endowment 4.1 (2010): 1-11.
+Experience with relational systems has shown that distribution is an
+effective way of improving the scalability of query evaluation. In
+this paper, we show how distributed query evaluation can be per-
+formed in a vertically partitioned XML database system. We propose a
+novel technique for constructing distributed execution plans that is
+independent of local query evaluation strategies. We then present a
+number of optimizations that allow us to further improve the
+performance of distributed query execution. Finally, we present a
+response time-based cost model that allows us to pick the best
+execution plan for a given query and database instance. Based on an
+implementation of our techniques within a native XML database
+system, we verify that our execution plans take advantage of the
+parallelism in a distributed system and that our cost model is
+effective at identifying the most advantageous plans.
+----------
+
+==> Discusses how to process (X)Query on fragmented XML data
+Figured, Guilherme, Vanessa Braganholo, and Marta Mattoso.
+"Processing queries over distributed XML databases."
+Journal of Information and Data Management 1.3 (2010): 455.
+The increasing volume of data stored as XML documents makes
+fragmentation techniques an alternative to the performance issues in
+query processing. Fragmented databases are feasible only if there is a
+transparent way to query the distributed database. Fragments allow for
+intra-query parallel processing and data reduction. This paper
+presents our methodology for XQuery query processing over distributed
+XML databases. The methodology comprises the steps of query
+decomposition, data localization, and global optimization. This
+methodology can be used in an XML database or in a system that
+publishes homogeneous views of semi-autonomous databases. An
+implementation has been done and experimental results can achieve
+performance improvements of up to 95% when compared to the centralized
+environment.
+----------
+
+==> Discuss implementation of existing indexing schema
+Choi, Hyebong, Kyong-Ha Lee, and Yoon-Joon Lee.
+"Parallel labeling of massive XML data with MapReduce."
+The Journal of Supercomputing 67.2 (2014): 408-437.
+The volume of XML data has become enormous and still grows very
+quickly as many data have been typed in XML by virtue of its
+simplicity and extensibility. While a tree labeling algorithm has a
+crucial role in XML query processing, conventional algorithms are all
+sequential so that they fail to label a large volume of XML data in a
+timely manner. To address this issue, we devise parallel tree labeling
+algorithms for massive XML data. Specifically, we focus on how to
+efficiently label a single large XML file in parallel. We first
+propose parallel versions of two prominent tree labeling schemes
+based on the MapReduce framework. We then present techniques for
+runtime workload balancing and data repartition to solve performance
+issues caused by data skewness and MapReduce’s inherited limitation.
+Through extensive experiments with synthetic and real-world datasets
+on 15 nodes, we show that our parallel labeling algorithms are up to
+17 times faster than conventional algorithms, providing strong
+durability against data skewness.
+----------
+
+==> Better to read Lila's IEEE TKDE paper.
+Shnaiderman, Lila, and Oded Shmueli.
+"A Parallel Twig Join Algorithm for XML Processing using a GPGPU."
+ADMS@ VLDB. 2012.
+With an increasing amount of data and demand for fast query pro-
+cessing, the efficiency of database operations continues to be a
+challenging task. A common approach is to leverage parallel hardware
+platforms. With the introduction of general-purpose GPU (Graphics
+Processing Unit) computing, massively parallel hardware has become
+available within commodity hardware. XML is based on a tree-structured
+data model. Naturally, the most popular XML querying language (XPath)
+uses patterns of selection predicates on multiple elements, related
+by a tree structure. These are often abstracted by twig patterns.
+Finding all occurrences of such a (XML query) twig pattern in an XML
+document is a core operation for XML query processing. We present a
+new algorithm, GPU-Twig, for matching twig patterns in large XML
+documents, using a GPU. GPU-Twig uses the data and task parallelism of
+the GPU to perform memory-intensive tasks whereas the CPU is used to
+perform I/O and resource management. We efficiently exploit both the
+high-bandwidth GPU memory interface and the lower-bandwidth CPU main
+memory. We present the results of an extensive experimentation of the
+GPU-Twig algorithm on large XML documents using the DBLP and XMark
+benchmarks. Experimental results indicate that GPUTwig significantly
+reduces the running time of queries in comparison with other
+algorithms on CPU based platforms and multicore based platforms under
+various settings and scenarios.
+----------
+
+==> Implementing "data-partitioning strategy" with dynamic dispatching.
+Huang, Xiaocheng, et al.
+"A Dynamic Load-balancing Scheme for XPath Queries Parallelization in Shared Memory Multi-core Systems."
+JCP 9.6 (2014): 1436-1445.
+Due to the rapid popularity of multi-core processors systems, the
+parallelization of XPath queries in shared memory multi-core systems
+has been studied gradually. Existing work developed some
+parallelization methods based on cost estimation and static mapping,
+which could be seen as a logical optimization of parallel query plan.
+However, static mapping may result in load imbalance that hurts the
+overall performance, especially when nodes in XML are not evenly
+distributed. In this paper, we solve the problem from another view
+using parallelizing techniques. We use dynamic mapping to improve
+XPath query performance, which can achieve better load balance no
+matter what XML document is queried. Compared with static mapping,
+dynamic mapping is a more general method. We first design a parallel
+XPath query algebra called PXQA (ParallelXPath Query Algebra) to
+explain the parallel query plan. And second, using PXQA we extract the
+task-dependence graph to define which operations can be executed in
+parallel and help analyze the overheads of dynamic mapping. At last,
+we discuss how to do the data partition based on dynamic mapping in
+accordance with the runtime situations adaptively. Experimental
+results show that the adaptive runtime XPath queries parallelization
+achieves a good performance in shared memory multi-core systems.
+----------
+
+==> Dynamic dispatching or Task Stealing
+Lu, Wei, and Dennis Gannon.
+"Paraxml: A parallel xml processing model on the multicore cpus."
+Techincal Report (2008).
+XML has emerged as the de facto standard interoperable data format for
+the web service, the database and document processing systems. The
+processing of the XML documents, however, has been recognized as the
+performance bottleneck in those systems; as a result the demand for
+high performance XML processing grows rapidly. On the hardware
+front, the multicore processor is increasingly becoming available on
+desktop-computing machines with quad-core shipping now and 16 core
+system within two or three years. Unfortunately almost all of the
+present XML processing algorithms are still using serial processing
+model, thus being unable to take advantage of the multicore re-
+source. We believe a parallel XML processing model should be a
+cost-effective solution for the XML performance issue in the multicore
+era. In this paper, we present a general- purpose parallel XML
+processing model, ParaXML, designed for multicore CPUs. General
+speaking, ParaXML treats the XML document as the general tree
+structure and the XML processing task as the extension from the
+parallel tree traversal algorithm for the classic discrete optmization
+problems. The XML processing, however, has quite distinct
+characteristics from the classic discrete optmization problems, thus
+demanding the special treatments and the finegrained tuning
+technologies. ParaXML internally adopts a fine-grained work-stealing
+scheme to dynamically control the load balance among the
+parallel-running threads, and a novel approach is also introduced to
+trace the stealing actions and the running results to facilitate the
+reducing of those parallel-running results. Besides, ParaXML provides
+the tuning options, particularly for the large XML documents, to
+control the trade-off between the parallelism gain and
+task-partitioning overhead. To show the feasibility and effectiveness
+of the ParaXML model, we demonstrate our parallel implementations of
+three fundamental XML processing tasks based on the ParaXML:
+traversal, serializing and parsing. The empirical study in this paper
+shows that those parallel implementations substantially improved the
+performance and scale well on a multicore machine.
+----------
+
+==> Consider indexing of strongly dynamic data
+    (where a subtree could move to under another node)
+    weakly relevant but should be read
+Finis, Jan, et al.
+"Indexing highly dynamic hierarchical data."
+Proceedings of the VLDB Endowment 8.10 (2015): 986-997.
+Maintaining and querying hierarchical data in a relational database
+system is an important task in many business applications. This task
+is especially challenging when considering dynamic use cases with a
+high rate of complex, possibly skewed structural updates. Labeling
+schemes are widely considered the indexing technique of choice for
+hierarchical data, and many different schemes have been proposed.
+However, they cannot handle dynamic use cases well due to various
+problems which we investigate in this paper. We therefore propose our
+dynamic Order Indexes, which offer competitive query performance,
+unprecedented update efficiency, and robustness for highly dynamic
+workloads.
+----------
+
+==> see the two journal version (Fragmentation of XML Documents, in JIDM)
+    fragmentation itself is not the main topic of the new paper.
+Ma, Hui, and Klaus-Dieter Schewe.
+"Heuristic Horizontal XML Fragmentation."
+CAiSE Short Paper Proceedings. 2005.
+A challenging question is how XML can be used to support distributed
+databases.  This leads to the problem of how to obtain a suitable,
+cost-efficient distribution design for  XML documents. In this paper
+we sketch a heuristic approach to minimise query costs for the  case
+of horizontal fragmentation. The approach is based on a cost model
+that takes the  complex structure of queries on XML documents into
+account. We show that the  minimisation of transportation costs is
+decisive, and that this can be achieved locally by  either accepting
+or rejecting a horizontal  fragmentation with a simple predicate that
+arises from one of the most frequent queries
+----------
+
+==> A simple parallel implementaiton of structural join
+Liu, Le, et al.
+"Parallel structural join algorithm on shared-memory multi-core systems."
+Web-Age Information Management, 2008. WAIM'08. The Ninth International Conference on. IEEE, 2008.
+The leap from single-core to multi-core has permanently altered the
+course of computing, enabling increased productivity, powerful
+energy-efficient performance, and leading-edge advanced computing
+experiences. Although traditional single-thread XPath query evaluation
+algorithms can run properly on multi-core CPUs, they cannot take full
+use of the computing resources of multi-core CPUs. To take advantage
+of multi-core, efficient parallel algorithms are fairly desirable to
+evaluate XPath in parallel. In this paper, we present, PSJ, an
+efficient Parallel Structural Join algorithm for evaluating XPath. PSJ
+can skip many ancestor or descendant elements by evenly and
+efficiently partitioning the input element lists into some buckets.
+PSJ obtains high performance by evaluating XPath step in each bucket
+in parallel. It is very efficient to partition the input lists and is
+effective to evaluate XPath step in buckets, and therefore PSJ
+achieves a high speedup ratio. We have implemented our proposed
+algorithm and the experimental results show that PSJ algorithm
+achieves high performance and outperforms the existing
+state-of-the-art methods significantly.
+----------
+
+==> Basically a bad paper, but could be useful for the query sets of XMark.
+Huang, Yin-Fu, and Yu-Hsien Cho.
+"Accelerating XML Query Processing on Views."
+Informatica 41.3 (2017): 305-315.
+With the widespread use of the eXtensible Markup Language (XML), more
+and more applications store  and query XML documents in XML database
+systems. Thus, how to efficiently process a query and find  the
+specified patterns conforming the query from XML documents is a
+crucial issue. In this paper, some  processing methods are employed on
+XML documents to improve document retrieval. First, a  materialized
+view is built from an original document for each query. Then, on each
+materialized view,  auxiliary structures such as T-Bitmap and indexes
+are also built to further accelerate query processing.  Finally, four
+experiments are conducted to show the superiority of the proposed
+approach.
+----------
+
+==> considering another indexing method for key-word search (not XPath)
+Zhou, Junfeng, et al.
+"Top-Down XML Keyword Query Processing."
+IEEE Transactions on Knowledge and Data Engineering 28.5 (2016): 1340-1353.
+Efficiently answering XML keyword queries has attracted much research
+effort in the last decade. The key factors resulting in the
+inefficiency of existing methods are the common-ancestor-repetition
+(CAR) and visiting-useless-nodes (VUN) problems. To address the CAR
+problem, we propose a generic top-down processing strategy to answer a
+given keyword query w.r.t. LCA/SLCA/ELCA semantics. By “top-down”, we
+mean that we visit all common ancestor (CA) nodes in a depth-first,
+left-to-right order; by “generic”, we mean that our method is
+independent of the query semantics. To address the VUN problem, we
+propose to use child nodes, rather than descendant nodes to test the
+satisfiability of a node v w.r.t. the given semantics. We propose two
+algorithms that are based on either traditional inverted lists or our
+newly proposed LLists to improve the overall performance. We further
+propose several algorithms that are based on hash search to simplify
+the operation of finding CA nodes from all involved LLists. The
+experimental results verify the benefits of our methods according to
+various evaluation metrics.
+----------
+
+==> Discuss maintenance of indexes of dynamic XML documents
+Schmidt, Karsten, and Theo Härder.
+"On the use of query-driven XML auto-indexing."
+Data Engineering Workshops (ICDEW), 2010 IEEE 26th International Conference on. IEEE, 2010.
+Autonomous index management in native XML DBMSs has to address XML's
+flexibility and storage mapping features, which provide a rich set of
+indexing options. Change of workload characteristics, indexes selected
+by the query optimizer's "magic", subtle differences in the
+expressiveness of indexes, and tailor-made index properties ask-in
+addition to (long-range) manual index selection-for rapid autonomic
+reactions and self-tuning options by the DBMS. Hence, when managing an
+existing set of indexes (i.e., a configuration), its cost trade-off
+has to be steadily controlled by observing query runtimes, index
+creation and maintenance, and space constraints
+
+----------
+==> A series of Bordawekar's work: relevant to ADBIS submission, but not to the new paper.
+Bordawekar, Rajesh, et al.
+"To Parallelize or Not to Parallelize: XPath Queries on Multi-core Systems. "
+IBM Research Report, 2009.
+With wide availability of commodity multi-core systems, it is
+imperative to understand what, if any, changes are needed to existing
+software systems to harness the newly available computational power.
+In this context, this work explores acceleration of XML processing
+systems. Specifically, we investigate parallelization of individual
+XPath queries over shared-address space multi-core processors. Unlike
+past approaches that have considered a distributed setting or ad hoc
+parallel solutions, ours is the first methodical end-to-end proposal.
+Our solution first identifies if a particular XPath query should be
+parallelized and then determines the optimal way of parallelizing that
+query. This decision is based on a cost-base approach that relies both
+on the query specifics and data statistics. At each stage of the
+parallelization process, we evaluate three alternative approaches,
+namely, data-, query-, and hybrid-partitioning. For a given XPath
+query, our parallel cost model uses selectivity and cardinality
+estimates to compute costs for these different alternatives. The costs
+are then fed to parallel query optimizer that generates an optimal
+parallel execution plan. We have implemented a prototype end-to-end
+Parallel XPath processing system that integrates the XPath parser,
+cost estimator, query optimizer, and a parallel runtime library . We
+use this system to evaluate efficacy of our proposal by an extensive
+set of experiments using well-known XML documents. These results
+conclusively validate our parallel cost model and optimization
+framework, and demonstrate that it is possible to accelerate XPath
+processing using commodity multicore systems.
+
+----------
+==> A series of Bordawekar's work: relevant to ADBIS submission, but not to the new paper.
+Bordawekar, Rajesh, et al.
+"Statistics-based parallelization of XPath queries in shared memory systems."
+Proceedings of the 13th International Conference on Extending Database Technology. ACM, 2010.
+The wide availability of commodity multi-core systems presents an
+opportunity to address the latency issues that have plaqued XML query
+processing. However, simply executing multiple XML queries over
+multiple cores merely addresses the throughput issue: intra-query
+parallelization is needed to exploit multiple processing cores for
+better latency. Toward this effort, this paper investigates the par-
+allelization of individual XPath queries over shared-address space
+multi-core processors. Much previous work on parallelizing XPath in
+a distributed setting failed to exploit the shared memory parallelism
+of multi-core systems. We propose a novel, end-to-end parallelization
+framework that determines the optimal way of parallelizing an XML
+query. This decision is based on a statistics-based approach that
+relies both on the query specifics and the data statistics. At each
+stage of the parallelization process, we evaluate three alternative
+approaches, namely, data-, query-, and hybrid partitioning. For a
+given XPath query, our parallelization algorithm uses XML statistics
+to estimate the relative efficiencies of these different
+alternatives and find an optimal parallel XPath processing plan. Our
+experiments using well-known XML documents validate our parallel cost
+model and optimization framework, and demonstrate that it is possible
+to accelerate XPath processing using commodity multi-core systems.
+
+
+====================
+* D: out of scope (stream processing)
+====================
+
+Ogden, Peter, David Thomas, and Peter Pietzuch.
+"Scalable XML query processing using parallel pushdown transducers."
+Proceedings of the VLDB Endowment 6.14 (2013): 1738-1749.
+In online social networking, network monitoring and financial
+applications, there is a need to query high rate streams of XML data,
+but methods for executing individual XPath queries on streaming XML
+data have not kept pace with multicore CPUs. For data-parallel
+processing, a single XML stream is typically split into well-formed
+fragments, which are then processed independently. Such an approach,
+however, introduces a sequential bottleneck and suffers from low
+cache locality, limiting its scalability across CPU cores. We describe
+a data-parallel approach for the processing of streaming XPath queries
+based on pushdown transducers. Our approach permits XML data to be
+split into arbitrarilysized chunks, with each chunk processed by a
+parallel automaton instance. Since chunks may be malformed, our
+automata consider all possible starting states for XML elements and
+build mappings from starting to finishing states. These mappings can
+be constructed independently for each chunk by different CPU cores.
+For streaming queries from the XPathMark benchmark, we show a
+processing throughput of 2.5 GB/s, with near linear scaling up to 64
+CPU cores.
+----------
+
+Kim, Soo-Hyung, Kyong-Ha Lee, and Yoon-Joon Lee.
+"Multi-query processing of XML data streams on multicore."
+The Journal of Supercomputing 73.6 (2017): 2339-2368.
+The multicore architecture has been the norm for all computing systems
+in recent years as it provides the CPU-level support of parallelism.
+However, existing algorithms for processing XML streams do not fully
+take advantage of the facility since they have not been devised to run
+in parallel. In this article, we propose several methods to
+parallelize the finite state automata (FSA)-based XML stream
+processing technique efficiently. We transform a large collection of
+XPath expressions into multiple FSA-based query indexes and then
+process XML streams in parallel by virtue of the index-level
+parallelism. Each core works only with its own query index so that no
+synchronization issue occurs while filtering XML streams with multiple
+path patterns given by users. We also present an in-memory MapReduce
+model that enables to process a large collection of twig pattern joins
+over XML streams simultaneously. Twig pattern joins in our approach
+are performed by multiple H/W threads in a shared and balanced way.
+Extensive experiments show that our algorithm outperforms conventional
+algorithms with an 8-core CPU by up to ten times for processing 10
+million XPath expressions over XML streams.
+----------
+
+Onizuka, Makoto.
+"Processing XPath queries with forward and downward axes over XML streams."
+Proceedings of the 13th International Conference on Extending Database Technology. ACM, 2010.
+We propose an XPath processing algorithm that efficiently evaluates
+XPath queries in XP{↓,→,∗,[]} over XML streams. An XPath query is
+expressed with axes, which are binary relations between nodes in XML
+streams: ’↓’ identifies the child/descendant axes and ’→’ indicates
+the following/following-sibling axes. The proposed algorithm
+evaluates XPath queries within one XML parsing pass and outputs the
+fragments found in XML streams as the query results. The difficulty of
+X P {↓,→,∗,[]} evaluation lies in establishing dynamic scope control
+for the following/following-sibling axes. The algorithm uses
+double-layered non-deterministic finite automata (NFA) to resolve this
+issue. First layer NFA is compiled from XPath queries and is able to
+evaluate sub-queries in X P {↓,→,∗} . Second layer NFA handles
+predicate parts. It is dynamically maintained during XML parsing: a
+state is constructed from a pair of the corresponding state in the
+first layer automaton and the currently parsed node in the XML stream.
+Layered NFA achieves O(|D||Q|) time complexity by introducing a state
+sharing technique, which avoids the exponential growth in the state
+size of Layered NFA by eliminating redundant transitions. We validate
+the efficiency of the algorithm through empirical experiments and show
+that Layered NFA is up to four times faster, and twice as fast on
+average, than existing algorithms.
+----------
+
+====================
+* D: out of scope (bad papers)
+====================
+
+==> Just 6 page, similar to querying on fragmented data
+Kurita, Hiroto, et al.
+"Efficient query processing for large XML data in distributed environments."
+Advanced Information Networking and Applications, 2007. AINA'07. 21st International Conference on. IEEE, 2007.
+We propose an efficient distributed query processing method for large
+XML data by partitioning and distributing XML data to multiple
+computation nodes. There are several steps involved in this method;
+however, we focused particularly on XML data partitioning and dynamic
+relocation of partitioned XML data in our research. Since the effi-
+ciency of query processing depends on both XML data size and its
+structure, these factors should be considered when XML data is
+partitioned. Each partitioned XML data is distributed to computation
+nodes so that the CPU load can be balanced. In addition, it is
+important to take account of the query workload among each of the
+computation nodes because it is closely related to the query
+processing cost in distributed environments. In case of load skew
+among computation nodes, partitioned XML data should be relocated to
+balance the CPU load. Thus, we implemented an algorithm for relocating
+partitioned XML data based on the CPU load of query processing. From
+our experiments, we found that there is a performance advantage in our
+approach for executing distributed query processing of large XML
+data.
+----------
+
+==> Just 4 pages, with only 5 references.
+Tang, Hong Jie.
+"Study of XML Indexing Structure Based on XISS."
+Applied Mechanics and Materials. Vol. 851. Trans Tech Publications, 2016.
+The study is based on XISS(XML Indexing and Storage System) of Dietz’s
+Numbering Schema to determine the ancestor-descendant relationship.
+According to the results of research, this paper proposes an improved
+method of node encoding, realizes its indexing structure, and
+discusses its query path. Finally, the paper analyzes the property of
+this improved method.
+----------
+
+==> Not well written, not by true researcher.
+Alai, Nikita R., and A. S. Vaidya.
+"XML Keyword Query Processing on Disk based Index using Top Down Approach."
+IJETT 1.2 (2017).
+From the past many years there has been much scope in efficiently
+replying to the Extended Markup Language (XML) keyword queries.
+Limitations of the existing system can be listed as the
+common-ancestor-repetition (CAR) and visitinguseless-nodes (VUN)
+issues. In order to solve the CAR problem, we hereby introduce a
+generic top-down strategy to answer a given keyword query. The meaning
+of this top-down method is that we will be visiting all the common
+ancestor (CA) nodes in approaches like depth-wise, left-to-right and
+by introducing generic approach it can be concluded that our
+implementation is not related to query semantics. So as to solve the
+issue of VUN, we implement to make use of child nodes, instead of
+descendant. We would be showing that for the purpose of faster
+document retrieval, the usage of tree is better than usage of
+array.Algorithms like LList based, Hash search based are performed for
+improved performance. We are using disk based index approach to reduce
+memory load.The advantage of the tree data structure over traditional
+array data structure is the searching process is more efficient and
+time saving.
+----------
+
+==> just 4 pages, too superficial
+Pyo, Chang Kyun, Seok Jun Yun, and Gab Sang Ryu.
+"XML Indexing Techniques for Handling Large Amounts of Data."
+Indian Journal of Science and Technology 9.40 (2016).
+Objectives: This paper presents an effective XML indexing technology
+for input/output process and retrieval of large amounts of data to
+exchange structured documents in the Internet space.
+Methods/Statistical Analysis: In these days, many data are produce in
+various forms by Web media, the Internet of Things, and social media.
+However, the data are too complicated in type and large to effectively
+analyze, search, and rapid input/output processing with the
+traditional Relational DB system. In this paper, we have looked to
+measure the document searching speed, document-writing speed in order
+to assess the performance of the XML Information Retrieval and
+management system using an index model. Many cases contain hundreds of
+millions of different elements of an XML document. In Keyword-based
+approach, it is necessary for all the elements in the document tagging
+to a quick search because it does not contain the structural
+information for the XML document to a query. Findings: The XML is a
+widely used mark-up language in Internet, and a large amount of data
+is produce in XML format. In this paper, we propose two search methods
+for efficient search in a large amount of data with the XML indexing
+technology. First, existing studies show the true performance to lean
+to one side in the keyword search of large XML documents have a
+problem. Both informal and formal data processing, the Content Model
+was proposes to solve. Non-structured data to a right processing and
+utilization as NoSQL View in a variety of devices for rapid processing
+of the user interface was couple to Data. N-Screen or the like can be
+used without Viewer from various mobile devices, as well as the task
+of processing that is used in a large variety of services can be
+advantageous. Improvements: This work can also extended with other
+searching algorithms for handling large amount of data
+----------
+
+==> A new paper but seems to be not really reviewed.
+    Just designing automata of XPath...
+Šestáková, Eliška, and Jan Janoušek.
+"Automata Approach to XML Data Indexing."
+Information 9.1 (2018): 12.
+The internal structure of XML documents can be viewed as a tree. Trees
+are among the fundamental and well-studied data structures in computer
+science. They express a hierarchical structure and are widely used in
+many applications. This paper focuses on the problem of processing
+tree data structures; particularly, it studies the XML index problem.
+Although there exist many state-of-the-art methods, the XML index
+problem still belongs to the active research areas. However, existing
+methods usually lack clear references to a systematic approach to the
+standard theory of formal languages and automata. Therefore, we
+present some new methods solving the XML index problem using the
+automata theory. These methods are simple and allow one to efficiently
+process a small subset of XPath. Thus, having an XML data structure,
+our methods can be used efficiently as auxiliary data structures that
+enable answering a particular set of queries, e.g., XPath queries
+using any combination of the child and descendant-or-self axes. Given
+an XML tree model with n nodes, the searching phase uses the index,
+reads an input query of size m, finds the answer in time O(m) and does
+not depend on the size of the original XML document.
+----------
+
+==> Just an idea, no evalutaion
+Koong, Kok-Leong, et al.
+"Prefix-based Labeling Annotation for Effective XML Fragmentation."
+arXiv preprint arXiv:1505.03246 (2015).
+XML is gradually employed as a standard of data exchange in web
+environment since its inception in the 90s until present. It serves as
+a data exchange between systems and other applications. Meanwhile the
+data volume has grown substantially in the web and thus effective
+methods of storing and retrieving these data is essential. One
+recommended way is physically or virtually fragments the large chunk
+of data and distributes the fragments into different nodes.
+Fragmentation design of XML document contains of two parts:
+fragmentation operation and fragmentation method. The three
+fragmentation operations are Horizontal, Vertical and Hybrid. It
+determines how the XML should be fragmented. This paper aims to give
+an overview on the fragmentation design consideration and
+subsequently, propose a fragmentation technique using number
+addressing.
+----------
+
+==> Just an idea, no evalutaion
+Schroeder, Rebeca, and Carmem S. Hara.
+"Towards Full-fledged XML Fragmentation for Transactional Distributed Databases."
+Not found ?? (2014).
+In data distribution design, fragmentation has been widely applied to
+provide scalable and available database services. Recently, the advent
+of cloud computing and the dissemination of large-scale distributed
+systems have shown that the traditional solution for data distribution
+is not suitable. In this paper we tackle the fragmentation problem for
+transactional databases which are highly distributed. Our specific
+goal is to develop a fragmentation approach that avoids distributed
+transactions and, consequently, improve the system throughput and
+maximize storage. To this purpose, we analyze a transactional workload
+in order to pack the most correlated data in the same fragment or in a
+set of few fragments. We are particularly focused on the XML model
+since it is a flexible model to support several applications, includ-
+ing systems in the cloud. This paper presents the current state of our
+work, preliminary results of our contribution and future directions we
+intend to pursue.
+----------
+
+==> No technical discussion of the "improved indexing"
+Tung, Hoang Do Thanh, and Dinh Duc Luong.
+"An Improved Indexing Method for Xpath Queries."
+Indian Journal of Science and Technology 9.31 (2016).
+Today, the XML is used as data storage for complex data models like
+bioinformatics information. A bioinformatics system deals with large
+data sets and complex queries. Thus, it is necessary to have accessing
+methods for XML data. XPath is a method to quickly locate any
+information that we need in an XML (tree) data starting from the
+context node in a root node to subtrees. In this paper, we propose a
+system model to store XML data more efficiently and also an improved
+indexing method to support Xpath queries. In the system model, we
+integrated big data model with relational data model in order to get
+benefit from both of them. The new indexing method is an improvement
+of R-tree that helps Xpath queries run more efficiently in some axes.
+Our experiments showed that the proposed method gains better results
+for node queries compared to the R-tree in transformed XML data. Our
+method is intended to apply to phylogenetic queries of Treefam
+databases.
+
+
+====================
+* E: omitted (patent, book chapter)
+====================
+
+Baby, Thomas, Zhen Hua Liu, and Wesley Lin.
+"Indexing mechanism for efficient node-aware full-text search over XML."
+U.S. Patent No. 8,219,563. 10 Jul. 2012.
+Techniques are provided for searching within a collection of XML
+documents. A relational table in an XML index stores an entry for each
+node of a set of nodes in the collection. Each entry of the relational
+table stores an order key and a path identifier along with the
+atomized value of the node. An index on the atomized value provides a
+mechanism to perform a node-aware full-text search. Instead of storing
+the atomized value in the table, a virtual column may be created to
+represent, for each node, the atomized value of the node. Alternately,
+each entry of the relational table stores an order key and a path
+identifier along with, for simple nodes, the atomized value, and for
+complex nodes, a null value. For a complex node with a descendant text
+node, a separate entry is stored for the descendant text node in the
+relational table.
+----------
+
+Hammerschmidt, Beda Christoph, Zhen Hua Liu, and Thomas Baby.
+"XPath-based creation of relational indexes and constraints over XML data stored in relational tables."
+U.S. Patent No. 9,424,365. 23 Aug. 2016.
+Techniques and approaches are provided for creating indexes and column
+constraints on structured XML data that is stored in a relational
+database. Data Definition Language (DDL) Create Index and Create
+Constraint commands have extended syntax that allows the specification
+of a path-based expression instead of requiring a column and table
+name. A mapping created by the system when an XML Schema is registered
+stores the correspondence of XML data elements to
+automatically-created database tables and columns that are given names
+only useful for the internal system. When a user provides a path-based
+expression in a DDL when creating an index or constraint, the
+path-based expression is translated to the underlying database
+constructs using the mapping. Issues are addressed for handling
+path-based expressions that evaluate to more than one element.
+Additional index optimization is described using data type information
+available in the XML schema to select the optimal index type.
+----------
+
+Idicula, Sam, Sivasankaran Chandrasekar, and Nipun Agarwal.
+"Efficient streaming evaluation of XPaths on binary-encoded XML schema-based documents."
+U.S. Patent No. 9,842,090. 12 Dec. 2017.
+A database system may utilize XML schema information to increase the
+efficiency of an XPath streaming evaluation. The database system may
+access XML schema or translation information during the evaluation of
+an element, attribute, or value in an XML data source. Based on the
+XML schema or translation information, the database system may
+determine matches to an XPath expression without decoding any
+binary-encoded data in the XML data source. Also, based on the XML
+schema information, the database may selectively skip or evaluate
+portions of the XML data source depending on whether those portions
+are defined in the XML schema so as to possibly contain a match to one
+or more unmatched steps in the XPath expression. XML schema
+information may be compiled into a compiled representation of the
+XPath expression for additional efficiencies.
+----------
+
+Baby, Thomas, Zhen Hua Liu, and Wesley Lin.
+"Indexing mechanism for efficient node-aware full-text search over XML."
+U.S. Patent No. 8,219,563. 10 Jul. 2012.
+Techniques are provided for searching within a collection of XML
+documents. A relational table in an XML index stores an entry for each
+node of a set of nodes in the collection. Each entry of the relational
+table stores an order key and a path identifier along with the
+atomized value of the node. An index on the atomized value provides a
+mechanism to perform a node-aware full-text search. Instead of storing
+the atomized value in the table, a virtual column may be created to
+represent, for each node, the atomized value of the node. Alternately,
+each entry of the relational table stores an order key and a path
+identifier along with, for simple nodes, the atomized value, and for
+complex nodes, a null value. For a complex node with a descendant text
+node, a separate entry is stored for the descendant text node in the
+relational table.
+----------
+
+==> This is a book chapter, not a paper.
+Strate, Jason, and Grant Fritchey.
+"XML Indexes."
+Expert Performance Indexing in SQL Server. Apress, Berkeley, CA, 2015.101-114.
+The past couple chapters focused on indexing what is commonly
+referred to as structured data, where there is a common schema and
+organization around the data and its storage. In this chapter, the
+indexing focus shifts to unstructured and semistructured data. With
+both structured and unstructured data, the task of indexing is to gain
+optimal efficiency for retrieving and manipulating data, but the data
+types that represent these types of data have differences in how they
+are stored in the database. These differences dictate how and why
+indexing is implemented as well as how the indexes are used by the
+query optimizer. SQL Server has a specialized data type for storing
+the most common type of unstructured and semistructured data, XML.
+This chapter explores the types of indexes offered by SQL Server for
+dealing with XML data. The chapter will also show the impact of those
+indexes on the types of queries that can be written against XML data
+using XQuery and the impact on the choices made by the optimizer.
+
+====================
+* -: Check other papers again
+====================
+
+==> There are so many citation to this paper. check them first.
+Sujoe Bose, and Leonidas Fegaras.
+Li, Quanzhong, and Bongki Moon.
+"Indexing and querying XML data for regular path expressions."
+VLDB. Vol. 1. 2001.
+Data fragmentation offers various attractive alternatives to
+organizing and managing data, and presents interesting char-
+acteristics that may be exploited for efficient processing. XML, being
+inherently hierarchical and semi-structured, is an ideal candidate to
+reap the benefits offered by data fragmentation. However,
+fragmenting XML data and handling queries on fragmented XML are
+fraught with challenges: seamless XML fragmentation and processing
+models are required for deft handling of query execution on
+inter-connected and inter-related XML fragments, without the need of
+reconstructing the entire document in memory. Recent research has
+studied some of the challenges and has provided some insight on the
+data representation, and on the rather intuitive approaches for
+processing fragmented XML. In this paper, we provide a novel pipelined
+framework, called XFrag, for processing XQueries on XML fragments to
+achieve processing and memory efficiency. Moreover, we show that
+this model is suitable for low-bandwidth mobile environments by
+accounting for their intrinsic idiosyncrasies, without sacrificing
+accuracy and efficiency. We provide experimental results showing the
+memory savings achieved by our framework using the XMark benchmark.
+
+
+==> Three are so many citation to this paper. check them first.
+Shanmugasundaram, Jayavel, et al.
+"A general technique for querying XML documents using a relational database system."
+ACM SIGMOD Record 30.3 (2001): 20-26.
+There has been recent interest in using relational database systems to
+store and query XML documents. Each of the techniques proposed in this
+context works by (a) creating tables for the purpose of storing XML
+documents (also called relational schema generation), (b) storing XML
+documents by shredding them into rows in the created tables, and (c)
+converting queries over XML documents into SQL queries over the
+created tables. Since relational schema generation is a physical
+database design issue dependent on factors such as the nature of the
+data, the query workload and availability of schemas there have been
+many techniques proposed for this purpose. Currently, each relational
+schema generation technique requires its own query processor to
+efficientlyconvert queries over XML documents into SQL queries over
+the created tables. In this paper, we present an efficient technique
+whereby the same query-processor can be used for all such relational
+schema generation techniques. This greatly simplifies the task of
+relational schema generation by eliminating the need to write a
+special-purpose query processor for each new solution to the problem.
+In addition, our proposed technique enables users to query seamlessly
+across relational data and XML documents. This provides users with
+unified access to both relational and XML data without them having to
+deal with separate databases.
+
+==> Three are so many citation to this paper. check them first.
+Pal, Shankar, et al.
+"Indexing XML data stored in a relational database."
+Proceedings of the Thirtieth international conference on Very large data bases-Volume 30. VLDB Endowment, 2004.
+As XML usage grows for both data-centric and document-centric
+applications, introducing native support for XML data in relational
+databases brings significant benefits. It provides a more mature
+platform for the XML data model and serves as the basis for
+interoperability between relational and XML data. Whereas query
+processing on XML data shredded into one or more relational tables is
+well understood, it provides limited support for the XML data model.
+XML data can be persisted as a byte sequence (BLOB) in columns of
+tables to support the XML model more faithfully. This introduces new
+challenges for query processing such as the ability to index the XML
+blob for good query performance. This paper reports novel techniques
+for indexing XML data in the upcoming version of Microsoft® SQL
+ServerTM, and how it ties into the relational framework for query
+processing.
