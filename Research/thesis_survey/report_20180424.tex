@@ -197,6 +197,71 @@ different paths and expanded about 70 million textual nodes.
 Approximately 60,000 queries were created by a random generator of
 paths using the TEI DTD schema as input. 
 
+\section{Node Indexing in XML Query Optimization: A Review}
+
+\subsection{Background}
+
+Structural indexes are classified into three main  groups; Path indexing, Node
+indexing and Sequence- based indexing. Nevertheless, the focus of this paper is
+on node indexing and is a review of major four types of node indexing:
+subtree labeling, prefix-based labeling, multiplicative labeling and hybrid
+labeling. The aims of this paper is to review on some of the latest techniques
+for each node indexing group.
+
+
+\subsection{Technical claims}
+
+Each indexing techniques has its advantages and disadvantages. So choosing a
+correct indexing is critical. This paper discusses and points out how to
+correctly choose an indexing technique. Most important, this review explores and
+identifies the trends which can be useful for new researcher.
+
+
+\subsection{Discussions}
+
+This paper is a review of five indexing techniques. It demonstrates the
+techniques with concrete examples for each of them. It summarize them in Table
+2: Summarization on advantages and disadvantages of node indexing (Page 8),
+which I consider  is very important and useful in this paper.
+
+
+\subsection{Conclusion}
+
+This paper does not propose any new idea of indexing but introduces and compares
+five indexing techniques. Although it is a good paper for learning the indexing
+techniques and would also be useful for my own story, it is possibly not the one
+that I will choose to compare with.
+
+\section{Multi-Core Processing of XML Twig Patterns}
+
+This paper is about parallel twig matching algorithms. Two exisiting twig
+algorithms: Path Stack (PS) and Twig Stack (TS) are extened to parallel version,
+called PPS and the PTS proposed for matching XML query twig patterns in a
+parallel multi-threaded computing platform.
+
+This paper give defenitions of twig pattern and path pattern.  A twig pattern is
+deﬁned as a rooted, ordered, labelled tree whose nodes’ labels are either
+element tags or string values, and edges are either parent-child edges or
+ancestor-descendant edges. A Path pattern is a special case of Twig pattern in
+which each node has at most one child.
+
+Twig patern can be considered as a subset of XPath.
+
+We present the parallel path stack algorithm (PPS) and the parallel twig stack
+algorithm (PTS). PPS and PTS are novel and efﬁcient algorithms for matching XML
+query twig patterns in a parallel multi-threaded computing platform. PPS and PTS
+are based on the PathStack and TwigStack algorithms. 
+
+These algorithms employ a sophisticated search technique for limiting processing
+to speciﬁc subtrees. 
+
+Experimental results indicate that using PPS and PTS signiﬁcantly reduces the
+running time of queries in comparison with the PathStack/TwigStack algorithm (up
+to 44 times faster for DBLP queries and up to 22 times faster for XMark
+queries).
+
+
+
 
 
 
