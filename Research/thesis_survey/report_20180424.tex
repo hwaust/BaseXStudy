@@ -1,269 +1,310 @@
 \documentclass{paper}
+
 \begin{document}
-\section{A Scalable XML Indexing Method Using MapReduce}
-
-\subsection{Background}
-
-Shifting theories, methods etc from stand-along computer to cloud 
-parallel computing is very difficult. 
-
-\subsection{Technical Problem}
-
-How to make the authors' previous study CIS-X (A Compressed Index
-Scheme for Efficient Query Evaluation of XML Documents) designed for a
-single computer work in parallel using multiple computers.
- 
-\subsection{Technical claim}
-
-They redesign an XML indexing method, called CIS-X to use MapReduce
-implemented in Hadoop to handle large XML documents through cloud
-parallel computing.  
-
-\subsection{Discussions}
-
-To distinguish the original CIS-X and the target parallel version
-of CIS-X, I denote them as CIS-X and CIS-XP respectively.
-
-The proposed cloud-based CIS-XP is a scalable design and is able to
-build indexes and process queries on large XML files through parallel
-processing. 
-
-The approach has two phases: index creating phase and query evaluating
-phase, which is the same as the index-based representation of partial
-tree.  In the first phase, one difficulty is that the original keeps
-index in memory, which encounters the out of memory problem while
-dealing with a large XML file because of the limits of memory and
-address space. Meanwhile, when an XML file is large, it is necessary
-to be split into several parts and input into MapReduce one at a time.
-They used SAX to parse an input XML document for minimizing memory
-required.
-
-They designed Nid for nodes in pre-order traversal. A node is
-represented by a 4-tuple  \verb|(Type, Tag, Dewey, Nid-[content])|, where
-Type is the type of then node, including node for element, value for
-content. Tag is the tag name of the node. Dewey is a Dewey label
-which is used to identify the position of the  node in the summarized
-index. Each node of XML is labeled by a Nid, as mentioned above.  If
-the node is a text node, the \verb|[content]| records the value. 
-
-In the query evaluation phase, the indexes can be used to accelerate 
-child and descendant axes.
-
-
-\subsection{Experiments} 
-
-The experiments on a Linux cluster with AMD Opteron Processor 6128 CPU
-2 GHz, 3 physical machines with 32G RAM, each of which has 2 virtual
-machines with 4G RAM. There are 6 virtual machines, one for Name Node,
-one for Secondary Name Node, and four for Data Nodes (worker nodes).
-The test dataset is 1.2G DBLP with 29,242,336 elements, 7,325,278
-attributes, and 26,619,477 texts.
-
-The experimental results show that there is a linear relationship
-between the file size and the execution time for index construction.
-The query processing is also very efficient and is mainly determined
-by the number of target nodes and the output file size for a query.
-
-
-
-\section{Efficient Implementation of XPath Processor on Multi-Core CPUs}
-
-\subsection{Background}
-
-Multiple processor cores are integrated on a single chip, making
-parallel architectures available to common users. This trend requires
-programmers to focus on problem parallelization instead of classic
-linear optimization. Common tools for querying XML documents do not
-exploit computational power of multi-core CPUs. 
-
-
-
-\subsection{Technical Problem}
-
-Straightforward implementation leads to an algorithm which has its
-time complexity exponentially dependent on the level of predicate
-nesting. 
-
-\subsection{Technical Claims}
-
-We propose algorithms and XML indexing techniques which are more
-efficient and which can utilize standard parallel tem- plates. Our
-implementation is highly scalable and outperforms common XML
-libraries.
-
-\subsection{Discussions}
-
-
-The study focuses solely on processing single query on a single
-document, which to be loaded into main memory in DOM and
-indexed. Some parts are the same as ours. Such as:
-
-\begin{itemize}  
-\item Each step takes node-set produced by previous step (called initial
-node-set) and generates another node-set which is used by successive
-step.
-\item When a node-set is filtered by a predicate, the predicate is executed
-recursively for every node in the set using the node, its position
-and size of the set as context values. 
-\item The index is based on tagging nodes of DOM structure with three 
-integers: left (ordinal of start tag), right (ordinal of end tag), and 
-depth value (depth of the node).
-\end{itemize}
-
-
-The study proposes three methods for optimizing queries:
-\begin{itemize}
-	\item Minimal Context Optimizations to add three tags: `flag n for context 
-	      node', `flag p for position' and `flag s for size' to accelerate the 
-	      evaluation of context nodes.
-	\item Vectorization of Axes to accelerate axes. 
-	\item Predicate Caches to optimize predicate evaluation.
-\end{itemize}
-
-By the above three methods, the study then uses existed paralleling 
-templates (such as parallel-for, 
-parallel-reduce, parallel-scan, etc.) and data structures (such as concurrent vector, 
-concurrent hash-map, etc.) to realize parallelization.
-
-After processing the parallel part, the results are merged to form the final 
-results.
-
-
-\subsection{Experiments}
-
-The experiment results suggest that our implementation is highly
-scalable. The best speedup was observed at query B6 which runs 18.8×
-faster on 24 cores than on single core. 
- 
- 
-
-\section{Indexing Structured Documents with Suffix Arrays}
-
-In such cases, the use of a suffix array as the
-underlying data storage permits a considerable reduction in space
-requirements, partially because suffix arrays are a remarkably light
-data structure and partially because they do not store redundant
-information regarding the textual content. 
-
- We also show how an auxiliary
-ternary search tree can accelerate the resolution of structural
-queries with only a marginal increase in memory usage.
-
-\subsection{Background}
-
-Path indexes based on suffix trees have shown to be highly efficient
-structures when dealing with digital collection that consists of
-structured documents, since they provide a fast response to queries
-including structural requirements.
 	
-    
-\subsection{Technical Problems}
+	\section{A Scalable XML Indexing Method Using MapReduce}	% NO.1
+	
+	\subsection{Background}
+	
+	Shifting theories, methods etc from stand-along computer to cloud 
+	parallel computing is very difficult. 
+	
+	\subsection{Technical Problem}
+	
+	How to make the authors' previous study CIS-X (A Compressed Index
+	Scheme for Efficient Query Evaluation of XML Documents) designed for a
+	single computer work in parallel using multiple computers.
+	
+	\subsection{Technical claim}
+	
+	They redesigned an XML indexing method, called CIS-X to use MapReduce
+	implemented in Hadoop, that can efficiently handle large XML documents
+	through cloud parallel computing.  
+	
+	\subsection{Discussion}
 
-Suffix trees may be too memory demanding when processing highly
-heterogeneous documents.
-
-\subsection{Technical Claims}
-
-The authors describe how a suffix array can be used as the data
-structure which stores the structural index in a retrieval system and
-provides a virtual index of all subpaths in the digital collection 
-to permits a considerable reduction in space requirements.
-
-\subsection{Discussion}
-
-Path and subpath are precisely defined in the paper as:  A path in an
-XML document is the sequence of tags obtained when the document tree
-is traversed from its root to a leaf node, following a single branch.
-A subpath is the sequence of tags obtained with a partial traversal of
-the tree branch —that is, between arbitrary initial and final nodes. A
-suffix array is a remarkably compact data structure. 
-
-There are two techniques proposed in this study:
-\begin{itemize}
-\item A structural index based on a suffix array
-\item A balanced ternary search tree
-\end{itemize}
-
-
-\subsection{Experiments}
-
-All tests were evaluated using a personal computer (running at 2.8GHz
-with a 3.5GB main memory).
-
-The performance of the approach has been tested with a large
-collection of XML files (approximately 3,000 files occupying a total
-of 535 MB) with TEI markup. The collection contained over 50,000
-different paths and expanded about 70 million textual nodes.
-Approximately 60,000 queries were created by a random generator of
-paths using the TEI DTD schema as input. 
-
-\section{Node Indexing in XML Query Optimization: A Review}
-
-\subsection{Background}
-
-Structural indexes are classified into three main  groups; Path indexing, Node
-indexing and Sequence- based indexing. Nevertheless, the focus of this paper is
-on node indexing and is a review of major four types of node indexing:
-subtree labeling, prefix-based labeling, multiplicative labeling and hybrid
-labeling. The aims of this paper is to review on some of the latest techniques
-for each node indexing group.
-
-
-\subsection{Technical claims}
-
-Each indexing techniques has its advantages and disadvantages. So choosing a
-correct indexing is critical. This paper discusses and points out how to
-correctly choose an indexing technique. Most important, this review explores and
-identifies the trends which can be useful for new researcher.
-
-
-\subsection{Discussions}
-
-This paper is a review of five indexing techniques. It demonstrates the
-techniques with concrete examples for each of them. It summarize them in Table
-2: Summarization on advantages and disadvantages of node indexing (Page 8),
-which I consider  is very important and useful in this paper.
-
-
-\subsection{Conclusion}
-
-This paper does not propose any new idea of indexing but introduces and compares
-five indexing techniques. Although it is a good paper for learning the indexing
-techniques and would also be useful for my own story, it is possibly not the one
-that I will choose to compare with.
-
-\section{Multi-Core Processing of XML Twig Patterns}
-
-This paper is about parallel twig matching algorithms. Two exisiting twig
-algorithms: Path Stack (PS) and Twig Stack (TS) are extened to parallel version,
-called PPS and the PTS proposed for matching XML query twig patterns in a
-parallel multi-threaded computing platform.
-
-This paper give defenitions of twig pattern and path pattern.  A twig pattern is
-deﬁned as a rooted, ordered, labelled tree whose nodes’ labels are either
-element tags or string values, and edges are either parent-child edges or
-ancestor-descendant edges. A Path pattern is a special case of Twig pattern in
-which each node has at most one child.
-
-Twig patern can be considered as a subset of XPath.
-
-We present the parallel path stack algorithm (PPS) and the parallel twig stack
-algorithm (PTS). PPS and PTS are novel and efﬁcient algorithms for matching XML
-query twig patterns in a parallel multi-threaded computing platform. PPS and PTS
-are based on the PathStack and TwigStack algorithms. 
-
-These algorithms employ a sophisticated search technique for limiting processing
-to speciﬁc subtrees. 
-
-Experimental results indicate that using PPS and PTS signiﬁcantly reduces the
-running time of queries in comparison with the PathStack/TwigStack algorithm (up
-to 44 times faster for DBLP queries and up to 22 times faster for XMark
-queries).
-
-
-
-
-
-
-
+	For clarity, the target parallel version of CIS-X is denoted 
+	as CIS-XP to distinguish with the original CIS-X in the following discussion.
+	The proposed cloud-based CIS-XP is a scalable design and is able to
+	build indexes and process queries on large XML files through parallel
+	processing. 
+	
+	
+	The approach has two phases: index creating phase and query evaluating
+	phase (which is the same as our index-based representation of partial
+	tree).  In the first phase, one difficulty is that the CIS-X keeps
+	index in memory, which encounters the out-of-memory problem while
+	dealing with a large XML file because of the limits of memory and
+	address space. Another difficulty is encountered when an XML file is 
+	large. Thus, it is necessary to be split into several parts and 
+	input into MapReduce one at a time. They used SAX to parse an input XML 
+	document for minimizing memory required. 
+	
+	To identify nodes in an XML document, 
+	they designed Nid for nodes in pre-order traversal. A node is
+	represented by a 4-tuple  (\emph{Type}, \emph{Tag}, \emph{Dewey}, 
+	\emph{Nid-[content]}), where \emph{Type} is the type of then node, 
+	including \emph{node} for element, 	\emph{value} for
+	content. \emph{Tag} is the tag name of the node. \emph{Dewey} is a Dewey 
+	label which is used to identify the position of the  node in the summarized
+	index. Each node of XML is labeled by a Nid, as mentioned above.  If
+	the node is a text node, the \emph{[content]} records the value. 
+	In the query evaluation phase, the indexes can be used to accelerate 
+	child and descendant axes.
+	
+	
+	\subsection{Experiments} 
+	
+	The experiments on a Linux cluster with AMD Opteron Processor 6128 CPU
+	2 GHz, 3 physical machines with 32G RAM, each of which has 2 virtual
+	machines with 4G RAM. There are 6 virtual machines, one for Name Node,
+	one for Secondary Name Node, and four for Data Nodes (worker nodes).
+	The test dataset is 1.2G DBLP with 29,242,336 elements, 7,325,278
+	attributes, and 26,619,477 texts.
+	
+	The experimental results show that there is a linear relationship
+	between the file size and the execution time for index construction.
+	The query processing is also very efficient and is mainly determined
+	by the number of target nodes and the output file size for a query.
+	
+	\subsection{Conclusion}
+	
+	This paper is closely relevant to our study in the aspects of 
+	adressed problem, XML data spliting, index-based representation.
+	The different part is the implementation, which is based on SAX 
+	for parsing and MapReduce for query processing.
+	
+	
+	\section{Efficient Implementation of XPath Processor on Multi-Core CPUs} % NO.2
+	
+	\subsection{Background}
+	
+	Multiple processor cores are integrated on a single chip, making
+	parallel architectures available to common users. This trend requires
+	programmers to focus on problem parallelization instead of classic
+	linear optimization. However, common tools for querying XML documents 
+	do not exploit computational power of multi-core CPUs. 
+	
+	
+	\subsection{Technical Problem}
+	
+	Straightforward implementation of XML processing has its time 
+	complexity exponentially dependent on the level of predicate nesting. 
+	
+	\subsection{Technical Claims}
+	
+	We propose algorithms and XML indexing techniques which are more
+	efficient and can utilize standard parallel templates. The implementation 
+	is highly scalable and outperforms common XML libraries.
+	
+	\subsection{Discussions} 
+	
+	The study focuses solely on processing single query on a single
+	document, which to be loaded into main memory in DOM and indexed. 
+	The common parts of this study to ours are listed as below.
+	
+	\begin{itemize}  
+		\item Each step takes node-set produced by previous step (called initial
+		node-set) and generates another node-set which is used by successive
+		step.
+		\item When a node-set is filtered by a predicate, the predicate is executed
+		recursively for every node in the set using the node, its position
+		and size of the set as context values. 
+		\item The index scheme is based on tagging nodes of DOM structure with three 
+		integers: left (ordinal of start tag), right (ordinal of end tag), and 
+		depth value (depth of the node).
+	\end{itemize}
+	
+	To accelerate query processing, the study proposes three methods:
+	
+	\begin{itemize}
+		\item Minimal Context Optimizations to add three tags: `flag n for context 
+		node', `flag p for position' and `flag s for size' to accelerate the 
+		evaluation of context nodes.
+		\item Vectorization of Axes to accelerate axes. 
+		\item Predicate Caches to optimize predicate evaluation.
+	\end{itemize}
+	
+	By the above three methods, the study then uses existed paralleling 
+	templates (such as parallel-for, parallel-reduce, parallel-scan, etc.) 
+	and data structures (such as concurrent vector, concurrent hash-map, etc.) 
+	to realize parallelization. The query processing has two phases:
+	parallel query evaluating phase and sequential sub-results merging phase. 
+	After processing the parallel phase, the sub-results are merged to 
+	form the final results.
+	
+	
+	\subsection{Experiments}
+	
+	The experiment results suggest that our implementation is highly
+	scalable. The best speedup was observed at query B6 which runs 18.8×
+	faster on 24 cores than on single core. 
+	
+	\subsection{Conclusion}
+	
+	This settings have some common parts as ours, such as background, 
+	goal, settings etc. However, the methodology is	a bit different from ours. 
+	This paper studies on how to design optimizations
+	on query expressions, while ours is on how to split and represent 
+	the split XML data for faster parallel processing. This paper is related 
+	to our study but not very relevant.
+	
+	
+	\section{Indexing Structured Documents with Suffix Arrays}
+	
+	\subsection{Background}
+	
+	Path indexes based on suffix trees have shown to be highly efficient
+	structures when dealing with digital collection that consists of
+	structured documents, since they provide a fast response to queries
+	including structural requirements. The use of a suffix array as the
+	underlying data storage permits a considerable reduction in space
+	requirements, partially because suffix arrays are a remarkably light
+	data structure and partially because they do not store redundant
+	information regarding the textual content. 
+	
+	
+	\subsection{Technical Problems}
+	
+	Suffix trees may be too memory demanding when processing highly
+	heterogeneous documents.
+	
+	\subsection{Technical Claims}
+	
+	The authors describe how a suffix array can be used as the data
+	structure which stores the structural index in a retrieval system and
+	provides a virtual index of all sub-paths in the digital collection 
+	to accelerate query processing with consideration of the reduction 
+	of memory.
+	
+	\subsection{Discussion}
+	
+	Path and sub-path are precisely defined in the paper as:  A path in an
+	XML document is the sequence of tags obtained when the document tree
+	is traversed from its root to a leaf node, following a single branch.
+	A subpath is the sequence of tags obtained with a partial traversal of
+	the tree branch —that is, between arbitrary initial and final nodes. A
+	suffix array is a remarkably compact data structure. 
+	
+	There are two techniques proposed in this study:
+	\begin{itemize}
+		\item A structural index based on a suffix array
+		\item A balanced ternary search tree
+	\end{itemize}
+	
+	
+	\subsection{Experiments}
+	
+	All tests were evaluated using a personal computer (running at 2.8GHz
+	with a 3.5GB main memory).	
+	The performance of the approach has been tested with a large
+	collection of XML files (approximately 3,000 files occupying a total
+	of 535 MB) with TEI markup. The collection contained over 50,000
+	different paths and expanded about 70 million textual nodes.
+	Approximately 60,000 queries were created by a random generator of
+	paths using the TEI DTD schema as input. 
+	
+	\subsection{Conclusion}
+	
+	The techniques (path index and suffix tree) used in this study are 
+	different from ours. The goal and method are related to ours. Plus, 
+	I consider whether we can study how path index can work with partial 
+	tree since it has been proven to be effective to accelerate queries 
+	and it is also possible to integrate it into our study.
+	
+	
+	\section{Node Indexing in XML Query Optimization: A Review}
+	
+	\subsection{Background}
+	
+	Structural indexes are classified into three main  groups: Path indexing, Node
+	indexing and Sequence based indexing. The focus of this paper is
+	on node indexing and is a review of major four types of node indexing:
+	subtree labeling, prefix-based labeling, multiplicative labeling and hybrid
+	labeling. The aims of this paper is to review on some of the latest techniques
+	for each node indexing group.
+	
+	
+	\subsection{Technical claims}
+	
+	Each indexing techniques has its advantages and disadvantages. So choosing a
+	correct indexing is critical. This paper discusses and points out how to
+	correctly choose an indexing technique. Most important, this review explores and
+	identifies the trends which can be useful for new researcher.
+	
+	
+	\subsection{Discussions}
+	
+	This paper is a review of five indexing techniques. It demonstrates the
+	techniques with concrete examples for each of them. It summarize them in Table
+	2: Summarization on advantages and disadvantages of node indexing (Page 8),
+	which I consider  is very important and useful in this paper.
+	
+	
+	\subsection{Conclusion}
+	
+	This paper does not propose any new idea of indexing but introduces and compares
+	five indexing techniques. Although it is a good paper for learning the indexing
+	techniques and would also be useful for my own story, it is possibly not the one
+	that I will choose to compare with.
+	
+	
+	\section{Multi-Core Processing of XML Twig Patterns}
+	
+	\subsection{Background}
+	
+	XML is based on a tree-structured data model. Naturally, the most popular XML
+	querying language (XPath) uses patterns of selection predicates, on multiple
+	elements related by a tree structure, which often may be abstracted by twig
+	patterns. Finding all occurrences of such a twig pattern in an XML database is a
+	basic  operation for XML query processing. 
+	
+	This paper is about parallel twig matching algorithms. Two existing twig
+	algorithms: Path Stack (PS) and Twig Stack (TS) are extended to parallel version,
+	called PPS and the PTS proposed for matching XML query twig patterns in a
+	parallel multi-threaded computing platform.
+	
+	\subsection{Technical Problems}
+	
+	How to improve the performance of processing twig patterns, specifically Twig
+	Stack and Path Stack algorithms in terms of parallelization.
+	
+	\subsection{Technical Claims}
+	
+	This paper presents the parallel version of Path Stack algorithm (PPS) and Twig
+	Stack algorithm (PTS). PPS and PTS are novel and efficient algorithms  for
+	matching XML query twig patterns in a parallel multi-threaded  computing
+	platform that are based on the PathStack and TwigStack algorithms. 
+	
+	
+	\subsection{Discussion}
+	
+	This paper give definitions of twig pattern and path pattern. A \emph{twig pattern} 
+	is defined as a rooted, ordered, labeled tree whose nodes’ labels are either
+	element tags or string values, and edges are either parent-child edges or
+	ancestor-descendant edges. A \emph{path pattern} is a special case of Twig pattern in
+	which each node has at most one child. (I consider twig patern as a subset of XPath).
+	
+	These algorithms employ a sophisticated search technique for limiting processing
+	to speciﬁc subtrees. The parallelization of the two existing algorithms employs
+	a sophisticated search technique for limiting processing to speciﬁc subtrees so 
+	that  query processing can be optimized.
+	
+	Experimental results indicate that using PPS and PTS signiﬁcantly reduces the
+	running time of queries in comparison with the PathStack/TwigStack algorithm (up
+	to 44 times faster for DBLP queries and up to 22 times faster for XMark
+	queries).
+	
+	\subsection{Conclusion}
+	
+	This paper proposes two novel algorithms PPS and PTS based on two existing
+	algorithms that are used for efficiently processing twig matching. The 
+	background and the goal are related to our study. Although twig pattern is a 
+	bit different from XPath, it is still acceptable to consider as a subset of 
+	XPath, making the study relevant to our study. We can refer this study for 
+	our story.
+	
+	 
+	
+	
 \end{document}
