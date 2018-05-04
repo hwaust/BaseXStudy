@@ -1,18 +1,16 @@
 每日行程
 
 06:00 Wake up
-  |   Get up
-06:20 
+06:20 Get up
   |   Wash up
-06:30 
-  |   Go to company
-07:00 
+06:40 Go to company
+07:00 Arrive at company
   |   Research 
 09:00
   |   Work
 11:55
   |   Take a nap
-13:05 
+13:30 
   |   Work
 18:00
   |   Dating
