@@ -15,20 +15,21 @@ two-step algorithm.
 1) A Scalable XML Indexing Method Using MapReduce
   In my understanding, this paper relates to ours on all aspects A1--A4.
   1-A1) Calculate the size of index (for DBLP dataset) and compare with ours.
-  In the first experiment, it was conducted on a single computer. 
-  At most, 490MB of DBLP data was loaded in 8GB of memory (failed for 510MB).
-  Since 1.8GB of DBLP data contains 94M nodes (including elements, attributes 
-  and values),  490 MB of DBLP data contains around 25 M nodes.
-  If we use our indexing scheme, it takes 25 M * 31B = 780 MB of memory.
-  Its only 1/10 of the memory taken by the CIS-X.
+  In the first experiment, it was conducted on a single computer.  At
+  most, 490MB of DBLP data was loaded in 8GB of memory (failed for
+  510MB). Since 1.8GB of DBLP data contains 94M nodes (including
+  elements, attributes  and values),  490 MB of DBLP data contains
+  around 25 M nodes. If we use our indexing scheme, it takes 25 M *
+  31B = 780 MB of memory. Its only 1/10 of the memory taken by the
+  CIS-X.
   
 1-A2) What kind of query is available?
   Queries with only child and/or descendant axes.
     
 1-A3) How (absolutely) fast? Give concrete numbers with environment information.
-  The absolute time were all 1s (locating target nodes) for all given queries.
-  But it took from 33s to 4m24s for outputing the final results for 1.2 GB of 
-  DBLP data.
+  The absolute time were all 1s (locating target nodes) for all given
+  queries. But it took from 33s to 4m24s for outputing the final
+  results for 1.2 GB of  DBLP data.
          
 1-A4) How scalable? Give concrete numbers with environment information.
   There were 4 computational nodes and 2, 4 nodes were used.
@@ -42,35 +43,36 @@ two-step algorithm.
   It support all navigational queries.
   
   2-A3) How (absolutely) fast? Give concrete numbers with environment information.
-  First of all, the paper used XMark dataset as experiment data. But it merely 
-  states "contains 3 million elements" in Paragraph 4, Section 6.1. As far as we 
-  know, that XMark1 sized 113 MB contains 1.6 million elements,  the input data 
-  should have a size of around 220 MB. 
-  Then, absolute time ranges from 0.1s to 100s for 220 MB of XMark data. 
+  First of all, the paper used XMark dataset as experiment data. But
+  it merely  states "contains 3 million elements" in Paragraph 4,
+  Section 6.1. As far as we  know, that XMark1 sized 113 MB contains
+  1.6 million elements,  the input data  should have a size of around
+  220 MB.  Then, absolute time ranges from 0.1s to 100s for 220 MB of
+  XMark data. 
   
-  2-A4) How scalable? Give concrete numbers with environment information.      
-  The CPU used had 24 cores. The scalability is not good. For A2 and A3 
-  have been improved for only 20% - 30% using 24 core than using 1 core.
-  For B5, B6, B9, B11, the improvement is over 10x. For the rest queries,
-  the execution time has not been obviouly improved (even got degraded, 
-  such as D2)
+  2-A4) How scalable? Give concrete numbers with environment information.
+  The CPU used had 24 cores. The scalability is not good. For A2 and
+  A3  have been improved for only 20% - 30% using 24 core than using 1
+  core. For B5, B6, B9, B11, the improvement is over 10x. For the rest
+  queries, the execution time has not been obviouly improved (even got
+  degraded,  such as D2)
 
 
 3) Indexing Structured Documents with Suffix Arrays
   In my understanding, this paper relates to ours on aspects A1--A3.
   3-A1) Calculate the size of index (for DBLP dataset) and compare with ours.
-  In the experiment, a large collection of around 3,000 XML files occupying 
-  a total of 535 MB, which contains 50,000 different paths. It took 550 MB to 
-  index the whole collection of the XML files.
+  In the experiment, a large collection of around 3,000 XML files
+  occupying  a total of 535 MB, which contains 50,000 different paths.
+  It took 550 MB to  index the whole collection of the XML files.
      
   3-A2) What kind of query is available?
   Queries with only child and/or descendant axes.
   60,000 simpe and whole path queries were tested.
   
   3-A3) How (absolutely) fast? Give concrete numbers with environment information.     
-   It took 0.2s to 1.6s to evalute 10,000 to 50,000 paths. The paper only states
-   that "a personal computer(running at 2.8 GHz with a 3.5 GB main memory)" 
-   about the environment.
+   It took 0.2s to 1.6s to evalute 10,000 to 50,000 paths. The paper
+   only states that "a personal computer(running at 2.8 GHz with a 3.5
+   GB main memory)"  about the environment.
 
 
 5) Multi-Core Processing of XML Twig Patterns
@@ -80,8 +82,8 @@ two-step algorithm.
    
   
   5-A3) How (absolutely) fast? Give concrete numbers with environment information.
-  All the figures are about speedups with respect to numbers of threads. I did 
-  not find any information about absolute execution time.
+  All the figures are about speedups with respect to numbers of 
+  threads. I did not find any information about absolute execution time.
   
   5-A4) How scalable? Give concrete numbers with environment information.
   Hardware: 8C32T, 2GB of RAM.
