@@ -29,13 +29,12 @@ two-step algorithm.
   The absolute time were all 1s (locating target nodes) for all given queries.
   But it took from 33s to 4m24s for outputing the final results for 1.2 GB of 
   DBLP data.
-         
+
 1-A4) How scalable? Give concrete numbers with environment information.
   There were 4 computational nodes and 2, 4 nodes were used.
   From the figure, it is just slightly scalable because using 4 nodes
   is just 1.1x - 1.2x faster than using 2 nodes.
     
-
 2) Efficient Implementation of XPath Processor on Multi-Core CPUs
   In my understanding, this paper relates to ours on aspects A2--A4.
   2-A2) What kind of query is available?

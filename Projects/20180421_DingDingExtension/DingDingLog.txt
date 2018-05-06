@@ -1,7 +1,8 @@
-2018-4-20 Fri 收到需求，电话(134 8220 9998, 上海) 和李总确认需求。
-2018-4-23 Mon 编写需求文档，进行初步询价。
-2018-4-24 Tue 收到初步报价，向于总报价。
-2018-4-27 Thu 与李总确认需求文档，张璐进行询价，确认使用人数。
+2018-04-20 Fri 收到需求，电话(134 8220 9998, 上海) 和李总确认需求。
+2018-04-23 Mon 编写需求文档，进行初步询价。
+2018-04-24 Tue 收到初步报价，向于总报价。
+2018-04-27 Thu 与李总确认需求文档，张璐进行询价，确认使用人数。
+2018-05-07 Mon 去上海总部过项目。
 
 
 
@@ -12,4 +13,19 @@
 2：车型识别(H)  CMS扩展（Y） 
 
 
-Ford 远程会议系统
+
+
+3) Backend functions 
+
+
+
+
+
+
+
+Data Management: The system provides system usage reports, such as page views,
+usage times, download times, and other data contents that match the development
+functions.
+
+
+
