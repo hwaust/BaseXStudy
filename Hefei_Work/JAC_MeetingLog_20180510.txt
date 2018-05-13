@@ -1,0 +1,33 @@
+2018-05-10 CHJ Meeting JAC
+16:10  Company Introduction (Official PPT), Chen 
+16:15  Application of VR & AR in car design: 
+       a real case regarding Lincoln Cadillac, Jiang
+16:25  Discussion
+       Simple design: Oculus Rift
+       Combination with Car display (expo or presentation)
+       Client Boss: Creative ideas are the key to use VR.
+       
+          惊  艳             创  意
+       Extraordinary      Creative Ideas
+       
+       
+       Deadline: By the end of this may
+       1) Storyline?
+       2) Schedule, Milestone
+       
+
+
+
+
+
+
+
+
+
+
+
+HTC: HTC Live
+Oculus: Rift
+Sony: PlayStation VR
+Google: DayDream
+ThunderSnake: OSVR HDK2 (Desktop)
