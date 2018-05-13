@@ -2,21 +2,20 @@
 
 06:00 Wake up
 06:20 Get up
-  |   Wash up
-06:40 Go to company
+  |   Do execise + take a bath
+06:50 Go to company
 07:00 Arrive at company
-  |   Research 
+  |   Research (Office)
 09:00
   |   Work
 11:55
   |   Take a nap
-13:30 
+13:35 
   |   Work
 18:00
-  |   Dating
+  |   Peroanl Stuff
 22:00
-  |   Research
-23:30 Go to bed  
-  |
+  |   Research (Dome)
+23:30 Go to bed & Chatting
 24:00 Go to sleep
   
