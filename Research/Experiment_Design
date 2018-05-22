@@ -1,0 +1,84 @@
+Dear Matsuzaki-sensei,
+
+[Aim]
+To evaluate the performance of our indexing scheme to process
+navigational queries on large XML documents in the following aspects:
+- Scalability
+  To test the scalability of the algorithm, a relatively small XML
+  document that can be hold in the memory of a single computer will be
+  used. Then, 1, 2, 4, 8... computers will be used for the same input
+  XML document and the set of queries.
+
+- Absolute performance
+  Use the the maximum number of computers to run a set of queries to
+  obtain the absolute time, which is defined as the time between
+  starting the query and locating all matched nodes without counting
+  the time for writing results.
+- Memory cost
+  Record the total memory usage of all computers for holding the input 
+  XML document.
+  
+
+1) Experiment environments
+- 16 EC2 computers with 32GB memory as workers
+- 1 EC2 computer as master
+- 1 cheap EC2 computer to monitor
+# Based on my experience, using 34 EC2 computers is not only 
+# difficult to manipulate but also costy to use. I thus decided 
+# to use less computers with doubled memory for this experiment.
+As for cost, I would like to calculate after the other stuff have 
+been established.
+
+2) Test data
+XMark (scale factor = 1000 or more to reach 100+ GB)
+DBLP (replicated multiple times to reach 100+ GB)
+
+
+3) Queries
+The following eight queries will be used to test 
+QX1: 
+QX2:
+QX3: 
+QX4:
+QX5: 
+QX6:
+QD1:
+QD2:
+Although concrete queries have not been determined yet, 
+the eight queries will be categoried into two types:
+- Type A: queries with child/descendant axes only 
+  To compare with opponents that can only process so.
+- Type B: navigational queries 
+  To compare with related opponents   
+
+4) Opponents
+- A Scalable XML Indexing Method Using MapReduce
+  This study is about how to process large XML document with an 
+  compact indexing scheme that was originally designed for a 
+  stand-along computer and then shifted to multiple computers. 
+    
+- Indexing Structured Documents with Suffix Arrays
+  This work is closely related to my study since it is about indexing 
+  XML documents with arrays. 
+  
+- BaseX based data partitioning strategy
+  This was a previous study. Since it is state-of-the-art XML 
+  processing engine, it is thus worth comparing with ours.
+
+5) Required tasks before experiments (if any)
+The following two tasks are considered:
+- Implementation of the opponents' approaches
+  a) A Scalable XML Indexing Method Using MapReduce
+    This original idea was implemented on MapReduce Hadoop, where 
+    index files were stored on disk. In this experiment, it will be 
+    implemented in Java and related XML data will be hold in memory  
+  b) Indexing Structured Documents with Suffix Arrays
+    This work is close related to my study, it will be implemented 
+    in Java. 
+  c) BaseX-based study
+     It has been implemented. 
+  
+- Optimization of the previous implementation of BFS-array
+  Due to the limited time, the first implementation may not be the 
+  fastest. Thus, it is better to do some optimization to it.
+ 
