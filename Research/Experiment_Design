@@ -2,83 +2,216 @@ Dear Matsuzaki-sensei,
 
 [Aim]
 To evaluate the performance of our indexing scheme to process
-navigational queries on large XML documents in the following aspects:
-- Scalability
-  To test the scalability of the algorithm, a relatively small XML
-  document that can be hold in the memory of a single computer will be
-  used. Then, 1, 2, 4, 8... computers will be used for the same input
-  XML document and the set of queries.
+navigational queries on large XML documents in the following aspects, 
+each of which starts with a asterisk.
 
-- Absolute performance
-  Use the the maximum number of computers to run a set of queries to
-  obtain the absolute time, which is defined as the time between
-  starting the query and locating all matched nodes without counting
-  the time for writing results.
-- Memory cost
-  Record the total memory usage of all computers for holding the input 
-  XML document.
+* Hardware environments
+- 16 EC2 computers (m5.2xlarge) with 32GB memory as workers
+  Storage: 20 GB EBS Provisioned IOPS SSD (io1) (up to 2000 mbps)
+  (Using Provisioned IOPS SSD is because it provide the best IO 
+  performance to meet the high IO bandwidth requirements when multiple
+  workers parse input data in parallel on a single computer.
+-- Cost
+  The cost of provisioned IOPS SSD has two types of costs, storage and
+  IOPS operations. Given a 1000 GB data, it cost
+  1) $4.167 for storing 1000 GB/day 
+  2) $1.083 for loading 1000 GB.
+- 1 EC2 computer (m5.2xlarge) as master
+- 1 cheap EC2 computer for observation 
+  (not necessary, just for convenience)
+- Others
+  500GB S3 storage used for storing XML datasets (both the original
+  and the divided). It can be attached to any EC2 instance. Using this
+  storage is because the inner network is faster than from outside so
+  that divided XML data can be distributed to multiple computers more
+  efficiently.
   
+* Datasets
+1) Group A (For Strong Scalability)
+- Xmark160 
+- InterPro or Freebase (To be judged after analysis)
 
-1) Experiment environments
-- 16 EC2 computers with 32GB memory as workers
-- 1 EC2 computer as master
-- 1 cheap EC2 computer to monitor
-# Based on my experience, using 34 EC2 computers is not only 
-# difficult to manipulate but also costy to use. I thus decided 
-# to use less computers with doubled memory for this experiment.
-As for cost, I would like to calculate after the other stuff have 
-been established.
-
-2) Test data
-XMark (scale factor = 1000 or more to reach 100+ GB)
-DBLP (replicated multiple times to reach 100+ GB)
+2) Group B (For Absolute Time)
+- XMark1000 100+ GB
 
 
-3) Queries
-The following eight queries will be used to test 
-QX1: 
-QX2:
-QX3: 
-QX4:
-QX5: 
-QX6:
-QD1:
-QD2:
-Although concrete queries have not been determined yet, 
-the eight queries will be categoried into two types:
-- Type A: queries with child/descendant axes only 
-  To compare with opponents that can only process so.
-- Type B: navigational queries 
-  To compare with related opponents   
+* Implementations
+Two implementations will be used in the experiment.
+- BFS: the index based representation of partial tree.
+Note that each partial tree is managed by a worker. A single computer
+can have multiple workers, each of which is processed by a unique
+thread.
 
-4) Opponents
-- A Scalable XML Indexing Method Using MapReduce
-  This study is about how to process large XML document with an 
-  compact indexing scheme that was originally designed for a 
-  stand-along computer and then shifted to multiple computers. 
+- BXF: BaseX based horizontal fragmentation.
+For BXF, multiple databases in the same BaseX server can be created
+from fragments of the same input XML data. Each database will be
+processed by a single BaseX client. The totally number of client will
+be the same as the number of cores of the computer that runs the
+server.
+
+
+* Strong Scalability  
+Each dataset in Group A will be loaded and processed for 8 times: 
+- the first 4 times on a single computer (1, 2, 4, 8 threads); 
+- the last 4 times on up to 16 computers (2, 4, 8, 16 computers), 
+  each of which runs 8 workers.
+
+Note: For BFS, BFS-array indices will be loaded into memory. For BXF,
+only structural indices will be created in memory. The final results
+will be represented in index form. 
+# what about others that we should consider?
+
+* Absolute performance
+Use total 16 computers X 8 workers => 128 workers to run the target
+queries on dataset in Group B to obtain the absolute time, which is
+defined as the time between starting the query and locating all
+matched nodes (without counting the time for writing results). The
+results will be returned in index form.
+
+* Memory Consumption
+Record the total memory usage of all computers for holding the input 
+XML document. 
+Memory_Consumed = Memory_after_loading - Memory_before_loading
+Note: Memory_Consumed is the memory consumed after parsing and is 
+    not the same as index size created for the input XML data.
+
+* Queries
+QX1: /site/open_auctions/open_auction/bidder/increase
+QX2: /site//keyword
+QX3: /site//keyword/parent::text
+QX3': /site//text[keyword]
+QX4: /site/people/person[profile/gender]name
+QX5: /site/people/person/name/following-sibling::emailaddress
+QX6: /site/open_auctions/open_auction[bidder/following-sibling::annotation]/reserve
+# check number of hit nodes for each step
+QX1: /1/1/1920000/9577290/9577290
+QX2: /1/11271568
+QX3: /1/11271568/6503580
+QX3': /1/11271568/6503580 
+QX4: 1/1/4080000/1022635[1022635/1022635]/1022635
+QX5: /1/1/4080000/4080000/4080000
+QX6: /1/1/1920000/[1734193/1734193]/859531
+# note: QX3' took nearly the same execution time as QX3.
+
+
+
+
+
+* Required tasks before experiments (if any)
+- Modify to record absolute time and memory cost
+- Modify the naming rules for divided XML data
+  Previously, divided XML data of the same dataset stored on different
+  computers were given the same name, thus making it invalid to hold 
+  multiple divided XML data in a single computer
+  
+# The design below will be determined after finished the optimization
+# work to the source code 
+* Sequence of experiments 
+- basic settings 
+  a) A list of IP address for each worker are saved in a text 
+     file, namely ipaddresses.txt. 
+  b) Queries are saved in a text file, namely queries.txt
+# the above two files are saved in the same folder as programs.  
+
+For strong scalability
+- preprocessing
+  -- XML documents are uploaded to S3 storage
+  -- A Java program XMLDivider that can divid an XML document into 
+     equal-sized N chunks is uploaded to master, where N is an integer
+     that ranges from 1 to 128. 
+  -- Any XML document is divided into 1, 2, 4, 8, 16, 32, 64, 128 
+     chunks by the Java program.
+  -- A shell script that can distribute specified chunks stored on S3 
+     to specified computers. Inner network (*2) can reach up to 5 Gbps 
+     (500 MB/s) for one-to-one communication, thus a 100 GB document 
+     can be distributed in 200s. 
+     # It may not reach that fast according to my previous experience.
+     # It still can finish distribution of that data within 1000s, 
+     # even if the speed is 1 Gbps that was the speed I used last time
+  -- Naming divided XML document.
+     input: filename num_of_chunks
+     output filename_XXXXXXXXXXXX_YYY_num_of_chunks 
+     where XXXXXXXXXXXX is the position of the first char of this chunk 
+     in the original XML document, YYY is the ordinal of this chunk.
+     Example
+     input: xmark1.xml  20
+     output: xmark1.xml_000000000000_000_020
+             xmark1.xml_000005927816_001_020
+             [...]
+             xmark1.xml_000106697587_018_020
+             xmark1.xml_000112625083_019_020
+.
+
+Start a worker 
+WorkerEntrance PTID
+
+MasterEntrance
+Worker information 
+IP1:port_start-num_workers
+IP2:port_start-num_workers
+...
+IPn:port_start-num_workers
+
+       
+---------------------- Cluster Networking -----------------
+Select EC2 instances support cluster networking when launched into a
+common cluster placement group. A cluster placement group provides
+low-latency networking between all instances in the cluster. The
+bandwidth an EC2 instance can utilize depends on the instance type and
+its networking performance specification. Inter instance traffic
+within the same region can utilize up to 5 Gbps for single-flow and up
+to 25 Gbps for multi-flow traffic in each direction (full duplex).
+Traffic to and from S3 buckets in the same region can also utilize all
+available instance aggregate bandwidth. When launched in a placement
+group, instances can utilize up to 10 Gbps for single-flow traffic and
+up to 25 Gbps for multi-flow traffic. Network traffic to the Internet
+is limited to 5 Gbps (full duplex). Cluster networking is ideal for
+high performance analytics systems and many science and engineering
+applications, especially those using the MPI library standard for
+parallel programming.
+------------------------------------------------------------------
     
-- Indexing Structured Documents with Suffix Arrays
-  This work is closely related to my study since it is about indexing 
-  XML documents with arrays. 
-  
-- BaseX based data partitioning strategy
-  This was a previous study. Since it is state-of-the-art XML 
-  processing engine, it is thus worth comparing with ours.
+      
+- command
+- Commands for operating EC2
+-- login to an EC2 instance
+$ ssh -i /path/your_keypair.pem ec2-user@52.14.203.31
 
-5) Required tasks before experiments (if any)
-The following two tasks are considered:
-- Implementation of the opponents' approaches
-  a) A Scalable XML Indexing Method Using MapReduce
-    This original idea was implemented on MapReduce Hadoop, where 
-    index files were stored on disk. In this experiment, it will be 
-    implemented in Java and related XML data will be hold in memory  
-  b) Indexing Structured Documents with Suffix Arrays
-    This work is close related to my study, it will be implemented 
-    in Java. 
-  c) BaseX-based study
-     It has been implemented. 
-  
-- Optimization of the previous implementation of BFS-array
-  Due to the limited time, the first implementation may not be the 
-  fastest. Thus, it is better to do some optimization to it.
+-- upload a local file to an EC2 instance @ 52.14.203.31
+$ scp -i /path/hao_ec2.pem /path/file ec2-user@52.14.203.31:data
+
+-- download a file on EC2 instance @ 52.14.203.31 to local
+$ scp -i /path/hao_ec2.pem ec2-user@52.14.203.31:data/file /path/file
+
+- Commands for operating the implementation BFS
+BFS is a Java program namely bfs.jar. 
+-- Start 16 workers 
+$ seq -f "%g" 0 15 | xargs -P 16 -n 1 -I {} java -jar bfs.jar {}
+-- Start master with queries to be queried.
+$ java -cp bfs.jar master.NetMaster [xml] [runtimes]
+[xml] is the divided set of XML documents to be queried.
+[runtimes] is the number of times to be executed for queries.
+Note: 
+1) the number of workers is determined by a list of IPs that are 
+   stored in a text file in the same directory as bfs.jar
+2) The queries will be automatically determined by the name of input 
+   dataset. For example, when received "xmark_.xml", the QX1--QX6 will 
+   be evaluated on the input datasets.
+
+-- Divide an input XML documents into multiple chunks.
+$ java -cp bfs.jar utils.FileDivider [xml] [num_chunks] [out_dir]
+[xml] The XML document to be divided as input.
+[num_chunks] The number of chunks as output.
+[out_dir] The directory to store divided chunks.
+
+- number of executions 
+  It will be determined by the degree of fluctuation of results. 
+  # I will give the exact number after obtaining the first results. 
+- postprocessing
+  A shell script that can compute and collect results from logs.
  
+ 
+Sincerely,
+Wei.
+
+

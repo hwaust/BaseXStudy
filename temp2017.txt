@@ -16,7 +16,12 @@ seed is the seed used for randomization.
 
 dataset   size    memory   ratio  creation time
 XMark10  1.1 GB   2.4 GB   2.18      47s
-XMark10  2.2 GB   4.2 GB   1.90      82s
-XMark10  4.5 GB   7.5 GB   1.67     205s
-XMark10  6.7 GB   9.2 GB   1.37     293s
-Note: ratio = memory/size
+XMark20  2.2 GB   4.2 GB   1.90      82s
+XMark40  4.5 GB   7.5 GB   1.67     205s
+XMark60  6.7 GB   9.2 GB   1.37     293s
+XMark160 17  GB  (22.1GB)  (1.3)    (700+s)
+
+Note: 
+1) ratio = memory/size
+2) The numbers in parentheses of Xmark160 are roughly derived from 
+   the above numbers.  

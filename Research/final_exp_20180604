@@ -1,0 +1,18 @@
+seq -f "%g" 0 3 | xargs -P 4 -n 1 -I {} java -jar bfs.jar {}
+seq -f "%g" 0 2 | xargs -P 3 -n 1 -I {} java -jar bfs.jar {}
+seq -f "%g" 0 7 | xargs -P 8 -n 1 -I {} java -jar bfs.jar {}
+
+2=text;9;1=keyword;10
+
+java -cp /Users/hao/Documents/data/jars/bfs.jar utils.FileDivider /Users/hao/Documents/data/xmark1.xml 8
+
+Today's task
+1) How to record time?
+2) conduct experiment on one EC2 m5.2xlarge computer.
+3) Confirm another dataset
+
+
+InterPro 14 GB -> 25.53 GB (compressed)
+Freebase 7366 MiB -> 29.98 GB (compressed)
+TrEMBL	11 GiB -> Over 49 GB 
+

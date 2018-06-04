@@ -1,0 +1,2 @@
+* Get all distinct tag names 
+for $tag in distinct-values(db:open('xmark1')//*/name()) return $tag

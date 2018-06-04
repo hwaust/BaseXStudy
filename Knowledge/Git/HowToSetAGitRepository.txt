@@ -47,7 +47,7 @@ Q: the no-bare problem
 A: use 'git config --bool core.bare true'
 
 Q: How to clone:
-A: git clone ssh://ipl.info.kochi-tech.ac.jp:2222/home/public_git/hao/thesis.git
+A: git clone ssh://ipl.info.kochi-tech.ac.jp:2222/home/public_git/hao/thesis_survey.git
 
 Q: set mail sender info
 A: use the following two commands:

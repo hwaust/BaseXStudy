@@ -7,7 +7,7 @@
 
 0.2 State Switch
 - Local -->  Remote                                                                                                                                         
-Workspace  --add-> Index  --commit--> Repository  --push--> Remote 
+Workspace --add-> Index --commit--> Repository  --push--> Remote 
 - Remote --> Local
 Workspace <--checkout-- Repository  <--fetch/clone-- Remote 
 Workspace <--pull-- Remote
