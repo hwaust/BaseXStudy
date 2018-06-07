@@ -1,0 +1,12 @@
+* mount/unmount a disk 
+1) create volume, namely /dev/sdf
+2) format disk: $ sudo mkfs.ext3 /dev/sdf 
+3) mount disk: mount /dev/sdf to ~/xml 
+$ sudo /dev/sdf  ~/xml 
+4) unmount /dev/sdf
+$ unmount 
+
+
+1. mount 500GB disk -> xml 
+2. make two script: login.sh, upload.sh 
+
