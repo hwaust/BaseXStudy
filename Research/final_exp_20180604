@@ -1,10 +1,31 @@
+git clone ssh://ipl.info.kochi-tech.ac.jp:2222/home/public_git/hao/thesis_survey.git
+
 seq -f "%g" 0 3 | xargs -P 4 -n 1 -I {} java -jar bfs.jar {}
 seq -f "%g" 0 2 | xargs -P 3 -n 1 -I {} java -jar bfs.jar {}
 seq -f "%g" 0 7 | xargs -P 8 -n 1 -I {} java -jar bfs.jar {}
 
+cat ~/Documents/data/iplist.txt  | xargs -n 1 -I {} echo test {}
 2=text;9;1=keyword;10
 
+for i in "52.69.155.101 13.230.9.8 54.250.225.163 54.199.230.125"; 
+do echo $i; done | xargs -n 1 -I {} echo test {}
+
 java -cp /Users/hao/Documents/data/jars/bfs.jar utils.FileDivider /Users/hao/Documents/data/xmark1.xml 8
+
+cat iplist.txt | xargs -n 1 -I {} scp -i ec2key.pem jars/bfs.jar ec2-user@{}:data
+cat iplist.txt | xargs -n 1 -I {} echo ssh -i ec2key.pem ec2-user@{} 'mkdir data | ls'
+
+1118MB  60.4MB/s   00:18 
+120 GB / 60 MB = 2000 s 0.5s 
+
+Xmark 
+https://projects.cwi.nl/xmark/index.html
+
+  if [[ $num_chunks%8 -lt 2 ]]; then
+    echo "less than";
+  else
+    echo "not";
+  fi;
 
 Today's task
 1) How to record time?
@@ -14,12 +35,42 @@ Today's task
 
 InterPro 14 GB -> 25.53 GB (compressed)
 Freebase 7366 MiB -> 29.98 GB (compressed)
-TrEMBL	11 GiB -> Over 49 GB 
+TrEMBL	11 GiB -> Over 49 GB (compressed)
 
 
+Example of FileDivider 
+$ java -cp bfs.jar utils.FileDivider xmark1.xml 5
+Generated: xmark1.xml_5/xmark1.xml_0_0_5
+Generated: xmark1.xml_5/xmark1.xml_23710746_1_5
+Generated: xmark1.xml_5/xmark1.xml_47421359_2_5
+Generated: xmark1.xml_5/xmark1.xml_71131640_3_5
+Generated: xmark1.xml_5/xmark1.xml_94842183_4_5
+# Format: xmlname_numchunks/xmlname_fileindex_orderal_numberchunks
 
-52.69.155.101
-13.230.9.8
-54.250.225.163  
-54.199.230.125
 
+* record memory cost and execution time for parsing (done)
+* record master side execution time (done)
+* compute worker's execution time on master side.
+  1) collect and compute: execution time & memory consumption.
+  2) output the result into a file.
+
+Due to some modifications that changed the timing or that the timing 
+was incorrect at the beginning, a great many of time was spent on this 
+part to assure the correctness of the recorded time and memory costs.
+Here are the changes:
+- rewrite the whole timing part.
+- test over and over again to confirm the correctness of timing.
+- removed a lot of useless code about timing.
+ 
+
+0.txt: parsing p1:p2;memory init:p1:p2.
+
+Level 1 - 4:  |, ;, :, =
+
+* Worker Side
+how to locate a file: ptid + xml + numOfChunks(from file name)
+for (String file : dataDir/xml_numOfChunks)
+    return file if  (m.ptid == toInt(file.split("_")[2]))
+
+    
+    

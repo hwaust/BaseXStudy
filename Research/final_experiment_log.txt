@@ -1,0 +1,205 @@
+# Note: all time is China time.
+
+2018-06-05
+12:00 create two free EC2 instances t2.micro for test.
+
+2018-06-06 
+10:00 test scripts
+12:00 test the network of EC2 instance in different regions, including
+      Tokyo, Seoul, Singapore, and some Cities in US. 
+19:00 The best network is in Seoul, so picked this region.
+19:30 create 500 GB throughput optimized HHD for storing XML documents
+      * mount disk 
+      1) create a volume, namely /dev/sdf and format: 
+      $ sudo mkfs.ext3 /dev/sdf 
+      3) mount disk: 
+      $ mount /dev/sdf to ~/data
+      
+20:38 finish the splitting xmark160.xml into 2, 4, 8, 16, 32, 64 and 
+      128 chunks. 
+21:38 generate xmark1000.xml
+      1) upload xmlgen.c to an EC2 instance @ 13.209.41.145
+      $ scp -i ec2key_seoul.pem xmark.c ec2-user@13.209.41.145:data
+      2) install gcc 
+      $ sudo yum install gcc 
+      3) compile 
+      $ gcc xmlgen.c -o xmlgen.out 
+      4) generate xml documents 
+      $ ./xmlgen.out -f 160 -o xmark160.xml 
+23:03 finish the splitting xmark1000.xml into 128 chunks.
+      $ java -cp bfs.jar utils.FileDivider xmark1000.xml 128
+      
+2018-06-07
+08:30 rewrite the coding in BFS for timing. 
+
+2018-06-08
+09:00 keep modifying the timing code 
+23:00 finished the timing 
+
+2018-06-09
+10:00 tested and confirm the correctness of BFS
+14:50 start an EC2 instance m5.2xlarge from online control web pages
+      * m5.2xlarge, 8 threads, 32 GB, EBS Only, $0.496/Hour
+15:00 create data folder and grand all access rights.
+      $ mkdir data
+      $ chmod 777 data
+15:10 distribute xmark160.xml to from aux to worker1 
+      *problem: too slow, less than 10 MB/s. This is because the 
+      current master is a free one (t2.micro) with limited network.
+16:11 launch a m5.large instance 
+      * m5.large, 2 threads, 8 GB, EBS Only, cost $0.124/Hour
+16:20 Copy data to test network
+      Problem: cannot connect to the new instance.
+16:48 The problem was caused by "Security Group"
+      * solution: change "default" to "launch-wizard-1" 
+16:55 test the network speed between m5.large and m5.2xlarge 
+      $ 
+17:10 test the connection between master and worker via bfs.jar 
+      Problem: cannot connect.
+18:10 Solved the problem. 
+      Solution: allow all IP and port in inbound group from 
+                "Security Group" setting.
+18:20 Failed for insufficient memory.  
+      java.lang.NullPointerException
+	at network.Message.fromString(Message.java:31)
+	at master.NetMaster.getMessages(NetMaster.java:167)
+	at master.NetMaster.run(NetMaster.java:145)
+	at java.lang.Thread.run(Thread.java:748)
+    
+18:30 Add -Xmx8g and -Xms8g for four workers and execute again.
+18:40 Finished
+18:41 Start running 2 workers
+18:51 Failed. I consider it was caused by insufficient memory.
+      The first worker takes 16+ GB memory, the second 13+ GB, thus 
+      causing the first one terminated. 
+19:05 Set -Xmx20g -Xmx16g  and run again.
+19:15 Failed again. Checked logs and found: "terminated by signal 9".
+      After googled, I found that "Signal 9 means that the application
+      needs to be killed, it is not handled by the process, but by the
+      Linux scheduler." Thus, it is another way of OOM-killer. 
+19:45 skipped the above problem and begin to test 1 worker case.  
+      OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory
+      (0x00007f7d55000000, 5726273536, 0) failed; error='Cannot 
+      allocate memory' (errno=12)
+19:56 Add 10 GB of General Purpose (SSD) at /dev/sdg 
+      $ sudo mkswap /dev/sdg
+      $ sudo swapon /dev/sdg
+      $ swapon -s
+      Filename			Type		Size	  Used	 Priority
+      /dev/xvdg       partition  	10485756	0	 -2      
+20:05 Start to run 1 worker case again.
+20:19 When processing QX4, it was too slow due to insufficient memory.
+20:20 Add System.gc() and run it again.
+
+2018-06-10 
+09:00 Yesterday' bill: $7.43
+09:30 Launch two workers.
+09:50 Distribute xmark160_2 to two workers.
+10:20 Modify the args for NetMaster 
+      args[0]: orignal xml document name, such as xmark1.xml 
+      args[1]: ip fromat.
+      args[2]: ipfile (default value ~/data/ec2iplist.txt)
+11:30 The data (09:30) was not correct. Distribute it again.        
+    [ec2-user@ip-172-31-16-95 data]$ sh distribute_wang.sh xmark160 2
+    mkdir: cannot create directory 'data': File exists
+    xmark160.xml_0_0_2                  100% 8980MB 113.0MB/s   01:19    
+    mkdir: cannot create directory 'data': File exists
+     xmark160.xml_9416581693_1_2        100% 8980MB 112.1MB/s   01:20
+11:34 stat loading and processing queries.
+11:45 Finished
+13:30 start experiment on 4 & 8 workers.
+      failed, because BFS did not do it in 
+14:20 modify the code.
+14:30 launch 8 free EC2 instances.
+16:50 Finish test and begin to conduct experiment on 8 m5.2xlarge.
+      Launch Failed
+      You have requested more instances (9) than your current instance 
+      limit of 5 allows for the specified instance type. Please visit 
+      http://aws.amazon.com/contact-us/ec2-request to request an 
+       adjustment to this limit.
+18:00 The problem remains
+20:00 The problem remains
+22:00 The problem remains
+24:00 The problem remains
+
+2018-06-11
+05:30 The problem gone.
+05：35 Bill: $23.75
+05:40 start 8 ec2 instances 
+      Failed for bad network (pipe broken)
+06:20 distribute data 
+        sh distribute_wang.sh xmark160 8 8
+     start queries
+        sh start_master.sh xmark160 1-8:1
+06:28 done
+        
+06:28 sh distribute_wang.sh xmark160 16 8
+      sh start_master.sh xmark160 1-8:2 
+06:33 sh distribute_wang.sh xmark160 24 8
+      sh start_master.sh xmark160 1-8:3 
+06:35 target disk is full
+06:44 release used space      
+06:45 sh distribute_wang.sh xmark160 32 8
+      sh start_master.sh xmark160 1-8:4 
+06:52 sh distribute_wang.sh xmark160 40 8
+      sh start_master.sh xmark160 1-8:5 
+06:53 sh distribute_wang.sh xmark160 48 8
+      sh start_master.sh xmark160 1-8:6 
+06:57 sh distribute_wang.sh xmark160 56 8
+      sh start_master.sh xmark160 1-8:7 
+06:07 sh distribute_wang.sh xmark160 64 8
+      sh start_master.sh xmark160 1-8:8 
+      
+
+13:41 start 4 workers
+14:27 finished       
+14:41 forget to get jvm, reconduct 
+14:43 start 4 workers 
+14:59 done. and 
+15:00 do it again.
+15:12 finished 2nd time query 
+15:14 terminate 
+15:41 start 2 workers 
+16:35 start 4 workers 
+16:45 start 8 workers 
+
+2018-06-12
+cost $44 
+06:20 start experiment
+06:50 finish distributing data 
+06:51 start quries.
+07:24 failed for bad network.
+
+13.125.102.142
+13.209.70.223
+
+13.124.177.199
+13.209.67.94
+52.78.238.231
+13.124.166.137
+13.125.88.184
+13.125.225.86
+13.209.21.202
+13.209.40.179
+13.125.88.48
+13.125.102.142
+13.209.70.223
+
+
+
+ps -ef | grep java
+kill -9 pid
+
+1-8:1;9-16:2
+1-2:1
+                                       
+     1   2   4   8  16  |  32   64   128      
+QX1  ?   O   O   ?   ?  |   ?   ?    ?           
+QX2  ?   O   O   ?   ?  |   ?   ?    ?            
+QX3  ?   X   O   ?   ?  |   ?   ?    ?            
+QX4  ?   ?   O   ?   ?  |   ?   ?    ?            
+QX5  ?   ?   O   ?   ?  |   ?   ?    ?            
+QX6  ?   ?   O   ?   ?  |   ?   ?    ?            
+QX7  ?   ?   O   ?   ?  |   ?   ?    ?            
+
+

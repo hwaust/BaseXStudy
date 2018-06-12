@@ -1,0 +1,9 @@
+prehand
+
+CMD = command key
+ALT = alt key
+CTL = control key 
+SHT = shift key 
+ +  = combined keys, e.g A + B means press key A and key B at the same time.
+
+CMD + T: create a new tabbed terminal
