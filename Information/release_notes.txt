@@ -1,0 +1,2 @@
+Git release notes (i.e. update information)
+https://desktop.github.com/release-notes/
