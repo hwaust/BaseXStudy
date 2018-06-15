@@ -1,0 +1,16 @@
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|l|}
+\hline
+querykey & query                                                                                  & hit nodes \\ \hline
+Q1       & /site/open\_auctions/open\_auction/bidder/increase                                     & 1         \\ \hline
+Q2       & /site//keyword                                                                         & 2         \\ \hline
+Q3       & /site//keyword/parent::text                                                            & 3         \\ \hline
+Q4       & /site//text{[}./keyword{]}                                                             & 4         \\ \hline
+Q5       & /site/people/person{[}./profile/gender{]}/name                                         & 5         \\ \hline
+Q6       & /site/people/person/name/following-sibling::emailaddress                               & 6         \\ \hline
+Q7       & /site/open\_auctions/open\_auction{[}./bidder/following-sibling::annotation{]}/reserve & 7         \\ \hline
+\end{tabular}
+\end{table}
