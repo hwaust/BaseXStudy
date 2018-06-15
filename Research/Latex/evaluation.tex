@@ -1,0 +1,47 @@
+\section{Evaluation}
+\label{sec:evaluation}
+
+In our evaluation, we have two aims:\\
+(1) to demonstrate the performance of our implementation against the 
+state-of-the-art XML database BaseX on a single computer and \\ 
+(2) to explore the scalability of our implementation on processing 
+very large XML documents in a parallel manner.
+
+\subsection{Settings}
+
+\subsubsection{Datasets and XPath Queries} 
+
+We used XMark\footnote{\url{http://www.xml-benchmark.org/}} xmlgen to
+generate XML document for the experiment. The XMark xmlgen takes an
+float number \emph{f} to determine the size of output dataset. In our
+experiment, we set f to 160 and an 18.54 GiB XML document xmark160 was
+generated, which has 267 M element nodes, 61.3 M attribute nodes and
+188 M content nodes, totally 516.3 M nodes. We used 7 queries Q1 -- Q7
+to evaluate our implementation. 
+
+\subsubsection{Experimental set-up} 
+
+The EC2 instance type We used in our experiment was m5.2xlarge, which
+is based on E5-2670 v2 (Ivy Bridge), equipped with 32 GB of memory.
+The instance type runs Amazon Linux AMI 2018.03.0 (HVM), which is an
+EBS-backed, AWS-supported image that supports Java by default.  The
+Java version we used was "1.7.0\_181",  OpenJDK Runtime Environment
+(amzn-2.6.14.8.80.amzn1-x86\_64 u181-b00) OpenJDK 64-Bit Server VM
+(build 24.181-b00, mixed mode).
+
+\subsubsection{BaseX}
+
+The version of BaseX we used was 8.6.7, which was the last version of
+BaseX that requires java 1.7. We ran it in server/client mode. The
+database was set in main memory mode and turned text indexing off. 
+
+
+\subsection{Single Instance Query}
+
+The first experiment was conducted to compare our BFS with BaseX. We used the
+following expression to return a list of PRE-values, as is often used in common
+applications.    
+\verb|for $node in db:open('xmark160')$query return db:node-pre($node)|, 
+where \$query represents an XPath query.
+
+For all the severn queries, our BFS outperformances BaseX.
