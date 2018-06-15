@@ -6,4 +6,8 @@ CTL = control key
 SHT = shift key 
  +  = combined keys, e.g A + B means press key A and key B at the same time.
 
-CMD + T: create a new tabbed terminal
+CMD + T: create a new tabbed terminal.legal
+CMD + W: close current tabbed terminal.
+CMD + [1-9]: Switch to 1 - 9 tabbed terminal in the same window. 
+CMD + l: clear only the last command.
+CMD + K: clear everything.

@@ -185,7 +185,7 @@ cost $44
 13.125.102.142
 13.209.70.223
 
-
+some troubles
 
 ps -ef | grep java
 kill -9 pid

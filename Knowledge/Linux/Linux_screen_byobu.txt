@@ -1,2 +1,19 @@
 How to Install and Use Screen on an Ubuntu Cloud Server
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server
+
+* How To Use Linux Screen
+https://www.rackaid.com/blog/linux-screen-tutorial-and-how-to/
+** Linux Screen Tips: We use screen daily, so as we keep adding new 
+   tips when we find good ones.
+Installing Screen with Yum
+Starting Linux Screen
+Control Command
+Creating Windows
+Switching Between Windows
+Detaching From Screen
+Reattach to a Screen
+Logging Output
+Getting Alerts
+Locking Screen
+Stopping Screen
+Video Tutorial

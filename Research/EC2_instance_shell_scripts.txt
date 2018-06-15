@@ -10,3 +10,12 @@ $ unmount
 1. mount 500GB disk -> xml 
 2. make two script: login.sh, upload.sh 
 
+
+I am running a free t2.micro 64-bit EC2 instance. Amazon's AMI linux 
+comes with OpenJDK. The command java -version showed AMI had Java 7
+out-of-the-box. To upgrade to 8 I did 
+1) installed OpenJDK 8 
+$ sudo yum install java-1.8.0-openjdk-devel 
+2) switched to 8 
+$ sudo alternatives --config java. 
+The command "java -version" then reported open JDK version "1.8.0_45" etc.

@@ -76,6 +76,22 @@ text (i.e., human readable alphanumeric characters).
 Time-varying
 Tag names
 
+
+
+# create folders
+for ip in `tail -n +2 ec2iplist.txt | head -n $3`
+do
+    ssh -i $key $user@$ip "mkdir data/$1.xml_$2"
+done
+
+
 U-Z
 Without loss of generality
 With this in mind
+Wall-clock time
+    Wall-clock time, or wall time, is the human perception of the
+    passage of time from the start to the completion of a task. In the
+    context of a task being performed on a computer, wall-clock time
+    is a measure of the real time that elapses from start to end,
+    including time that passes due to programmed (artificial) delays
+    or waiting for resources to become available.

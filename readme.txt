@@ -35,12 +35,14 @@ ip_index refers to the index of IP addresses in e2iplist.txt.
 $ sh login.sh 0
 
 
+java -cp bfs.jar master.NetMaster xmark10 1-1:2 1
+java -Xmx10g -Xms10g -cp bfs.jar worker.NetWorker 01
 
 
 - delte_all_chunks.sh
 Delete all chunks stored on workers. 
 
-- distribute_chunks.sh xml num_total_chunks num_pc
+- distribute_chunks.sh  xml  num_total_chunks num_pc
 Distribute chunks of an XML document xml onto a number of computers,
 ranging from start to end, where start and end are the indices of 
 IP addresses stored in ec2iplist.txt.
@@ -58,7 +60,9 @@ distribute xmark160
 4) start workers  
 5) start master 
 
+150 5513 4173
 
 
+06:28 8 new workers.
 
 

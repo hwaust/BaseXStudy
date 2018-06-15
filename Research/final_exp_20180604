@@ -1,12 +1,5 @@
 git clone ssh://ipl.info.kochi-tech.ac.jp:2222/home/public_git/hao/thesis_survey.git
 
-seq -f "%g" 0 3 | xargs -P 4 -n 1 -I {} java -jar bfs.jar {}
-seq -f "%g" 0 2 | xargs -P 3 -n 1 -I {} java -jar bfs.jar {}
-seq -f "%g" 0 7 | xargs -P 8 -n 1 -I {} java -jar bfs.jar {}
-
-cat ~/Documents/data/iplist.txt  | xargs -n 1 -I {} echo test {}
-2=text;9;1=keyword;10
-
 for i in "52.69.155.101 13.230.9.8 54.250.225.163 54.199.230.125"; 
 do echo $i; done | xargs -n 1 -I {} echo test {}
 

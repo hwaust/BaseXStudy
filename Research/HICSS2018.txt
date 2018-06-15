@@ -1,5 +1,68 @@
+
+May 16
+2h: O download HICSS LaTeX template 
+    O create a LaTeX project for the current work
+    add basic sections, bib etc to the project
+    O collect fist experiment results.
+    O register submission account and be ready to submit
+6h: analyze the experiment results to draw some conclusions
+    prepare tables / figures in LaTeX for the paper.
+6h: write the experiment part.
+
+May 16
+1h: adjust the story to fit the experiment conclusions
+4h: modify the sections, partial tree and query algorithms.
+2h: finish writing related work and conclusion
+7h: revise and refine 
+
+
+
 HICSS 2018 Call for Papers: Minitrack on Data Analytics in Behavioral Research
 http://www.linkedin.com/pulse/hicss-2018-call-papers-minitrack-data-analytics-research-amit-deokar
+
+How to submit a paper.
+ssh://ipl.info.kochi-tech.ac.jp:2222/home/public_git/hao/hicss2018
+
+user: hwaust
+password: chasenet10
+email: hwaust@126.com
+http://hicss.hawaii.edu/tracks-and-minitracks/authors/
+URL: https://new.precisionconference.com/user/login
+
+
+Author Instructions
+1. Prepare manuscript
+* Please prepare your initial manuscript using the Initial Format 
+  Specifications in Word format or LaTeX format (comment out the 
+  authors for the manuscript submission).
+* The initial manuscript must not have author names.
+* Paper must not exceed ten pages.
+
+2. Submit initial manuscript as PDF to Paper Submission and Review Site
+* Paper submission system will be up and running on April 15.
+* If you do not have a PDF converter, please visit http://www.freepdfconvert.com to get your source file converted online at no cost.
+* Final date for submission is June 15, 11:59 PM Hawaii time.
+3. Receive decision Acceptance/rejection notification
+* The notification will be sent by August 17, 11:59 pm Hawaii Time.
+* If you do not receive your decision by August 19, please contact HICSS Conference Office immediately.
+4. Revise paper Accepted with Modification Required (A-M) and Resubmit to Paper Submission and Review Site
+* If your acceptance is A-M, you must make specified changes, and submit your paper for reconsideration, still without author names.
+* The revised version of the A-M papers must be submitted by September 4, 11:59pm Hawaii time.
+* Contact HICSS Conference Office at hicss@hawaii.edu if you do not receive a revised decision by September 11, 11:59 Hawaii time.
+5. Secure funding and make visa/travel/hotel arrangement
+* Please complete and pay for your conference registration, then contact HICSS Conference Office via email at hicss@hawaii.edu to request an invitation letter. As visa requests can take several weeks, registrants are strongly encouraged to contact us at least 3 months prior to the conference (October 1).
+6. Prepare final paper
+* Please prepare the final manuscript according to the Final Word Format Specifications or the Final LaTeX Format Specifications (Download zip) (Use Overleaf Template).
+* You are allowed to make minor changes before submitting for publication.
+* You must add author names, affiliations, and email addresses.
+* Track Chairs must approve any additional names added after original submission.
+7. Submit final paper to Paper Submission and Review Site
+* Please follow detailed instructions for submitting final paper in your acceptance email message.
+* Submit your Final Paper anytime between September 12 – September 22.
+8. Register for the conference
+* At least one author of each paper must register by October 1. Papers without a registered author will not be included in the Proceedings.
+9. Present your paper at the conference
+* Papers without presentation at the conference will be removed from the proceedings.
 
 IMPORTANT DATES
 April 1, 2017: Paper submission begins.
