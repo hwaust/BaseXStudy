@@ -1,0 +1,8 @@
+Experiments
+- Create repository must for a specified project.
+- Only push materials that relates to this project.
+  i.e. do NOT push anything irrelevant to the topic of the repository.  
+- commit all materials to repository before conducting  experiments, including
+  -- source code
+  -- scripts
+  -- description files.
