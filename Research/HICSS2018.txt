@@ -2,19 +2,21 @@
 May 16
 2h: O download HICSS LaTeX template 
     O create a LaTeX project for the current work
-    add basic sections, bib etc to the project
+    O add basic sections, bib etc to the project
     O collect fist experiment results.
     O register submission account and be ready to submit
-6h: analyze the experiment results to draw some conclusions
-    prepare tables / figures in LaTeX for the paper.
-6h: write the experiment part.
+6h: O analyze the experiment results to draw some conclusions
+    O prepare tables / figures in LaTeX for the paper.
+6h: O write the experiment part.
 
 May 16
-1h: adjust the story to fit the experiment conclusions
-4h: modify the sections, partial tree and query algorithms.
-2h: finish writing related work and conclusion
+1h: O adjust the story to fit the experiment conclusions
+4h: O modify the sections, partial tree and query algorithms.
+2h: O finish writing related work and conclusion
 7h: revise and refine 
 
+LaTeX template 
+https://www.overleaf.com/17062750snwtknphjykn#/65116824/
 
 
 HICSS 2018 Call for Papers: Minitrack on Data Analytics in Behavioral Research
