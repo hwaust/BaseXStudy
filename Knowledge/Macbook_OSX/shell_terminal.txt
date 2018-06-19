@@ -1,13 +1,54 @@
+An online Linux terminal.
+https://www.tutorialspoint.com/unix_terminal_online.php
+
 prehand
 
 CMD = command key
 ALT = alt key
 CTL = control key 
-SHT = shift key 
- +  = combined keys, e.g A + B means press key A and key B at the same time.
+SFT = shift key
+TAB = table key
+ -  = combined keys, e.g A-B means press key A and key B at the same time.
 
-CMD + T: create a new tabbed terminal.legal
-CMD + W: close current tabbed terminal.
-CMD + [1-9]: Switch to 1 - 9 tabbed terminal in the same window. 
-CMD + l: clear only the last command.
-CMD + K: clear everything.
+
+
+* Work with windows and tabs
+Action          Shortcut
+CMD-N           New window
+CMD-T           New tab
+Shift-CMD-T     Show or hide tab bar
+Shift-CMD-\     Show all tabs or exit tab overview
+Shift-CMD-N     New command (Execute only once)
+Shift-CMD-K     New remote connection
+CMD-I           Show or hide Inspector
+Shift-CMD-I     Edit title
+Option-CMD-I    Edit background color
+CMD-Plus (+)    Make fonts bigger
+CMD-Minus (–)   Make fonts smaller
+CMD-`           Next window
+CMD-Shift-~     Previous window
+CTL-Tab         Next Tab
+CTL-Shift-Tab   Previous Tab
+CMD-[1-9]       Switch to 1 - 9 tab. 
+CMD-D           Split window into two panes
+Shift-CMD-D     Close split pane
+CMD-W           Close tab
+Shift-CMD-W     Close window with more than one tabs
+OPT-CMD-W       Close other tabs
+OPT-SFT-CMD-W   Close all
+
+CMD-Home        Scroll to top
+CMD-End         Scroll to bottom
+CMD-PageUp      Page up
+CMD-Page Down   Page down
+OPT-CMD-PageUp  Line up
+OPT-CMD-Page    DownLine down
+
+----------------------------------------
+* Select, find, and edit text
+----------------------------------------
+CTL-A           Move to beginning of line
+CTL-E           Move to end of line
+CTL-U           Erase to beginning of line
+CTL-K           Erase to end of line
+
