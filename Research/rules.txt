@@ -1,4 +1,4 @@
-Experiments
+* Experiments
 - Create repository must for a specified project.
 - Only push materials that relates to this project.
   i.e. do NOT push anything irrelevant to the topic of the repository.  
@@ -6,3 +6,9 @@ Experiments
   -- source code
   -- scripts
   -- description files.
+  
+ * Paper Writing
+ - Introduce as less new terms as possible.
+ - Do not use new/impopular terms for the title of a paper 
+ - Do not use new terms before introducing it.
+ 

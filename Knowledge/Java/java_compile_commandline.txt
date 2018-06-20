@@ -1,12 +1,101 @@
-1.
-// none package class
-System.out.println("App1 hello world...");
+How to Compile and Run Java Code from a Command Line
+http://www.sergiy.ca/how-to-compile-and-launch-java-code-from-command-line/
 
-2.
-// has package
-package java.java.package1;
-System.out.println("App1 hello world...");
+Being spoiled by IDEs and automated building tools I recently realized that I
+don't know how to run java code from a command line anymore. After playing a
+guessing game for an hour trying to compile a simple piece of code that took 5
+minutes to write, I thought maybe it's time to do a little research.
+
+* Task
+Lets say we have a fairly standard java project that consists of three top level folders:
+
+/bin - empty folder that will contain compiled .class files
+/lib - contains third party .jar files
+/src - contains .java source files
+
+Our task would be to compile and launch the project from its root folder. We
+will use Windows OS as example (on Unix systems the only difference would be
+path separation symbol - ":" instead of ";").
 
 
-javac -d . App2.java
-java java.java.package1.App2
+* Compiling Java Code
+
+The first step is compiling plain text .java sources into Java Virtual Machine
+byte code (.class files). This is done with javac utility that comes with JDK.
+Assuming we are at the application root folder trying to compile
+Application.java file from com.example package that uses lib1.jar and lib2.jar
+libraries from lib folder to a destination bin folder, compilation command
+should have the following format:
+
+$ javac -d bin -sourcepath src -cp lib/lib1.jar;lib/lib2.jar src/com/example/Application.java
+
+As a result bin/com/example/Application.class file should be created. If
+Application.java uses other classes from the project, they all should be
+automatically compiled and put into corresponding folders.
+
+* Running Java Code
+
+To launch a .class file we just compiled, another JDK utility called java would
+be needed. Assuming we are at the application root folder trying to launch
+Application.class file from com.example package that uses lib1.jar and lib2.jar
+libraries from lib folder, the launch command should have the following format
+
+$ java -cp bin;lib/lib1.jar;lib/lib2.jar com.example.Application
+
+Note that we don't provide a filename here, only an actual class name that java
+would attempt to find based on provided classpath.
+
+Some Notes About Classpath
+Lets say during Application.java compilation a compiler stumbles upon some
+com.example.Util class. How to find it in the file system? According to Java
+file naming rules, Util class has to be located somewhere in Util.java file
+under /com/example/ folder, but where to start searching for this path? Here is
+where classpath comes into play which sets the starting folder for searching for
+classes. Classpath can be set in 3 different ways:
+
+- If no --classpath parameter is passed, CLASSPATH environment variable is used
+- If CLASSPATH environment variable is not found, current folder (".") is used by default
+- If --classpath is explicitly set as a command line parameter, it overrides all other values
+
+The fact that classpath when set overrides default value (current folder) can
+cause some unexpected results. For example if we don't use any third party
+libraries, only our own com.example.Util class, and try to compile
+Application.java from the src folder:
+
+$ javac com/example/Application.java
+
+this would work, but then if we decide to add a third party library to the classpath:
+
+$ javac -cp lib/lib1.jar com/example/Application.java
+
+it would cause an error: package com.example.Util does not exist
+
+This happens because when we set -cp lib/lib1.jar we override default value for
+the classpath - current folder. Now a compiler will be looking for all classes
+only inside that jar file. To fix this we need to explicitly add the current
+folder to the classpath:
+
+$ javac -cp .;lib/lib1.jar com/example/Application.java
+
+* Compile a single Java class 
+Given two classes: 
+// the NotPackaged class does not have the package information.
+public class NotPackaged implements Runnable {
+	public static void main(String[] args) throws Exception {
+        System.out.println("Class NotPackaged.");
+    }
+}
+
+// the Packaged class has the package information.
+package org.java.package1;
+public class Packaged implements Runnable {
+	public static void main(String[] args) throws Exception {
+        System.out.println("Class Packaged.");
+    }
+}
+
+How to Compile
+$ javac -d . App2.java
+How to run the two classes
+$ java NotPackaged       
+$ java org.java.package1.Packaged

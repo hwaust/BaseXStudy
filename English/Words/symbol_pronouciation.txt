@@ -1,4 +1,9 @@
 `       Grave Accent
 ~       Tilde
 /       Slash
+\       Backslash
+-       hyphen
+:       colon
+;       semi=colon 
+
 
