@@ -28,6 +28,7 @@ libraries from lib folder to a destination bin folder, compilation command
 should have the following format:
 
 $ javac -d bin -sourcepath src -cp lib/lib1.jar;lib/lib2.jar src/com/example/Application.java
+javac -d bin -sourcepath src -cp src/org/basic/Main.java 
 
 As a result bin/com/example/Application.class file should be created. If
 Application.java uses other classes from the project, they all should be
