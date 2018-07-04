@@ -1,0 +1,219 @@
+public void test()
+       {
+           object path;                          //文件路径变量
+           MSExcel.Application excelApp;              //Excel应用程序变量
+           MSExcel.Workbook excelDoc;                     //Excel文档变量
+
+           path = @"d:\data\test.xlsx";                    //路径
+           excelApp = new MSExcel.Application();    //初始化
+                                                         //如果已存在，则删除
+           if (File.Exists((string)path))
+           {
+               File.Delete((string)path);
+           }
+           //由于使用的是COM库，因此有许多变量需要用Nothing代替
+           Object missing = Missing.Value;
+           excelDoc = excelApp.Workbooks.Add(missing);
+           //使用第一个工作表作为插入数据的工作表
+           MSExcel.Worksheet ws = (MSExcel.Worksheet)excelDoc.Sheets[1];
+           //声明一个MSExcel.Range 类型的变量r
+           MSExcel.Range r;
+           //获得A1处的表格，并赋值
+           r = ws.get_Range("A1", "A1");
+           r.Value2 = "数据1";
+           //获得A2处的表格，并赋值
+           r = ws.get_Range("A2", "A2");
+           r.Value2 = "5.7";
+
+
+
+           //WdSaveFormat为Excel文档的保存格式
+           object format = MSExcel.XlFileFormat.xlWorkbookDefault;
+           //将excelDoc文档对象的内容保存为XLSX文档
+           excelDoc.SaveAs(path, format, missing, missing, missing, missing, MSExcel.XlSaveAsAccessMode.xlExclusive, missing, missing, missing, missing, missing);
+          
+           //关闭excelDoc文档对象
+           excelDoc.Close(missing, missing, missing);
+           //关闭excelApp组件对象
+           excelApp.Quit();
+           Console.WriteLine(path + " 创建完毕！");
+       }
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       class SpireExcel
+       {
+           public void TemplateTest()
+           {
+               string template = @"d:\data\xls\sample.xlsx";
+   
+               Workbook workbook = new Workbook();
+               //根据模板生成Workbook
+               workbook.LoadTemplateFromFile(template);
+               Worksheet sheet1 = workbook.Worksheets[0];
+   
+               //copy cell "B2" in sheet1 to cell "C6" in sheet3
+               int h1 = 28;    // # of rows for character in a single table.
+               int h2 = 35;    // # of rows in the template table.
+               int h3 = 36;    // # of rows in printing a page
+   
+               int currentRow = 1;
+               for (int i = 0; i < 10; i++)
+               {
+                   string sourceArea = string.Format("A{0}:N{1}", currentRow, currentRow + h2 - 1);
+                   string descArea = string.Format("A{0}:N{1}", currentRow + h3, currentRow + h3 + h2 - 1);
+                   // "A1:N35" -> "A37:N71"
+                   sheet1.Range[sourceArea].Copy(sheet1.Range[descArea]);
+                   sheet1.Rows[currentRow + h2 - 2].RowHeight = 21.75;
+   
+                   currentRow += h3;
+               }
+   
+   
+               //保存到物理路径 
+               workbook.SaveToFile(@"D:\data\xls\result_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx");
+           }
+           public void Test()
+           {
+               //新建Workbook
+               Workbook workbook = new Workbook();
+               //得到第一个Sheet页
+               Worksheet sheet = workbook.Worksheets[0];
+   
+               //给A2这个单元格设置值
+               for (int i = 1; i < 1000; i++)
+               {
+                   sheet.Range["A" + i].Text = "你好,Jim " + i;
+               }
+   
+               //保存到物理路径 
+               workbook.SaveToFile(@"D:\data\Export_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx");
+           }
+   
+           internal void Save(List<List<string>> data, string outfile)
+           {
+               //新建Workbook
+               string template = @"./template.xlsx";
+               Workbook workbook = new Workbook();
+               workbook.LoadTemplateFromFile(template);
+               //得到第一个Sheet页
+               Worksheet sheet = workbook.Worksheets[0];
+   
+               List<string> headline = data[0];
+               data.RemoveAt(0);
+   
+               int maxlen = data.Max(ls => ls.Count);
+               string[][] cells = new string[data.Count][];
+               for (int i = 0; i < data.Count; i++)
+               {
+                   cells[i] = new string[maxlen];
+                   for (int j = 0; j < data[i].Count; j++)
+                   {
+                       cells[i][j] = data[i][j];
+                      // Console.Write(data[i][j] + "\t");
+                   }
+                //   Console.WriteLine();
+               }
+   
+               int h1 = 25;  // # of rows for character in a single table.
+               int num_values_per_page = 10;     // # of ids/row. Pluse: A -- N => 14 columns
+               int h2 = 35;  // # of rows in the template table.
+               int h3 = 36;  // # of rows in printing a page
+               int headrows = 6; // # of head rows
+               string endColumn = "N";
+               int num_item_on_left = 4; // 
+               int pages_in_columns = (maxlen - 4) % num_values_per_page == 0 ?
+                   (maxlen - num_item_on_left) / num_values_per_page :
+                   (maxlen - num_item_on_left) / num_values_per_page + 1;
+               int pages_int_rows = (cells.Length % h1) == 0 ? cells.Length / h1 : cells.Length / h1 + 1;
+   
+   
+               sheet.Range["A2"].Text = "生产单位：安泰天龙钨钼科技有限公司                                                                                                                              顾客单位: " + headline[1];
+               sheet.Range["A4"].Text = headline[3];
+               sheet.Range["D4"].Text = headline[5];
+               sheet.Range["H4"].Text = "10";
+               sheet.Range["J4"].Text = headline[7]; // date
+               sheet.Range["L4"].Text = headline[9]; // contract No.
+   
+               for (int page = 1; page < pages_in_columns * pages_int_rows; page++)
+               {
+                   // add a new page 
+                   int currentRow = page * h3 + 1;
+                   string descArea = string.Format("A{0}:{1}{2}", currentRow, endColumn, currentRow + h2 - 1);
+                   sheet.Range["A1:N35"].Copy(sheet.Range[descArea]);
+                   int sheet_rowid = currentRow + headrows - 3;
+   
+                   sheet.Range["A" + (sheet_rowid - 2)].Text = "生产单位：安泰天龙钨钼科技有限公司                                                                                                                              顾客单位: " + headline[1];
+                   sheet.Range["A" + sheet_rowid].Text = headline[3];
+                   sheet.Range["D" + sheet_rowid].Text = headline[5];
+                   sheet.Range["H" + sheet_rowid].Text = "10";
+                   sheet.Range["J" + sheet_rowid].Text = headline[7]; // date
+                   sheet.Range["L" + sheet_rowid].Text = headline[9]; // contract No.
+   
+                   sheet.Range["N" + sheet_rowid].Text = (page + 1).ToString();
+                   sheet.Rows[currentRow + h2 - 2].RowHeight = 21.75;
+               }
+   
+               List<bool> toBeDeleted = new List<bool>();
+               toBeDeleted.Add(false);
+               for (int columns = 0; columns < pages_in_columns; columns++)
+               {
+                   for (int rows = 0; rows < pages_int_rows; rows++)
+                   {
+                       bool isEmpty = true;
+                       int pageNo = columns * pages_int_rows + rows;
+                       for (int row = 0; row < h1; row++)
+                       {
+                           int cell_rowid = rows * h1 + row;
+                           int sheet_rowid1 = pageNo * h3 + headrows + row + 1;
+   
+                           if (cell_rowid >= cells.Length)
+                               break;
+   
+                           // write left 4 items.
+                           for (int i = 0; i < num_item_on_left; i++)
+                           {
+                               sheet.Range[sheet_rowid1, i + 1].Text = cells[cell_rowid][i];
+                           }
+   
+                           // write values.
+                           for (int i = 0; i < num_values_per_page; i++)
+                           {
+                               int cell_columnid = columns * num_values_per_page + num_item_on_left + i;
+                               if (cell_columnid < maxlen)
+                               {
+                                   sheet.Range[sheet_rowid1, num_item_on_left + 1 + i].Text = cells[cell_rowid][cell_columnid] + "";
+                                   isEmpty = false;
+                               }
+                           }
+   
+                       }
+                       toBeDeleted.Add(isEmpty);
+                   }
+               }
+   
+               for (int i = 0; i < toBeDeleted.Count; i++)
+               {
+                   Console.WriteLine(toBeDeleted[i]);
+               }
+   
+               for (int i = toBeDeleted.Count - 1; i >= 0; i--)
+               {
+                   if (toBeDeleted[i])
+                   {
+                       sheet.DeleteRow(h3 * (i - 1) + 1, h3);
+                   }
+               }
+   
+               //保存到物理路径 
+               workbook.SaveToFile(outfile);
+           }
+       }
