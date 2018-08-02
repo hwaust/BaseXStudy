@@ -1,0 +1,79 @@
+How to simplify SSH login process.
+
+1. Edit ~/.ssh/config 
+------------------------------------------------------------
+# specify port 
+Host bh_ssum
+  HostName 116.62.48.134
+  User root
+  Port 8022
+# specify pem key file.
+Host ssum
+  HostName 47.98.163.233
+  User root 
+  IdentityFile ~/.ssh/ssum_key.pem
+------------------------------------------------------------
+2. How to login
+$ ssh ssum
+
+
+
+* Config git files
+$ ssh ssum               # login on server  
+$ mkdir ~/git
+$ mkdir ~/git/ding2.git  # go to home direction 
+$ cd ~/git/ding2.Git     # and create a folder
+$ git init 
+$ vi .git/config         # to prevent the following issue.
+[core]
+  bare=false --> true    
+# save and finish
+
+* How to use?
+$ git clone ssum:/root/git/ding2.git
+
+* Issue Description
+The following messages well appear when we execute "git push"
+(See below).
+* Solution
+modify .git/config 
+bare=false -->> true    
+
+root@root:~# exit
+logout
+Connection to 47.98.163.233 closed.
+Haos-MacBook-Pro:ding2 hao$ cat readme.txt 
+hao: I added this file to test this git repository.
+hao: add this line on my mac book and update it.
+Haos-MacBook-Pro:ding2 hao$ git push
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 432 bytes | 432.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote: error: refusing to update checked out branch: refs/heads/master
+remote: error: By default, updating the current branch in a non-bare repository
+remote: error: is denied, because it will make the index and work tree inconsistent
+remote: error: with what you pushed, and will require 'git reset --hard' to match
+remote: error: the work tree to HEAD.
+remote: error: 
+remote: error: You can set 'receive.denyCurrentBranch' configuration variable to
+remote: error: 'ignore' or 'warn' in the remote repository to allow pushing into
+remote: error: its current branch; however, this is not recommended unless you
+remote: error: arranged to update its work tree to match what you pushed in some
+remote: error: other way.
+remote: error: 
+remote: error: To squelch this message and still keep the default behaviour, set
+remote: error: 'receive.denyCurrentBranch' configuration variable to 'refuse'.
+To ssum:/root/git/ding2
+ ! [remote rejected] master -> master (branch is currently checked out)
+error: failed to push some refs to 'ssum:/root/git/ding2'
+
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true  # solution 
+	logallrefupdates = true
+    
+bare=false -->> true    
+    

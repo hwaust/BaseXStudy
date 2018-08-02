@@ -37,6 +37,7 @@ network backup, for example. Different SSH programs generate public keys in
 different ways, but they all generate public keys in a similar format:
 
 <ssh-rsa or ssh-dss> <really long string of nonsense> <username>@<host>
+
 Key-Based SSH Logins Key-based authentication is the most secure of several
 modes of authentication usable with OpenSSH, such as plain password and Kerberos
 tickets. Key-based authentication has several advantages over password
@@ -115,31 +116,36 @@ Key Encryption Level Note: The default is a 2048 bit key. You can increase this
 to 4096 bits with the -b flag (Increasing the bits makes it harder to crack the
 key by brute force methods).
 
-ssh-keygen -t rsa -b 4096 Password Authentication The main problem with public
-key authentication is that you need a secure way of getting the public key onto
-a computer before you can log in with it. If you will only ever use an SSH key
-to log in to your own computer from a few other computers (such as logging in to
-your PC from your laptop), you should copy your SSH keys over on a memory stick,
-and disable password authentication altogether. If you would like to log in from
-other computers from time to time (such as a friend's PC), make sure you have a
-strong password.
+ $ ssh-keygen -t rsa -b 4096 
 
-Transfer Client Key to Host The key you need to transfer to the host is the
-public one. If you can log in to a computer over SSH using a password, you can
-transfer your RSA key by doing the following from your own computer:
+Password Authentication
+The main problem with public key authentication is that you need a secure way of
+getting the public key onto a computer before you can log in with it. If you
+will only ever use an SSH key to log in to your own computer from a few other
+computers (such as logging in to your PC from your laptop), you should copy your
+SSH keys over on a memory stick, and disable password authentication altogether.
+If you would like to log in from other computers from time to time (such as a
+friend's PC), make sure you have a strong password.
 
-ssh-copy-id <username>@<host> Where <username> and <host> should be replaced by
-your username and the name of the computer you're transferring your key to.
+Transfer Client Key to Host 
+The key you need to transfer to the host is the public one. If you can log in to
+a computer over SSH using a password, you can transfer your RSA key by doing the
+following from your own computer:
+
+$ ssh-copy-id <username>@<host> 
+
+Where <username> and <host> should be replaced by your username and the name of
+the computer you're transferring your key to.
 
 (i) Due to this bug, you cannot specify a port other than the standard port 22.
-You can work around this by issuing the command like this: ssh-copy-id
-"<username>@<host> -p <port_nr>". If you are using the standard port 22, you can
-ignore this tip.
+You can work around this by issuing the command like this: 
+$ ssh-copy-id "<username>@<host> -p <port_nr>". 
+If you are using the standard port 22, you can ignore this tip.
 
 Another alternative is to copy the public key file to the server and concatenate
 it onto the authorized_keys file manually. It is wise to back that up first:
 
-cp authorized_keys authorized_keys_Backup cat id_rsa.pub >> authorized_keys
+$ cp authorized_keys authorized_keys_Backup cat id_rsa.pub >> authorized_keys
 
 You can make sure this worked by doing:
 

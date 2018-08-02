@@ -12,7 +12,7 @@
 --------
 [core]
         repositoryformatversion = 0
-        filemode = true
+        filemode = truess
         bare = true
         logallrefupdates = true
 [receive]
