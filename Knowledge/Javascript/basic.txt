@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+</head>
+<body>
+
+<p>Create a JavaScript object.</p>
+<p id="demo"></p>
+<p id="test" />
+<script>
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+document.getElementById("demo").innerHTML =
+	person.firstName + " is " + person.age + " years old at present.";
+document.getElementById("test").innerHTML =
+	person.firstName + " will be " + (person.age + 10) + " years old 10 years later.";
+</script>
+</body>
+</html>
+
+Create a JavaScript object.
+John is 50 years old at present.
+John will be 60 years old 10 years later.
