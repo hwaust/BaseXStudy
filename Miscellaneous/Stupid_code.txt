@@ -1,0 +1,1 @@
+ btnConnection.Enabled = cbServer.Text.Length == 0 ? false : true;

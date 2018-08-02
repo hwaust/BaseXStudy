@@ -19,7 +19,7 @@ outdir = r"C:/Users/hao/source/repos/AntaiDBReport/AntaiDBReport/bin/published/"
 subname = time.strftime("Antai_%Y%m%d_%H%M%S", time.localtime()) 
 os.mkdir(outdir + subname)
 
-# to-be-copied files
+# to-be-copied files 
 files=["AntaiDBReport.exe", "Spire.License.dll", "Spire.XLS.dll", "template.xlsx", "WindGoes.dll"]
 
 # copy files
