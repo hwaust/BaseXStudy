@@ -32,6 +32,35 @@ $ vi .git/config         # to prevent the following issue.
 * How to use?
 $ git clone ssum:/root/git/ding2.git
 
+* private key 
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAj/FPeBDV6O+XX0Ia96gXpehdmwvrxgqWTGSQe5r7JmlNEWk8
+RdupLfleem3U77rAsUCPH/vOVwmXP5h1ne+joiBR1h7Lq26JDfQY2+loHhtEeDhv
+qJK9Ps183inTdY9pM/jh9QVUdhl3MRxmJ2pmOKK/3HCYoNsh43DQIXA15oafarx+
+s5oG/WxcGZAqgDwPM8KQYxSYzWLMXoa3IoDZq9kPn7KuXB4hx2WffqZanvoIQaqC
+cmJ4diXEyYnsxMouTlVvJFc2+ofaK6vNF3dfGYUlIWUwsUQQgIyVCYCH5CsTfNfG
+oRrwxRNKqD4DdN4YFjFndr7+gJCmpw1N0jW8pQIDAQABAoIBAGyuG/xhacEINVhd
+BxN6PPCtMw+/vnK2x6hCPby11W65DtFYjYOJSIFHyQfTKXUfoiGyxt21N6QLv8Dq
+kdN/fiMJGAD9G3YCbUS1ypcv8cbZe6bxpYy3zl8+s0ridaBLeXkeLyzaq1zH+XCB
+KrgT475bU1VTRkodacbaBKtal7fHP/16OzBezaDRGPZpNXx76H74fcG1s/fZofvM
+YPaxUtRtUXAbO+o2sgJYa0RVu6Na2MEyQmt0SHOJFSpiNUWkGnnKyqA9uNe53ZE9
+Kke9p/DWckZUwwj9ylJe2uO1ljMaPpO8DQvXsfzwzNToFJe2JeiG9aGjXwrV/jux
+45GPiQECgYEA8Lckly4QrJAWSfOretvlrCd8YHTawTt4dJ3lGYuvqvqwuFWrO246
+u9THZ8wDyFKQh0+C169zZXexMRfIbt3AC2Ye+/lXyT8rF2mUZiWfllV+pZ6YsHkd
+m5vFiZtPHUJD8xk7+3h/3Ne/wdPId3j8PKf4t3W8m1WhS8gXTwNO24UCgYEAmRUd
+U/pTTKrTawB/Zd42Y2fSMP7Lax+SEltUk6Z4j6WEJwB1AUSleBdhITWdcyMvtsrh
+0KorXigtfPGR+rDC7STCCAnAG8jxzjJK6bfeLjJdqt88PlcK7SCUBsVyz7Cf5egn
+JUXdIp3lq0xGZbCk2h+RYgOXR686mCDCE7ETVqECgYEA3UY9aIt74GUDWC+aLnH9
+imcxuikw/fgBHpIWi4kQjoer84csxJDrhMZwF0Y/I+Jh4UCB8mriFSAVzh8irGdD
+pjbVvKLUw7ZBkmAHfm6PaM5mgTBtA6wSP3zN9VTDQQ4tEEbeEKgQQZ5CM5bO7KRW
+mht+Uob0PYZVoyfn5UYRM1ECgYEAi/lPkNsi0cadfIi+9NGEH87t1hkUvYXnldtm
+8X9VW9u3g8YaNqejObT+/lO8/WueFGFcq+T9tKG+PjHRDk4UXqyuspTf0UgjOiyo
+bR7QDKPHHBf1SPdkKUERuUNP4PKasqldKerA8gc42zHqaM9lXYFh+SJZcJWcWUAS
+1dijWyECgYBETgQw1INQP50x8qrlE0np4JuCFlymzHTeKu4Xy+Ht9kdf2K1pMiNO
+TdSJv3JXkDacvnUDMGHOOwcVvlg0PTRK5YfnFlJmTVrfVckgCf4ViUigpJWy98wM
+i5rAstkiudo2E/HdSnPiDrmOOK+/tqFY6BYDwYlqPX0EgNC9zhrIrQ==
+-----END RSA PRIVATE KEY-----
+
 * Issue Description
 The following messages well appear when we execute "git push"
 (See below).
